@@ -127,6 +127,17 @@ cp settings/hooks.json ~/.claude/settings.json
 
 ---
 
+## Recommended Agents
+
+PowerSkill's agent prompts are built on top of [Agency Agents](https://github.com/msitarzewski/agency-agents) -- a collection of 100+ specialized agent definitions for Claude Code. Install them to get the full roster of sub-agents (Backend Architect, Frontend Developer, UX Researcher, Growth Hacker, etc.) that the orchestrator delegates to.
+
+```bash
+git clone https://github.com/msitarzewski/agency-agents.git
+cp -r agency-agents/agents/* ~/.claude/agents/
+```
+
+---
+
 ## Recommended MCP Servers
 
 These optional MCP servers enhance specific skills:
