@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-PowerSkill turns Claude Code from a code generator into a disciplined engineering partner. It makes the AI check its own work through automated SOP skills, safety hooks, and an anti-rationalization guard.
+PowerSkill turns Claude Code from a code generator into a disciplined engineering partner. It makes the AI check its own work through automated SOP skills, safety hooks, and a critical thinking protocol that forces adversarial reasoning before conclusions.
 
 ---
 
@@ -12,7 +12,15 @@ PowerSkill turns Claude Code from a code generator into a disciplined engineerin
 
 AI coding agents don't check their own output. They claim work is done without testing, rationalize away quality issues ("pre-existing", "out of scope", "follow-up task"), and produce inconsistent results across sessions.
 
-PowerSkill solves this with **enforced quality gates at every workflow stage** -- not suggestions, not guidelines, but deterministic checks that block bad work from shipping.
+PowerSkill solves this with **enforced quality gates at every workflow stage** -- a layered skill and hook system where each layer reinforces the others.
+
+---
+
+## Philosophy
+
+- **Adversarial reasoning**: AI should argue both sides before concluding. The thinking protocol requires searching the web, finding contradictions, and synthesizing -- not just pattern-matching from training data.
+- **Quality through process, not filtering**: Enforcement happens through skill SOPs at each workflow stage, not post-hoc output filtering. Every action has a checklist; every checklist has verification steps.
+- **Critical thinking is structural**: Epistemic discipline, verification over assumption, and quality intolerance are built into the CLAUDE.md principles that sit in context permanently -- not bolted on as afterthoughts.
 
 ---
 
@@ -21,14 +29,14 @@ PowerSkill solves this with **enforced quality gates at every workflow stage** -
 PowerSkill is a 3-layer architecture where each layer reinforces the others:
 
 ```
-Layer 1: CLAUDE.md  (94 lines)   -- Principles always in context
+Layer 1: CLAUDE.md  (117 lines)  -- Principles always in context
 Layer 2: Skills     (13 SOPs)    -- Auto-triggered at workflow stages, loaded on-demand
-Layer 3: Hooks      (3 hooks)    -- Deterministic enforcement, runs outside the LLM
+Layer 3: Hooks      (2 hooks)    -- Deterministic enforcement, runs outside the LLM
 ```
 
 - **Layer 1** sets the ground rules: epistemic discipline, verification over assumption, quality intolerance.
 - **Layer 2** provides step-by-step SOPs that Claude invokes before each action (coding, committing, reviewing, etc.).
-- **Layer 3** runs outside the model entirely -- shell scripts that block dangerous operations and a Stop hook that catches rationalization patterns before the response reaches you.
+- **Layer 3** runs outside the model entirely -- shell scripts that block dangerous operations and flag common mistakes in edited files.
 
 ---
 
@@ -58,14 +66,14 @@ flowchart TD
     style M fill:#2ecc71,color:#fff
 ```
 
-Every stage has a skill. Every skill has a checklist. Skipping a stage means skipping its checks -- and the Stop hook catches that too.
+Every stage has a skill. Every skill has a checklist. Skipping a stage means skipping its checks -- and the principles in CLAUDE.md push back against that.
 
 ---
 
 ## Quick Install
 
 ```bash
-git clone https://github.com/anthropics/PowerSkill.git
+git clone https://github.com/Docat0209/PowerSkill.git
 cd PowerSkill && ./install.sh
 ```
 
@@ -110,13 +118,12 @@ cp settings/hooks.json ~/.claude/settings.json
 | `project-init` | New project | Git + CI/CD + test runner + E2E + branch protection | -- |
 | `search-eval` | Evaluating sources | Source credibility, multi-source consistency, GitHub project evaluation | -- |
 
-### Hooks (3 guards)
+### Hooks (2 guards)
 
 | Hook | Event | What It Does |
 |---|---|---|
 | `safety-guard.sh` | PreToolUse (Bash) | Blocks: `--force` push, `reset --hard`, `checkout .`, `clean -f`, `branch -D`, `--no-verify`, credential dir access |
 | `post-edit-review.sh` | PostToolUse (Write/Edit) | Detects: debug statements, TODO/FIXME comments, hardcoded secrets, Bearer tokens, `.env` modifications |
-| Anti-rationalization | Stop | Sub-agent reviews every response; blocks completion if Claude rationalizes incomplete work with phrases like "out of scope" or "good enough for now" |
 
 ---
 
@@ -126,9 +133,9 @@ These optional MCP servers enhance specific skills:
 
 | Server | Purpose | Used By | Install |
 |---|---|---|---|
-| [Knowledge Graph Memory](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) | Cross-conversation learning | All skills | `npx @anthropic/create-mcp --name memory --server @modelcontextprotocol/server-memory` |
-| [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | Structured multi-step reasoning | `biz-think`, `product-eval` | `npx @anthropic/create-mcp --name thinking --server @modelcontextprotocol/server-sequential-thinking` |
-| [Playwright](https://github.com/anthropics/mcp-playwright) | Browser automation for visual review | `ux-audit` | `npx @anthropic/create-mcp --name playwright --server @anthropics/mcp-playwright` |
+| [Knowledge Graph Memory](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) | Cross-conversation learning | All skills | `claude mcp add knowledge-graph -- npx -y @anthropic-ai/mcp-knowledge-graph` |
+| [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | Structured multi-step reasoning | `biz-think`, `product-eval` | `claude mcp add sequential-thinking -- npx -y @anthropic-ai/mcp-sequential-thinking` |
+| [Playwright](https://github.com/anthropics/mcp-playwright) | Browser automation for visual review | `ux-audit` | `claude mcp add playwright -- npx @playwright/mcp@latest` |
 
 ---
 
@@ -148,13 +155,12 @@ These optional MCP servers enhance specific skills:
 
 ### Modify CLAUDE.md
 
-Edit `claude.md` directly. The 94-line template is intentionally concise -- every line earns its place in the context window. Add principles sparingly.
+Edit `claude.md` directly. The 117-line template is intentionally concise -- every line earns its place in the context window. Add principles sparingly.
 
 ### Add a new hook
 
 1. Write a shell script in `hooks/`. Use exit code `2` to block (PreToolUse) or `0` to allow.
-2. Register it in `settings/hooks.json` under the appropriate event (`PreToolUse`, `PostToolUse`, or `Stop`).
-3. For Stop hooks, use `"type": "prompt"` with a JSON-only evaluator prompt.
+2. Register it in `settings/hooks.json` under the appropriate event (`PreToolUse` or `PostToolUse`).
 
 ---
 
@@ -188,7 +194,6 @@ PowerSkill synthesizes practices from established engineering and product framew
 - **[Lean Canvas](https://leanstack.com/lean-canvas)** (Ash Maurya) -- business model validation
 - **[AARRR Pirate Metrics](https://www.slideshare.net/daboross/startup-metrics-for-pirates)** -- growth funnel analysis
 - **[Sean Ellis PMF Survey](https://www.startup-marketing.com/the-startup-pyramid/)** -- product-market fit signal
-- **[Trail of Bits](https://blog.trailofbits.com/)** -- inspiration for the anti-rationalization hook pattern
 
 ---
 
