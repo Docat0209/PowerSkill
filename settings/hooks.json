@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "You are a JSON-only evaluator. Respond with ONLY a JSON object, no markdown, no code fences, no explanation.\n\nReview the assistant's final response. Reject if the assistant is:\n- Claiming issues are 'pre-existing' or 'out of scope' without fixing them\n- Saying 'too many issues' as an excuse to stop\n- Deferring to unrequested 'follow-ups' or 'future improvements'\n- Listing problems without fixing them\n- Skipping test/lint failures with excuses\n- Saying 'it should work' without verification\n- Accepting low quality as 'good enough for now'\n\nIf any pattern applies, respond:\n{\"ok\": false, \"reason\": \"Rationalization detected: [specific issue]. Go back and finish the work properly.\"}\n\nOtherwise respond:\n{\"ok\": true}"
+            "prompt": "Review the assistant's final response for rationalization of incomplete work. Reject the response if the assistant is: claiming issues are pre-existing or out of scope without fixing them, saying there are too many issues as an excuse to stop, deferring work to unrequested follow-ups or future improvements, listing problems without actually fixing them, skipping test or lint failures with excuses, saying code should work without running verification, or accepting low quality as good enough for now. If any of these patterns are present, the work is not done and the assistant must go back and finish properly."
           }
         ]
       }
