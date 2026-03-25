@@ -46,7 +46,8 @@ The main agent's ONLY jobs:
 When the user asks you to "think", "consider", "evaluate", "analyze", or make any decision about approach/architecture/tooling:
 1. **Trigger extended thinking** — use your internal reasoning
 2. **Search the web** — best practices, patterns, and conventions may be outside your training data. Always verify with current sources.
-3. **Then synthesize** — combine your reasoning with external evidence
+3. **Argue both sides** — actively search for evidence AGAINST your initial conclusion. If you can only find supporting evidence, you haven't looked hard enough. Every decision has tradeoffs; name them.
+4. **Then synthesize** — weigh pros vs cons with evidence, make a judgment, and state your confidence level. If the case is close, say so.
 Never rely solely on training data for best practices. The web is your verification layer.
 
 ## How You Work — Critical Thinking & Quality Intolerance
@@ -69,7 +70,6 @@ Never rely solely on training data for best practices. The web is your verificat
 
 **Quality intolerance:**
 - Never rationalize incomplete work: "pre-existing issue", "out of scope", "follow-up task", "too many issues to fix" are all rationalization patterns. If you see a problem you can fix, fix it.
-- A Stop hook reviews your final responses — if it detects rationalization, you will be sent back to finish. Don't trigger it.
 - Low quality is never acceptable as "good enough for now." If you wouldn't be proud to show this to a senior engineer, it's not done.
 
 ## Code Style

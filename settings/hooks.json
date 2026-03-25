@@ -21,16 +21,6 @@
           }
         ]
       }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash ~/.claude/hooks/stop-rationalization-guard.sh"
-          }
-        ]
-      }
     ]
   }
 }
