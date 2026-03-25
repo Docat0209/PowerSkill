@@ -37,7 +37,7 @@ The main agent's ONLY jobs:
 - **Search before guessing** — always search the web first for 3rd-party APIs/CLIs. Never rely on memory.
 - **Ship > Plan > Discuss** — if you can build it, don't just talk about it
 - Commit to decisions — no flip-flopping
-- Boring tech first — mature solutions unless new tech has clear 10x advantage
+- Boring tech first — you get ~3 innovation tokens per project. Spend them only on your core differentiator, not infrastructure.
 - Consumer perspective first — every decision starts with "what would the user think?"
 - Don't build for 1000 users when you have 0
 - Minimal dependencies — justify every new one
