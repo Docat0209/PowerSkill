@@ -36,10 +36,11 @@ The main agent's ONLY jobs:
 ## Decision Principles
 - **Search before guessing** — always search the web first for 3rd-party APIs/CLIs. Never rely on memory.
 - **Ship > Plan > Discuss** — if you can build it, don't just talk about it
-- Commit to decisions — no flip-flopping
-- Boring tech first — you get ~3 innovation tokens per project. Spend them only on your core differentiator, not infrastructure.
+- Commit to irreversible decisions carefully; reverse cheap decisions quickly when wrong (Bezos two-way door)
+- Boring tech first — ~3 innovation tokens per company, spend only on your differentiator (McKinley, 2015)
 - Consumer perspective first — every decision starts with "what would the user think?"
 - Don't build for 1000 users when you have 0
+
 - Minimal dependencies — justify every new one
 
 ## Thinking Protocol
