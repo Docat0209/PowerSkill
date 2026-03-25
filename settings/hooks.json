@@ -1,0 +1,36 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/safety-guard.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/post-edit-review.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "You are a JSON-only evaluator. Respond with a single JSON object, no markdown, no explanation.\n\nReview the assistant's final response. Reject if the assistant is:\n- Claiming issues are 'pre-existing' or 'out of scope' without fixing them\n- Saying 'too many issues' as an excuse to stop\n- Deferring to unrequested 'follow-ups' or 'future improvements'\n- Listing problems without fixing them\n- Skipping test/lint failures with excuses\n- Saying 'it should work' without verification\n- Accepting low quality as 'good enough for now'\n\nIf any pattern applies:\n{\"decision\":\"block\",\"reason\":\"Rationalization detected: [specific issue]. Go back and finish the work properly.\"}\n\nOtherwise:\n{\"decision\":\"allow\"}"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+---
+name: product-eval
+description: "Product quality self-evaluation from user perspective. Triggers when: feature is complete and needs quality assessment, after ux-audit, when user asks to evaluate the product, or during iterate-loop cycle. Scores the product across 4 dimensions and identifies improvement priorities."
+---
+
+# Product Evaluation Skill
+
+Evaluate the product from a real user's perspective. Produce a numerical score across 4 dimensions (total /100). Threshold to pass: **70/100**.
+
+## Prerequisites
+
+1. If `ux-audit` has already been run for this PR, use its results (screenshots, performance metrics, interaction findings) as input. Do NOT re-run the same checks — build on what ux-audit already verified.
+2. Start the dev server or confirm the deployed app URL is accessible.
+2. Use **Playwright MCP** to navigate, interact, and screenshot every screen evaluated.
+3. Adopt the **target user's persona** — their technical level, goals, context. Do NOT evaluate as a developer.
+
+## Dimension 1: Usability (30 points) — Nielsen's 10 Heuristics
+
+Source: Jakob Nielsen, "10 Usability Heuristics for User Interface Design" (1994, updated 2020).
+
+For each heuristic, navigate the app, check for violations, and rate severity on Nielsen's 0-4 scale:
+- 0 = not a problem, 1 = cosmetic, 2 = minor, 3 = major, 4 = catastrophe
+
+| # | Heuristic | What to check |
+|---|-----------|---------------|
+| 1 | Visibility of system status | Loading indicators, progress bars, state feedback |
+| 2 | Match between system and real world | Jargon-free labels, familiar icons, logical ordering |
+| 3 | User control and freedom | Undo/redo, cancel, back navigation, exit points |
+| 4 | Consistency and standards | Same action = same result everywhere, platform conventions |
+| 5 | Error prevention | Confirmations on destructive actions, input constraints, defaults |
+| 6 | Recognition rather than recall | Visible options, contextual info, no memorization required |
+| 7 | Flexibility and efficiency of use | Shortcuts for experts, customizable workflows |
+| 8 | Aesthetic and minimalist design | No irrelevant info, clear visual hierarchy, whitespace |
+| 9 | Help users recognize, diagnose, recover from errors | Plain-language errors, specific cause, constructive suggestion |
+| 10 | Help and documentation | Searchable, task-oriented, concise, accessible when needed |
+
+**Score:** 30 minus the sum of all severity ratings. If any single heuristic scores severity 4 (catastrophe), the entire dimension scores **0/30** regardless of the sum.
+
+## Dimension 2: Learnability (25 points) — Cognitive Walkthrough
+
+Source: Wharton, Rieman, Lewis & Polson, "The Cognitive Walkthrough Method" (1994).
+
+1. Pick **3-5 critical user tasks** (the tasks a new user must complete to get value).
+2. For each task, list every discrete step a novice user must take.
+3. At each step, answer these 4 questions:
+   - Q1: Will the user try to achieve the right effect?
+   - Q2: Will the user notice the correct action is available?
+   - Q3: Will the user associate the correct action with the desired effect?
+   - Q4: Will the user see that progress is being made toward their goal?
+4. A step **passes** only if all 4 answers are Yes.
+
+**Score:** (passing steps / total steps) x 25. Target: 80%+ steps pass.
+
+## Dimension 3: First-Time Experience (25 points) — FTUE Audit
+
+Evaluate as a brand-new user arriving with zero context.
+
+| Criteria | Scoring |
+|----------|---------|
+| **Time-to-Value** — how long until the user gets real value | <=2 min: 10 pts, <=5 min: 7 pts, >5 min: 3 pts |
+| **Value proposition clarity** — does the user immediately understand what this does and why it matters | Immediately obvious: 5 pts, Requires reading: 3 pts, Unclear: 0 pts |
+| **Steps to first success** — count clicks/inputs to complete the primary task once | <=3 steps: 5 pts, 4-6 steps: 3 pts, >6 steps: 1 pt |
+| **Onboarding quality** — how is the user guided through their first experience | Contextual guidance: 5 pts, Generic walkthrough: 3 pts, None: 0 pts |
+
+**Score:** Sum of all four criteria (max 25).
+
+## Dimension 4: Engagement Signals (20 points) — Google HEART Framework
+
+Source: Google HEART framework (Rodden, Hutchinson & Fu, 2010). This is a design-time assessment, not analytics-based.
+
+Rate each signal 1-5 based on what you observe in the product:
+
+- **Happiness (1-5):** Would a user feel satisfied after using this? Would they recommend it?
+- **Engagement (1-5):** Is there a reason to come back? Is the core loop compelling?
+- **Adoption (1-5):** Would new users complete onboarding? Is the barrier low enough?
+- **Retention (1-5):** What would bring users back tomorrow? Next week? Is there a hook?
+- **Task Success (1-5):** Can users complete their primary task without frustration or confusion?
+
+**Score:** (sum of all 5 ratings / 25) x 20. Max 20 points.
+
+## Scoring and Grading
+
+**Total: Usability + Learnability + FTUE + Engagement = X / 100**
+
+| Score | Grade | Action |
+|-------|-------|--------|
+| 90-100 | A | Ship with confidence |
+| 80-89 | B | Ship, minor polish recommended |
+| 70-79 | C | Ship with known issues documented |
+| 60-69 | D | Do NOT ship — fix priority issues first |
+| < 60 | F | Major rework needed — trigger iterate-loop |
+
+**Pass threshold: 70/100.** Below 70 automatically triggers `iterate-loop`.
+
+## Output Format
+
+```
+## Product Evaluation Report
+Dimension 1: Usability — X/30
+  [list each violated heuristic with severity rating and evidence]
+Dimension 2: Learnability — X/25
+  [list each task, steps, and which steps failed with reason]
+Dimension 3: First-Time Experience — X/25
+  [time-to-value measurement, steps to first success count, onboarding assessment]
+Dimension 4: Engagement Signals — X/20
+  [each HEART signal with rating and justification]
+
+TOTAL: X/100 (Grade: X)
+Priority issues: [top 3 by severity — what to fix first]
+```
+
+## After Scoring
+
+Store the evaluation result in **Knowledge Graph MCP** with: timestamp, total score, per-dimension scores, grade, and the top 3 priority issues. This creates a historical record for tracking product quality over time.
