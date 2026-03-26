@@ -105,8 +105,7 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - When initializing a new project → invoke `project-init`
 - When deciding what to build or evaluating business viability → invoke `biz-think`
 - When biz-think acid test fails or need to validate assumptions → invoke `biz-validate`
-- After feature complete, to evaluate product quality from user perspective → invoke `product-eval`
-- When product-eval score < 70 or user requests iteration → invoke `iterate-loop`
+- After feature complete, to evaluate product quality from user perspective → invoke `product-eval` (auto-iterates if score < 70)
 - When creating marketing content or articles → invoke `content-create`
 - When cross-posting content to multiple platforms → invoke `content-distribute`
 - When finding or engaging communities → invoke `community-engage`

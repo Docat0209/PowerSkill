@@ -1,6 +1,6 @@
 ---
 name: product-eval
-description: "Scores product quality from user perspective (/100). Triggers ONLY when: user explicitly asks to evaluate the product, after ux-audit completes, or called by iterate-loop. Do NOT trigger during development or when discussing product quality conceptually."
+description: "Scores product quality from user perspective (/100) and auto-iterates if below threshold. Triggers ONLY when: user explicitly asks to evaluate the product, after ux-audit completes, or score is below 70 and iteration is needed. Do NOT trigger during development or when discussing product quality conceptually."
 ---
 
 # Product Evaluation Skill
@@ -116,7 +116,7 @@ Rate each signal 1-5 based on what you observe in the product:
 | 60-69 | D | Do NOT ship — fix priority issues first |
 | < 60 | F | Major rework needed — trigger iterate-loop |
 
-**Pass threshold: 70/100.** Below 70 automatically triggers `iterate-loop`.
+**Pass threshold: 70/100.** Below 70 → enter the Iteration Protocol below.
 
 ## Output Format
 
@@ -137,4 +137,44 @@ Priority issues: [top 3 by severity — what to fix first]
 
 ## After Scoring
 
-Store the evaluation result in **Knowledge Graph MCP** with: timestamp, total score, per-dimension scores, grade, and the top 3 priority issues. This creates a historical record for tracking product quality over time.
+Store the evaluation result in **Knowledge Graph MCP** with: timestamp, total score, per-dimension scores, grade, and the top 3 priority issues.
+
+---
+
+## Iteration Protocol (if score < 70)
+
+When the score is below 70, enter this auto-fix loop. **Max 3 rounds.**
+
+### Each Round:
+
+1. **PRIORITIZE** — Take top 3 issues by severity from the evaluation report. For each: concrete action, files to touch, expected score impact.
+
+2. **FIX** — One issue at a time:
+   - Write/edit the code
+   - Invoke `self-review` on changed files
+   - Run `test-gate` to verify no regression
+   - If tests fail → revert immediately, move to next issue
+   - Commit via `pre-commit` — one atomic commit per fix
+
+3. **RE-EVALUATE** — Re-run the 4 dimensions above on the updated product. Compare: new score vs previous. Log delta per dimension.
+
+4. **LEARN** — Store in Knowledge Graph MCP: issue fixed, change made, score impact (e.g., "+5 on FTUE"). Builds a reusable knowledge base of high-impact improvements.
+
+5. **CHECK** — Score ≥ 70 → exit. Score < 70 AND round < 3 → continue. Round = 3 → exit with remaining issues listed.
+
+### Exit Report
+```
+## Iteration Summary
+Rounds completed: N
+Starting score: X/100 → Final score: Y/100
+Improvements made:
+  1. [issue] → [fix] → [score impact]
+Remaining issues (if still < 70):
+  1. [issue] — reason not fixed
+```
+
+### Safety Rules
+- Max 3 rounds — hard cap, prevents infinite loops
+- Self-review every fix — no quality shortcuts under automation
+- Revert on test failure — undo immediately if anything breaks
+- Stop on user-input issues — business decisions, missing credentials require human input
