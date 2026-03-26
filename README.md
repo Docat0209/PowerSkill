@@ -1,10 +1,10 @@
-# PowerSkill
+# SoloForge
 
 **Full-lifecycle SOP system for Claude Code — from idea validation to development to marketing to growth**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-PowerSkill turns Claude Code from a code generator into an autonomous business operating system. It enforces quality gates across the entire lifecycle — business strategy, development, marketing, growth, and operations — through automated SOP skills, safety hooks, and a critical thinking protocol that forces adversarial reasoning before conclusions.
+SoloForge turns Claude Code from a code generator into an autonomous business operating system. It enforces quality gates across the entire lifecycle — business strategy, development, marketing, growth, and operations — through automated SOP skills, safety hooks, and a critical thinking protocol that forces adversarial reasoning before conclusions.
 
 ---
 
@@ -12,7 +12,7 @@ PowerSkill turns Claude Code from a code generator into an autonomous business o
 
 AI coding agents don't check their own output. They claim work is done without testing, rationalize away quality issues ("pre-existing", "out of scope", "follow-up task"), and produce inconsistent results across sessions. Beyond code, they lack any structured approach to business decisions, marketing, or growth.
 
-PowerSkill solves this with **enforced quality gates at every workflow stage** -- a layered skill and hook system where each layer reinforces the others, covering the full journey from idea to revenue.
+SoloForge solves this with **enforced quality gates at every workflow stage** -- a layered skill and hook system where each layer reinforces the others, covering the full journey from idea to revenue.
 
 ---
 
@@ -26,7 +26,7 @@ PowerSkill solves this with **enforced quality gates at every workflow stage** -
 
 ## How It Works
 
-PowerSkill is a 3-layer architecture where each layer reinforces the others:
+SoloForge is a 3-layer architecture where each layer reinforces the others:
 
 ```
 Layer 1: CLAUDE.md  (133 lines)  -- Principles always in context
@@ -82,8 +82,8 @@ Every skill ends with **Next Steps** linking to related skills. This creates a n
 ## Quick Install
 
 ```bash
-git clone https://github.com/Docat0209/PowerSkill.git
-cd PowerSkill && ./install.sh
+git clone https://github.com/Docat0209/SoloForge.git
+cd SoloForge && ./install.sh
 ```
 
 The installer copies skills, hooks, and the CLAUDE.md template into your `~/.claude/` directory.
@@ -166,7 +166,7 @@ cp settings/hooks.json ~/.claude/settings.json
 
 ## Recommended Agents
 
-PowerSkill's agent prompts are built on top of [Agency Agents](https://github.com/msitarzewski/agency-agents) -- a collection of 100+ specialized agent definitions for Claude Code. Install them to get the full roster of sub-agents (Backend Architect, Frontend Developer, UX Researcher, Growth Hacker, etc.) that the orchestrator delegates to.
+SoloForge's agent prompts are built on top of [Agency Agents](https://github.com/msitarzewski/agency-agents) -- a collection of 100+ specialized agent definitions for Claude Code. Install them to get the full roster of sub-agents (Backend Architect, Frontend Developer, UX Researcher, Growth Hacker, etc.) that the orchestrator delegates to.
 
 ```bash
 git clone https://github.com/msitarzewski/agency-agents.git
@@ -218,13 +218,13 @@ Edit `claude.md` directly. The 133-line template is intentionally concise -- eve
 ./uninstall.sh
 ```
 
-This removes all PowerSkill files from `~/.claude/` and restores your previous configuration if a backup exists.
+This removes all SoloForge files from `~/.claude/` and restores your previous configuration if a backup exists.
 
 ---
 
 ## Credits
 
-PowerSkill synthesizes practices from established engineering, product, and business frameworks:
+SoloForge synthesizes practices from established engineering, product, and business frameworks:
 
 - **[Google Engineering Practices](https://google.github.io/eng-practices/)** -- code review standards, small CLs
 - **[Clean Code](https://www.oreilly.com/library/view/clean-code/9780136083238/)** (Robert C. Martin) -- self-review principles
