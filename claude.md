@@ -106,6 +106,11 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - When biz-think acid test fails or need to validate assumptions → invoke `biz-validate`
 - After feature complete, to evaluate product quality from user perspective → invoke `product-eval`
 - When product-eval score < 70 or user requests iteration → invoke `iterate-loop`
+- When creating marketing content or articles → invoke `content-create`
+- When cross-posting content to multiple platforms → invoke `content-distribute`
+- When finding or engaging communities → invoke `community-engage`
+- When checking metrics, budget, or planning experiments → invoke `growth-track`
+- When defining brand, positioning, or Build in Public strategy → invoke `brand-build`
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
 Knowledge Graph MCP stores learnings across conversations. Sequential Thinking MCP structures multi-step reasoning.
 
