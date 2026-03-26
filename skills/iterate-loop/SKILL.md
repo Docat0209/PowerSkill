@@ -1,6 +1,6 @@
 ---
 name: iterate-loop
-description: "Automatic product iteration loop. Triggers when: product-eval score is below 70, user requests product iteration, or biz-think identifies direction issues requiring product changes. Runs evaluate→fix→re-evaluate cycles until quality threshold is met."
+description: "Runs automatic product quality iteration. Triggers ONLY when: product-eval returns a score below 70, or user explicitly asks to iterate on product quality. Do NOT trigger during normal development or discussions about quality."
 ---
 
 # Iterate Loop

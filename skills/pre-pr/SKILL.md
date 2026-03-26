@@ -1,6 +1,6 @@
 ---
 name: pre-pr
-description: "Pull request quality gate. Triggers when: about to create a PR, running gh pr create, discussing PR readiness, or after all commits are pushed and tests pass. Ensures PR meets quality standards before creation."
+description: "Pull request quality gate. Triggers ONLY when: about to run gh pr create. Do NOT trigger when: discussing PR strategy or reviewing existing PRs."
 ---
 
 # Pre-PR Quality Gate

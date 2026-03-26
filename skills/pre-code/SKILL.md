@@ -1,6 +1,6 @@
 ---
 name: pre-code
-description: "Pre-coding readiness gate. Triggers when: about to write implementation code, starting a new feature, beginning to code a fix, creating new source files, or implementing changes requested by the user. Verifies prerequisites before any code is written."
+description: "Pre-coding readiness gate. Triggers ONLY when: about to write implementation code for a feature or fix. Do NOT trigger when: writing config files, documentation, scripts, or making quick single-line edits."
 ---
 
 # Pre-Code Readiness Gate

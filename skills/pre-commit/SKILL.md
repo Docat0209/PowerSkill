@@ -1,6 +1,6 @@
 ---
 name: pre-commit
-description: "Pre-commit quality gate. Triggers when: about to run git commit, git add, staging files, the user says commit, or proactively asking the user if they want to commit after completing work. Enforces atomic commit discipline."
+description: "Pre-commit quality gate. Triggers ONLY when: about to run git commit or git add to stage files. Do NOT trigger when: discussing commit strategy or mentioning commits in conversation."
 ---
 
 # Pre-Commit Quality Gate

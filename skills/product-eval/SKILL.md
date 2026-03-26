@@ -1,6 +1,6 @@
 ---
 name: product-eval
-description: "Product quality self-evaluation from user perspective. Triggers when: feature is complete and needs quality assessment, after ux-audit, when user asks to evaluate the product, or during iterate-loop cycle. Scores the product across 4 dimensions and identifies improvement priorities."
+description: "Scores product quality from user perspective (/100). Triggers ONLY when: user explicitly asks to evaluate the product, after ux-audit completes, or called by iterate-loop. Do NOT trigger during development or when discussing product quality conceptually."
 ---
 
 # Product Evaluation Skill

@@ -1,6 +1,6 @@
 ---
 name: self-review
-description: "Code self-review quality gate. Triggers when: implementation is complete, code has been written or modified, about to stage files for commit, or after a sub-agent returns code changes. Reviews own output for quality before proceeding."
+description: "Reviews code quality before staging. Triggers ONLY when: implementation of a feature or fix is complete and code is ready to stage. Do NOT trigger after every small edit — only when a logical unit of work is done."
 ---
 
 # Self-Review: Code Quality Gate

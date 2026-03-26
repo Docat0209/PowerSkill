@@ -1,6 +1,6 @@
 ---
 name: ux-audit
-description: "Visual and UX quality audit. Triggers when: PR is ready but not yet merged, after pre-pr passes, before merging to dev, or when user asks to verify UI/UX quality. Uses Playwright MCP to screenshot, interact, and measure performance from a real user's perspective."
+description: "Visual and UX quality audit using Playwright. Triggers ONLY when: PR has passed pre-pr and is ready to merge with UI/UX changes, or user explicitly asks for UX audit. Do NOT trigger for backend-only changes or during development."
 ---
 
 # UX Audit — Visual & Functional Quality Gate

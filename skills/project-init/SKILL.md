@@ -1,6 +1,6 @@
 ---
 name: project-init
-description: "Project initialization checklist. Triggers when: creating a new project, setting up a repository, running git init or npm init, scaffolding a new app, or discussing project setup from scratch."
+description: "Project initialization checklist. Triggers ONLY when: about to run git init, npm init, or creating a brand new repository. Do NOT trigger when: discussing project structure or working in an existing project."
 ---
 
 # Project Initialization SOP

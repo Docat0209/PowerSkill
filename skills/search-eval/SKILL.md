@@ -1,6 +1,6 @@
 ---
 name: search-eval
-description: "Search result quality evaluation. Triggers when: processing web search results, evaluating a GitHub repository or npm package, recommending a library or tool, citing external sources, or about to install a dependency."
+description: "Evaluates search result credibility and dependency quality. Triggers ONLY when: about to recommend or install a dependency, or when search results need credibility assessment for a decision. Do NOT trigger on every web search — only when results directly inform a recommendation."
 ---
 
 # Search Result Quality Evaluation

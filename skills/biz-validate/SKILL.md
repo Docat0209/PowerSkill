@@ -1,6 +1,6 @@
 ---
 name: biz-validate
-description: "Iterative business hypothesis validation loop. Triggers when: biz-think acid test fails, a business assumption needs testing, pivoting a product direction, or validating willingness to pay. Cycles through hypothesize→experiment→learn until the business model is validated or killed."
+description: "Runs iterative hypothesis validation loop. Triggers ONLY when: biz-think acid test fails, user explicitly asks to validate a business assumption, or user says to pivot. Do NOT trigger when: discussing business strategy casually or during product development."
 ---
 
 # biz-validate: Business Hypothesis Validation Loop

@@ -1,6 +1,6 @@
 ---
 name: post-merge
-description: "Post-merge verification checklist. Triggers when: a PR has been merged, after gh pr merge, after merging to dev, or when closing out a feature. Enforces ALL FOUR verification steps — skipping any step is a process failure."
+description: "Post-merge verification checklist. Triggers ONLY when: a PR has just been merged via gh pr merge. Do NOT trigger when: discussing merge strategy or planning future merges."
 ---
 
 # Post-Merge Verification Checklist

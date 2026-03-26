@@ -1,6 +1,6 @@
 ---
 name: issue-create
-description: "GitHub issue quality gate. Triggers when: creating a GitHub issue, running gh issue create, discussing tracking a new feature/bug/task, or when pre-code skill identifies a missing issue. Enforces detailed issue templates by type."
+description: "Enforces GitHub issue quality standards. Triggers ONLY when: about to run gh issue create, or pre-code skill identifies a missing issue. Do NOT trigger when: discussing issues conceptually or referencing existing issues."
 ---
 
 # Issue Creation Quality Gate

@@ -1,6 +1,6 @@
 ---
 name: biz-think
-description: "Business direction and model validation. Triggers when: deciding what product to build, evaluating a business idea, discussing pricing/monetization, planning customer acquisition, analyzing competition, or any question about commercial viability."
+description: "Evaluates business viability for a new product idea. Triggers ONLY when: the user asks to evaluate a business idea, asks what product to build, or says to run biz-think. Do NOT trigger when: discussing business concepts in passing, talking about existing product improvements, or during development work."
 ---
 
 # biz-think: Business Direction Decision Skill

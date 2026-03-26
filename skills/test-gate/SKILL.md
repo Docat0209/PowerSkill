@@ -1,6 +1,6 @@
 ---
 name: test-gate
-description: "Testing completeness gate. Triggers when: feature implementation is complete, about to create a PR, code changes have no accompanying tests, discussing test coverage, or after self-review passes. Enforces three-layer testing requirements."
+description: "Verifies test coverage before PR creation. Triggers ONLY when: about to create a PR and need to verify tests exist, or after self-review passes. Do NOT trigger when: discussing testing strategy or during early development."
 ---
 
 # Test Gate — Testing Completeness Check
