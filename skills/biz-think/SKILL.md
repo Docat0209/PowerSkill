@@ -11,6 +11,51 @@ Before starting: retrieve any prior `BusinessDecision` entities from Knowledge G
 
 ---
 
+## Phase -1: Opportunity Discovery (if no idea exists)
+
+If the user has no specific idea, systematically discover opportunities using these data-driven methods. Run 3+ methods and cross-reference — opportunities appearing in multiple methods are highest confidence.
+
+### Method A: Review Mining
+1. Pick a SaaS category on G2/Capterra
+2. Read 1-3 star reviews from top 10 products — search for "I wish," "missing," "switched because"
+3. Cluster complaints by theme. High frequency + high intensity = opportunity
+4. If 3+ competitors share the same complaint → validated gap
+
+### Method B: Reddit Pain Point Mining
+1. Search target subreddits for: "I wish there was," "alternative to," "hate using," "anyone know a tool that"
+2. Score by: upvotes, emotional intensity, "I'd pay for this" signals
+3. Cluster into opportunity themes
+
+### Method C: Product Hunt Trend Analysis
+1. Browse PH trending — identify categories with high upvotes but few products (underserved demand)
+2. Read comments on top products for feature requests and complaints
+3. Find launched products with no traction 6 months later (failed execution, not failed idea)
+
+### Method D: Acquire.com Listing Analysis
+1. Browse SaaS listings on Acquire.com
+2. "Pre-revenue" listings under $25K = validated ideas that failed on execution
+3. Categories with high asking multiples = proven demand
+
+### Method E: Vertical SaaS Mapping
+1. List industries still on spreadsheets/paper (healthcare, construction, agriculture, legal)
+2. Search "[industry] software" on G2 — count products and average rating
+3. <10 products AND avg rating <3.5 = underserved vertical
+
+### Method F: Revenue Data Pattern Mining
+1. Browse GetLatka.com for SaaS companies with verified ARR
+2. Find categories at $1-5M ARR growing >100% — validated market, not locked up
+3. Check if AI can 10x the cost advantage in that category
+
+### Red Ocean Check
+After finding a candidate idea, search for existing products doing the same thing:
+- If a well-funded competitor dominates with >$10M ARR → red ocean, pivot
+- If multiple small players exist but none dominant → blue ocean, proceed
+- If the idea relies on the same moat a competitor already has → cannot win, pivot
+
+Output: 3-5 ranked opportunity candidates with data sources cited. Pick the top one and proceed to Phase 0.
+
+---
+
 ## Phase 0: Reality Check — Who Are We?
 
 State this upfront in every analysis: **We have no audience, no brand, no capital.** This constrains everything.
