@@ -1,18 +1,18 @@
 # PowerSkill
 
-**Quality-enforced workflows for Claude Code -- development, business operations, marketing, and growth**
+**Full-lifecycle SOP system for Claude Code — from idea validation to development to marketing to growth**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-PowerSkill turns Claude Code from a code generator into a disciplined engineering and business partner. It makes the AI check its own work through automated SOP skills, safety hooks, and a critical thinking protocol that forces adversarial reasoning before conclusions.
+PowerSkill turns Claude Code from a code generator into an autonomous business operating system. It enforces quality gates across the entire lifecycle — business strategy, development, marketing, growth, and operations — through automated SOP skills, safety hooks, and a critical thinking protocol that forces adversarial reasoning before conclusions.
 
 ---
 
 ## The Problem
 
-AI coding agents don't check their own output. They claim work is done without testing, rationalize away quality issues ("pre-existing", "out of scope", "follow-up task"), and produce inconsistent results across sessions.
+AI coding agents don't check their own output. They claim work is done without testing, rationalize away quality issues ("pre-existing", "out of scope", "follow-up task"), and produce inconsistent results across sessions. Beyond code, they lack any structured approach to business decisions, marketing, or growth.
 
-PowerSkill solves this with **enforced quality gates at every workflow stage** -- a layered skill and hook system where each layer reinforces the others.
+PowerSkill solves this with **enforced quality gates at every workflow stage** -- a layered skill and hook system where each layer reinforces the others, covering the full journey from idea to revenue.
 
 ---
 
@@ -29,13 +29,13 @@ PowerSkill solves this with **enforced quality gates at every workflow stage** -
 PowerSkill is a 3-layer architecture where each layer reinforces the others:
 
 ```
-Layer 1: CLAUDE.md  (126 lines)  -- Principles always in context
-Layer 2: Skills     (27 SOPs)    -- Auto-triggered at workflow stages, loaded on-demand
+Layer 1: CLAUDE.md  (133 lines)  -- Principles always in context
+Layer 2: Skills     (26 SOPs)    -- Auto-triggered at workflow stages, loaded on-demand
 Layer 3: Hooks      (3 hooks)    -- Deterministic enforcement, runs outside the LLM
 ```
 
 - **Layer 1** sets the ground rules: epistemic discipline, verification over assumption, quality intolerance.
-- **Layer 2** provides step-by-step SOPs that Claude invokes before each action (coding, committing, reviewing, etc.).
+- **Layer 2** provides step-by-step SOPs that Claude invokes before each action (coding, committing, reviewing, pricing, marketing, etc.).
 - **Layer 3** runs outside the model entirely -- shell scripts that block dangerous operations and flag common mistakes in edited files.
 
 ---
@@ -44,29 +44,38 @@ Layer 3: Hooks      (3 hooks)    -- Deterministic enforcement, runs outside the 
 
 ```mermaid
 flowchart TD
-    A[biz-think] -->|Strategy validated| B[pre-code]
-    B -->|Issue + branch ready| C[Code]
-    C -->|Implementation done| D[self-review]
-    D -->|Review passed| E[test-gate]
-    E -->|Tests passing| F[pre-commit]
-    F -->|Atomic commit| G[pre-pr]
-    G -->|PR checklist passed| H{UI/UX changes?}
-    H -->|Yes| I[ux-audit]
-    H -->|No| J[Merge]
-    I -->|Audit passed| J
-    J --> K[post-merge]
-    K -->|Verified in prod| L[product-eval]
-    L -->|Score >= 70| M[Done]
-    L -->|Score < 70| N[iterate-loop]
-    N -->|Fix round 1-3| L
+    A[biz-think] -->|Acid test pass| B[brand-build]
+    A -->|Acid test fail| A2[biz-validate]
+    A2 -->|Validated| B
+    B --> C[project-init]
+    C --> D[pre-code]
+    D --> E[Code + self-review]
+    E --> F[test-gate]
+    F --> G[pre-commit]
+    G --> H[pre-pr]
+    H --> I{UI changes?}
+    I -->|Yes| J[ux-audit]
+    I -->|No| K[Merge]
+    J --> K
+    K --> L[post-merge]
+    L --> M[product-eval]
+    M -->|Score >= 70| N[copy-craft + content-create]
+    M -->|Score < 70| M
+    N --> O[content-distribute]
+    O --> P[community-engage + sales-close]
+    P --> Q[growth-track]
+    Q -->|Next feature| D
 
     style A fill:#4a9eff,color:#fff
-    style L fill:#4a9eff,color:#fff
-    style N fill:#ff6b6b,color:#fff
-    style M fill:#2ecc71,color:#fff
+    style M fill:#4a9eff,color:#fff
+    style Q fill:#2ecc71,color:#fff
 ```
 
 Every stage has a skill. Every skill has a checklist. Skipping a stage means skipping its checks -- and the principles in CLAUDE.md push back against that.
+
+### Skill Chain
+
+Every skill ends with **Next Steps** linking to related skills. This creates a natural chain: `biz-think` points to `brand-build` and `project-init`, `post-merge` points to `product-eval`, `product-eval` points to `copy-craft` and `content-create`, and so on. You never have to remember what comes next -- each skill tells you.
 
 ---
 
@@ -88,6 +97,7 @@ cp claude.md ~/.claude/CLAUDE.md
 # Copy hooks
 cp hooks/safety-guard.sh ~/.claude/hooks/
 cp hooks/post-edit-review.sh ~/.claude/hooks/
+cp hooks/skill-eval.sh ~/.claude/hooks/
 
 # Copy skills
 cp -r skills/* ~/.claude/skills/
@@ -100,50 +110,49 @@ cp settings/hooks.json ~/.claude/settings.json
 
 ## What's Included
 
-### Skills (27 SOPs)
+### Skills (26 SOPs)
 
-#### Development Workflow
-| Skill | Stage | What It Enforces | Sources |
-|---|---|---|---|
-| `pre-code` | Before coding | Issue exists, branch from dev, SOLID design | SOLID, NASA Power of 10 |
-| `self-review` | After coding | 6-step review: diff, correctness, design, hygiene, security | Google Eng Practices, Clean Code, OWASP |
-| `test-gate` | Before PR | 3-layer testing: unit + integration + E2E, AAA pattern | Fowler Testing Pyramid |
-| `pre-commit` | Before commit | Atomic commits, conventional format, 10-point checklist | Chris Beams, Conventional Commits |
-| `pre-pr` | Before PR creation | PR size <200 lines, 9-point checklist | Google Small CLs |
-| `ux-audit` | Before merge | Visual review, discoverability, functional UX, Core Web Vitals | Playwright MCP |
-| `post-merge` | After merge | 4-step verification: works → check boxes → close issue → delete branch | — |
-| `issue-create` | Creating issues | Templates by type (feat/fix/chore), priority labels | — |
-| `project-init` | New project | Git + CI/CD + test runner + E2E + branch protection | — |
-| `search-eval` | Evaluating sources | Source credibility, multi-source consistency, dependency evaluation | — |
+#### Development Workflow (10)
+| Skill | What It Does |
+|---|---|
+| `pre-code` | Issue + branch + SOLID design check before coding |
+| `issue-create` | Enforces issue templates (feat/fix/chore) |
+| `project-init` | Git + CI/CD + test runner + branch protection |
+| `self-review` | 6-step code review (Google, Clean Code, OWASP) |
+| `test-gate` | 3-layer testing (Fowler Pyramid, AAA pattern) |
+| `pre-commit` | Atomic commits (Chris Beams, Conventional Commits) |
+| `pre-pr` | PR quality ≤200 lines (Google Small CLs) |
+| `ux-audit` | Visual + UX + Performance audit via Playwright |
+| `post-merge` | 4-step verification after merge |
+| `search-eval` | Source credibility + dependency evaluation |
 
-#### Business & Strategy
-| Skill | Stage | What It Enforces | Sources |
-|---|---|---|---|
-| `biz-think` | Before building | 5 viability tests, success decomposition, revenue model | Porter, JTBD, Lean Canvas |
-| `biz-validate` | After biz-think fails | Hypothesis → experiment → learn loop (max 5 cycles) | Running Lean, Pretotyping |
-| `product-eval` | After feature | 4-dimension scoring (/100): usability, learnability, FTUE, engagement | Nielsen Heuristics, Google HEART |
-| `iterate-loop` | Score < 70 | Auto-fix: evaluate → prioritize → fix → re-evaluate (max 3 rounds) | — |
-| `roadmap-steer` | Feature prioritization | RICE scoring, saying no, build vs buy, public roadmap | Intercom RICE |
-| `finance-ops` | Pricing & finances | Value-based pricing, pricing psychology, MRR tracking, tax basics | Cialdini, Ariely |
+#### Business & Strategy (5)
+| Skill | What It Does |
+|---|---|
+| `biz-think` | 5 viability tests + success decomposition + zero-audience playbook |
+| `biz-validate` | Hypothesis → experiment → learn loop (Running Lean + Pretotyping) |
+| `product-eval` | 4-dimension scoring /100 (Nielsen, HEART) + auto-iteration if <70 |
+| `roadmap-steer` | RICE scoring, feature prioritization, saying no |
+| `finance-ops` | Value-based pricing, pricing psychology, MRR tracking, tax basics |
 
-#### Marketing & Growth
-| Skill | Stage | What It Enforces | Sources |
-|---|---|---|---|
-| `brand-build` | Brand definition | Positioning statement, voice, Build in Public, tribe identity | Seth Godin, Nathan Barry |
-| `content-create` | Content creation | Platform-optimized articles from customer perspective, 95/5 rule | They Ask You Answer |
-| `content-distribute` | Cross-posting | One piece → 15+ platform-adapted versions, API publishing | — |
-| `community-engage` | Community presence | Watering holes, value-first engagement, 20 min/day | Lean B2B, Thengvall |
-| `copy-craft` | Conversion copy | PAS/AIDA formulas, landing pages, email sequences | Cialdini, CopyHackers |
-| `sales-close` | Sales outreach | Dream 100, cold email, SPIN selling, objection handling | Chet Holmes, Rackham |
-| `growth-track` | Metrics & experiments | AARRR funnel, North Star metric, budget management | McClure, Sean Ellis |
+#### Marketing & Growth (7)
+| Skill | What It Does |
+|---|---|
+| `brand-build` | Positioning, voice definition, Build in Public, tribe identity |
+| `content-create` | Platform-optimized articles from customer perspective (They Ask You Answer) |
+| `content-distribute` | One piece → 15+ platform-adapted versions |
+| `community-engage` | Watering holes strategy, value-first engagement |
+| `copy-craft` | Conversion copy: PAS/AIDA, Cialdini persuasion, landing pages |
+| `sales-close` | Dream 100, cold email, SPIN selling, pipeline management |
+| `growth-track` | AARRR funnel, North Star metric, budget, partnerships |
 
-#### Operations
-| Skill | Stage | What It Enforces | Sources |
-|---|---|---|---|
-| `support-ops` | Customer support | P0-P3 triage, knowledge base, churn prevention, onboarding | — |
-| `infra-ops` | Infrastructure | Monitoring, 3-2-1 backups, incident response, security checklist | NIST |
-| `data-decide` | Analytics | Event taxonomy, A/B test design, cohort analysis, decision framework | Eric Ries |
-| `legal-guard` | Legal compliance | ToS, Privacy Policy, GDPR/CCPA, cookie consent, business entity | — |
+#### Operations (4)
+| Skill | What It Does |
+|---|---|
+| `support-ops` | P0-P3 triage, churn prevention, onboarding sequences |
+| `infra-ops` | Monitoring, 3-2-1 backups, incident response, security |
+| `data-decide` | Event taxonomy, cohort analysis, A/B testing, decision framework |
+| `legal-guard` | ToS, Privacy Policy, GDPR/CCPA, cookie consent |
 
 ### Hooks (3 guards)
 
@@ -194,7 +203,7 @@ These optional MCP servers enhance specific skills:
 
 ### Modify CLAUDE.md
 
-Edit `claude.md` directly. The 126-line template is intentionally concise -- every line earns its place in the context window. Add principles sparingly.
+Edit `claude.md` directly. The 133-line template is intentionally concise -- every line earns its place in the context window. Add principles sparingly.
 
 ### Add a new hook
 
@@ -241,6 +250,7 @@ PowerSkill synthesizes practices from established engineering, product, and busi
 - **[Pretotyping](https://www.pretotyping.org/)** (Alberto Savoia) -- hypothesis testing
 - **[Intercom on Product Management](https://www.intercom.com/books/product-management)** -- RICE scoring
 - **[Tribes](https://www.sethgodin.com/tribes/)** (Seth Godin) -- community and brand
+- **[The Mom Test](https://momtestbook.com/)** (Rob Fitzpatrick) -- customer interview validation
 
 ---
 
