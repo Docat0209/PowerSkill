@@ -1,0 +1,113 @@
+---
+name: infra-ops
+description: "Manages infrastructure, monitoring, backups, and incident response. Triggers ONLY when: user asks to set up monitoring, plan backup strategy, handle an incident, or review infrastructure security. Do NOT trigger during normal development."
+---
+
+# Infra-Ops SOP
+
+## 1. Monitoring
+
+Set up monitoring BEFORE you need it. Three layers, in priority order:
+
+**Uptime monitoring (must-have day 1):**
+- UptimeRobot (free, checks every 5 min) or BetterStack
+- Monitor: main app URL, API health endpoint, database connectivity
+- Alert chain: Slack/email for P1-P3 → phone call for P0
+
+**Error tracking (must-have day 1):**
+- Sentry free tier — captures stack traces with user context
+- Set up source maps for frontend, proper error grouping
+- Alert on new error types, not every occurrence
+
+**Performance baselines (set up by launch):**
+- Track p50/p95/p99 response times for key endpoints
+- Set alerts when p95 > 2x baseline for 5+ minutes
+- Database query time monitoring (slow query log)
+
+> Source: [CloudEagle SaaS Security Checklist](https://www.cloudeagle.ai/blogs/ultimate-saas-security-checklist), [DesignRevision SaaS Security Checklist](https://designrevision.com/blog/saas-security-checklist)
+
+## 2. Backup Strategy — 3-2-1 Rule
+
+**3** copies, **2** different media, **1** offsite. Non-negotiable.
+
+| Data type | Backup method | Frequency | Retention |
+|---|---|---|---|
+| Database | Automated pg_dump / mysqldump to object storage | Daily | 30 days rolling + weekly for 90 days |
+| User uploads | Replicated cloud storage (e.g., S3 cross-region) | Real-time replication | Match user data retention policy |
+| Code | Git (already distributed) | Every push | Indefinite |
+| Config/secrets | Encrypted export to separate secure store | On change | Last 10 versions |
+
+**Critical:** test restore monthly. A backup you've never restored is not a backup — it's a hope.
+
+> Source: [Cohesity — 3-2-1 Backup Rule](https://www.cohesity.com/glossary/321-backup-rule/), [Rewind — 3-2-1 for SaaS](https://rewind.com/321-backup-rule/)
+
+## 3. Incident Response
+
+Follow the NIST framework adapted for solo/small teams:
+
+**Severity levels:**
+- **P0** — Service down, all users affected → drop everything, fix now
+- **P1** — Major feature broken, many users affected → fix within 4 hours
+- **P2** — Minor feature broken, workaround exists → fix within 24 hours
+- **P3** — Cosmetic/low-impact issue → fix in next sprint
+
+**Response playbook:**
+
+1. **Detect** — monitoring alert fires or user reports
+2. **Triage** — assign severity (P0-P3), estimate blast radius
+3. **Communicate** — update status page within 15 min for P0/P1
+   - Template: "We're aware of [issue]. Impact: [who's affected]. ETA: [time or 'investigating']."
+4. **Fix** — contain first (rollback, feature flag off), then root-cause fix
+5. **Post-mortem** (required for P0/P1, within 48 hours):
+   - What happened (timeline)
+   - Why it happened (root cause, not blame)
+   - How to prevent it (concrete action items with owners and deadlines)
+
+> Source: [TechTarget — Incident Response Plan](https://www.techtarget.com/searchsecurity/feature/5-critical-steps-to-creating-an-effective-incident-response-plan), [Sygnia — SaaS Incident Response](https://www.sygnia.co/blog/saas-incident-response/)
+
+## 4. Security Checklist
+
+**Transport & access:**
+- [ ] HTTPS everywhere (no mixed content, HSTS enabled)
+- [ ] Secrets in env vars or secret manager — NEVER in code or git
+- [ ] MFA for admin accounts and cloud provider console
+- [ ] CORS configured to allow only your domains
+
+**Application:**
+- [ ] Rate limiting on auth endpoints (login, signup, password reset)
+- [ ] CSP (Content Security Policy) headers configured
+- [ ] Input validation and parameterized queries (prevent SQLi/XSS)
+- [ ] Dependency audit weekly (`npm audit` / `pip audit` / `cargo audit`)
+
+**Infrastructure:**
+- [ ] Minimal open ports — only 80/443 publicly accessible
+- [ ] Database not publicly accessible (VPC/private network only)
+- [ ] Automated security updates for OS packages
+- [ ] Logging enabled for all access and auth events
+
+> Source: [DesignRevision — SaaS Security Checklist](https://designrevision.com/blog/saas-security-checklist)
+
+## 5. Disaster Recovery
+
+Define targets early, revisit quarterly:
+
+- **RTO (Recovery Time Objective):** max acceptable downtime. Solo SaaS target: < 4 hours.
+- **RPO (Recovery Point Objective):** max acceptable data loss. Solo SaaS target: < 24 hours (daily backups).
+
+**DR plan essentials:**
+1. Documented runbook: "if X dies, do Y" for each critical component
+2. Database: can restore from backup to new instance in < 2 hours
+3. App server: infrastructure-as-code so you can spin up a new one in < 1 hour
+4. DNS: low TTL (300s) so failover propagates fast
+5. Test the full DR plan quarterly — actually do a restore drill
+
+> Source: [ATOZDEBUG — Disaster Recovery for SaaS](https://atozdebug.com/disaster-recovery-for-saas/), [MightyID — Optimizing RPO & RTO](https://www.mightyid.com/how-to-optimize-rpo-and-rto-in-disaster-recovery-plans/)
+
+## 6. Maintenance Schedule
+
+| Frequency | Task |
+|---|---|
+| **Weekly** | Check error logs and alert trends, run dependency audit, review uptime reports |
+| **Monthly** | Test backup restore, review access logs, update dependencies, check infrastructure costs |
+| **Quarterly** | Full security audit, DR drill (test restore to new environment), review RTO/RPO targets, infrastructure cost optimization |
+| **Annually** | Rotate all credentials/API keys, review and update incident response plan, evaluate monitoring stack |

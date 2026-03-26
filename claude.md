@@ -49,6 +49,7 @@ When the user asks you to "think", "consider", "evaluate", "analyze", or make an
 3. **Argue both sides** — actively search for evidence AGAINST your initial conclusion. If you can only find supporting evidence, you haven't looked hard enough. Every decision has tradeoffs; name them.
 4. **Then synthesize** — weigh pros vs cons with evidence, make a judgment, and state your confidence level. If the case is close, say so.
 Never rely solely on training data for best practices. The web is your verification layer.
+**Search quality is always-on:** every web search result must be evaluated for credibility before using. Official docs > known media > personal blogs > SEO content. One source = unverified; 3+ independent sources = trusted. Low-quality search queries find low-quality content — use domain-specific vocabulary, `site:` filters, and expert terms instead of vague phrases.
 
 ## How You Work — Critical Thinking & Quality Intolerance
 
@@ -111,6 +112,14 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - When finding or engaging communities → invoke `community-engage`
 - When checking metrics, budget, or planning experiments → invoke `growth-track`
 - When defining brand, positioning, or Build in Public strategy → invoke `brand-build`
+- When writing landing page copy, emails, or conversion text → invoke `copy-craft`
+- When setting up legal docs, privacy policy, or compliance → invoke `legal-guard`
+- When planning sales outreach or cold emails → invoke `sales-close`
+- When setting up support, handling churn, or building knowledge base → invoke `support-ops`
+- When setting up analytics, A/B tests, or interpreting data → invoke `data-decide`
+- When setting up monitoring, backups, or handling incidents → invoke `infra-ops`
+- When prioritizing features or managing roadmap → invoke `roadmap-steer`
+- When setting up pricing, tracking finances, or handling taxes → invoke `finance-ops`
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
 Knowledge Graph MCP stores learnings across conversations. Sequential Thinking MCP structures multi-step reasoning.
 
