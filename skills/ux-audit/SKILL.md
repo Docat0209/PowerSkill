@@ -122,3 +122,8 @@ Use Playwright's `browser_evaluate` to run Performance API calls and measure Cor
 
 **If ANY phase fails:** fix the issues before merging. Re-run the failing phase to verify the fix.
 **If ALL phases pass:** state "UX audit passed. Ready to merge."
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Audit passed → merge the PR, then invoke `post-merge`
+- Audit failed → fix issues, re-run `self-review`

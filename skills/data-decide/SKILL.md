@@ -102,3 +102,9 @@ Data informs, doesn't decide. Use this ladder:
 | A/B testing | GrowthBook (free tier) or PostHog feature flags | Proper statistical engine, integrates with your data |
 | Error tracking | Sentry (free tier) | Stack traces + user context |
 | Avoid unless necessary | Google Analytics | Privacy tradeoff, complex, overkill for early stage |
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Data shows product issue → invoke `product-eval`
+- Data shows acquisition issue → invoke `growth-track`
+- A/B test designed → track results via `growth-track`

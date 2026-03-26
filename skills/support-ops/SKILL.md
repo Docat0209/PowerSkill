@@ -121,3 +121,9 @@ Close the loop between support and product (source: general SaaS practice, UserP
 - Question: "How likely are you to recommend [product] to a colleague? (0-10)"
 - Follow up: Promoters (9-10) → ask for referral/review. Detractors (0-6) → personal outreach to understand why.
 - Benchmark: SaaS average NPS is 30-40. Below 30 means systemic issues.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- High churn detected → invoke `product-eval` to find root cause
+- Common questions identified → invoke `content-create` for knowledge base articles
+- Support tickets reveal bugs → invoke `issue-create`

@@ -78,3 +78,7 @@ Files to modify, approach, migration steps if any.
 - Labels like `week-1`, `sprint-3` are anti-patterns — use milestones instead.
 - Link related issues with `Depends on #X` or `Blocked by #X`.
 - Every issue title uses Conventional Commits prefix: `feat:`, `fix:`, `chore:`, `refactor:`, `test:`, `docs:`.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Issue created → invoke `pre-code` to start implementation

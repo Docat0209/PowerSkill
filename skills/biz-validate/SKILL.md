@@ -171,3 +171,9 @@ Track which stage you're in:
 | **3. Scale** | Grow the validated model | Not your concern until stages 1-2 are done |
 
 **You are almost certainly at Stage 1.** Do not skip to Stage 2 thinking.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- All assumptions validated → invoke `brand-build` to define positioning before building
+- Need to build experiment (landing page) → invoke `copy-craft` for conversion copy
+- Experiment needs distribution → consider `community-engage` or `content-distribute`

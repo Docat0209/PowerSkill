@@ -156,3 +156,8 @@ If acid test passes:
 If acid test fails:
 - Do NOT start coding. Invoke `biz-validate` to enter the validation loop.
 - `biz-validate` will cycle through hypothesize → experiment → learn → pivot until the model is validated or killed.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- After defining pricing → invoke `finance-ops` for pricing psychology and payment setup
+- After choosing distribution channel → consider `community-engage` for community strategy or `content-create` for content strategy

@@ -70,3 +70,9 @@ Every item must pass before creating the PR:
 - Never merge `dev` → `main` without explicit user approval
 - Never force-push to a shared PR branch after review has started
 - Every PR must leave the system in a working state (Google)
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- PR created with UI changes → invoke `ux-audit` before merge
+- PR created (backend only) → wait for CI, then merge
+- After merge → invoke `post-merge`

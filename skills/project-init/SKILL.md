@@ -76,3 +76,9 @@ Store project metadata in Knowledge Graph MCP:
 - Entity: project name
 - Observations: tech stack, test runner, CI setup, repo URL
 - This enables cross-project pattern retrieval in future conversations.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Project initialized → invoke `pre-code` for first feature
+- If deploying for first time → consider `infra-ops` for monitoring and backup setup
+- If serving users → consider `legal-guard` for ToS and Privacy Policy

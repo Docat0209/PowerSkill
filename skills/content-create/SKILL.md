@@ -123,3 +123,8 @@ When publishing to API-allowed platforms (Dev.to, Medium, Hashnode):
 4. Only publish after user confirms the preview looks correct
 
 For platforms where automation is NOT allowed (Reddit, HN): draft the content in a local file and instruct the user to post manually.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Content created → invoke `content-distribute` for cross-platform distribution
+- Content about product launch → consider `community-engage` for where to share

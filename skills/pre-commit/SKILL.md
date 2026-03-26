@@ -60,3 +60,7 @@ If `git diff --staged` shows multiple logical changes:
 
 After completing work, proactively ask: "Would you like to commit these changes?"
 Present what will be committed and the proposed commit message. If the changes span multiple logical units, propose multiple atomic commits with their respective messages.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- All commits pushed → invoke `pre-pr` when ready to create PR

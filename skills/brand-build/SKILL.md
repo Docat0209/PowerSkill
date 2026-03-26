@@ -176,3 +176,9 @@ Every 3 months, review and update:
 4. Are the Build in Public metrics improving? (followers, engagement, referral traffic from social)
 
 Update Knowledge Graph with any changes and the reasoning behind them.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Brand defined → invoke `project-init` to start building
+- Need landing page → invoke `copy-craft`
+- Ready to start Build in Public → invoke `content-create`

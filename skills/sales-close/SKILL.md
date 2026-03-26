@@ -95,3 +95,9 @@ Constraints that protect your time and sanity:
 - **Automate the top of funnel** — content, SEO, and product-led growth feed the pipeline while you sleep. Reserve outbound for Dream 100 targets only.
 - **Track your numbers** — emails sent, replies, demos, closes. You can't improve what you don't measure.
 - **Ask for referrals** — after every successful close, ask "who else do you know facing this problem?" Warm intros convert 3-5x better than cold outreach.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- First paying customer → consider `support-ops` for support setup
+- Pipeline growing → consider `growth-track` to track revenue metrics
+- Need better sales copy → consider `copy-craft`

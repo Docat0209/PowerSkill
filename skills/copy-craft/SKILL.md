@@ -101,3 +101,9 @@ Before shipping any copy, verify (source: CopyHackers conversion checklist):
 - [ ] One primary CTA per page/email — not three competing actions
 - [ ] Mobile-friendly: 60% of email opens are mobile (test on phone)
 - [ ] Read it aloud — if it sounds robotic, rewrite in conversational tone
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Landing page written → consider `content-create` for supporting articles
+- Sales emails written → consider `sales-close` for outreach strategy
+- Copy needs A/B testing → consider `data-decide`

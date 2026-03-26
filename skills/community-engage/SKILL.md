@@ -150,3 +150,9 @@ Use Playwright MCP for:
 - Reading community rules and recent posts
 - Monitoring for new discussions matching target keywords
 - Drafting responses (saved locally, not posted automatically on Reddit/HN)
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Community engaged, leads identified → consider `sales-close` for outreach
+- Community asks questions → consider `content-create` for answering at scale
+- Community growing → consider `growth-track` to track acquisition metrics

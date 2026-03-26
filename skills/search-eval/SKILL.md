@@ -1,6 +1,6 @@
 ---
 name: search-eval
-description: "Evaluates search result credibility and dependency quality. Triggers ONLY when: about to recommend or install a dependency, or when search results need credibility assessment for a decision. Do NOT trigger on every web search — only when results directly inform a recommendation."
+description: "Deep evaluation of search results and dependencies. Triggers ONLY when: about to install a dependency, evaluating a GitHub project for adoption, or search results are contradictory and need structured credibility analysis. Do NOT trigger for routine searches — CLAUDE.md contains always-on search quality principles for everyday use."
 ---
 
 # Search Result Quality Evaluation
@@ -68,3 +68,9 @@ After evaluating a dependency or tool, store the decision in Knowledge Graph MCP
 - Entity: the tool/library name
 - Observation: verdict (adopted/rejected), reason, date, alternatives considered
 - This prevents re-evaluating the same tool in future conversations.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Dependency approved → continue with implementation
+- Dependency rejected → search for alternatives
+- Tool/library adopted → store decision in Knowledge Graph for future reference

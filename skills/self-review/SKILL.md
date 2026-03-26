@@ -85,3 +85,8 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 **If uncertain about correctness:**
 - Run the code, write a test, or verify — do not guess
 - "It should work" is NOT acceptable — prove it works
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Self-review passed → invoke `test-gate` to verify test coverage
+- If code touches UI → plan for `ux-audit` after PR

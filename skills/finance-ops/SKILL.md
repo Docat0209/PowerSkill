@@ -119,3 +119,9 @@ Involuntary churn (failed payments) accounts for 20-40% of all subscription chur
 | Reserve | 10% | 3-month runway minimum |
 
 Revisit allocation quarterly. As traction increases, shift from product-heavy to marketing-heavy.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Pricing set → consider `copy-craft` for pricing page copy
+- Payment system set up → consider `legal-guard` for ToS and refund policy
+- Budget allocated → consider `growth-track` for experiment tracking

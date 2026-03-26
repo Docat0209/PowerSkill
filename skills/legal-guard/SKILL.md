@@ -96,3 +96,9 @@ When and where to incorporate (source: SaaS Law Firm, general startup practice):
 - **Where (non-US founders)**: Incorporate in your home country first. Consider a US entity (Delaware/Wyoming) only when US revenue justifies it.
 - **Sole proprietor risk**: Without an entity, YOUR personal assets are on the line for any lawsuit, data breach, or debt.
 - **Cost**: LLC formation is $100-500 depending on state. Far cheaper than a single lawsuit.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Legal docs created → product is launch-ready
+- If payment processing involved → consider `finance-ops`
+- If handling EU users → ensure GDPR compliance is in `infra-ops` (data deletion, etc.)

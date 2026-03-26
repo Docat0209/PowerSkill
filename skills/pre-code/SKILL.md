@@ -69,3 +69,8 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 ## All Clear
 
 Once every box is checked, proceed with implementation. Reference the issue number in commits using Conventional Commits format: `<type>: <description> (#issue)`
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- No issue exists → invoke `issue-create`
+- Implementation complete → invoke `self-review`

@@ -214,3 +214,13 @@ Submit to every relevant directory: Product Hunt, AlternativeTo, G2, Capterra, S
 Only pursue partnerships where the partner's audience is your target user. "They're big" is not a reason to partner. Before committing time, verify: (1) their users have the problem you solve, (2) there's a natural integration point or shared workflow, (3) the partnership is mutually beneficial, not one-sided.
 
 Store active partnerships and their performance in **Knowledge Graph MCP** with: partner name, type (integration/affiliate/co-marketing/listing), date started, and referral metrics.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Biggest drop-off identified → invoke the relevant skill to fix it:
+  - Acquisition problem → `community-engage` or `content-create`
+  - Activation problem → `product-eval` (FTUE dimension)
+  - Retention problem → `support-ops` (churn prevention)
+  - Revenue problem → `finance-ops` (pricing) or `sales-close`
+  - Referral problem → `copy-craft` (referral copy)
+- First paying customer achieved → consider `support-ops` and `legal-guard`

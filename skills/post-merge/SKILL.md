@@ -44,3 +44,10 @@ Skipping any step is a process failure, not a shortcut.
 ## Reminder
 
 All four steps. Every merge. No shortcuts. If you skip branch cleanup today, you will have 50 stale branches next month. If you skip verification, you will ship broken features. The process exists because it works.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Feature complete (all issues closed) → invoke `product-eval` for quality scoring
+- First deployment ever → consider `infra-ops` for monitoring
+- First users expected → consider `support-ops` for support setup
+- Need legal docs before launch → consider `legal-guard`

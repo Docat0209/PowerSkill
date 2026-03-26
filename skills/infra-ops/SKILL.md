@@ -111,3 +111,9 @@ Define targets early, revisit quarterly:
 | **Monthly** | Test backup restore, review access logs, update dependencies, check infrastructure costs |
 | **Quarterly** | Full security audit, DR drill (test restore to new environment), review RTO/RPO targets, infrastructure cost optimization |
 | **Annually** | Rotate all credentials/API keys, review and update incident response plan, evaluate monitoring stack |
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Monitoring set up → normal development flow continues
+- Incident occurred → after resolution, consider `data-decide` to analyze impact
+- Security audit done → consider `legal-guard` for compliance documentation

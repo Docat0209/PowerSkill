@@ -128,3 +128,8 @@ After 7 days, review performance across all platforms:
 - What was the engagement rate (engagement / views) per platform?
 - Were there comments or questions that suggest follow-up content?
 - Update the Knowledge Graph with findings to inform future distribution decisions.
+
+## Next Steps
+After completing this skill, consider whether these are needed:
+- Content distributed → consider `growth-track` to measure performance
+- Need community engagement beyond content → consider `community-engage`
