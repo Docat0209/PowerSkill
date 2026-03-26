@@ -1,13 +1,14 @@
 #!/bin/bash
-# UserPromptSubmit hook: lightweight skill gate reminder (~50 tokens).
-# Fires before Claude processes each user message.
+# UserPromptSubmit hook: forces visible skill evaluation before every task.
 # Exit 0 = non-blocking, output injected as system context.
 
 cat <<'EOF'
-SKILL GATE: Before acting, check which skills apply:
-1. EVALUATE — scan the skill list, decide which are relevant (YES/NO)
-2. ACTIVATE — invoke relevant skills with Skill(name) before implementation
-3. WORK — only after activation, proceed
+SKILL GATE — you MUST evaluate skills before working. Output your evaluation visibly.
 
-Skip evaluation only for pure conversation (no code, no git, no decisions).
+Step 1: State which skills are relevant (skill-name: YES/NO + one-line reason).
+        Only list YES skills. If none match, state "No skills matched" and proceed.
+Step 2: For each YES, invoke Skill(name) before doing any work.
+Step 3: Only after Step 2, proceed with the task.
+
+Skip ONLY for pure conversation (no code, no git, no decisions, no business).
 EOF
