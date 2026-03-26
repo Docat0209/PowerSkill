@@ -90,6 +90,8 @@ Never rely solely on training data for best practices. The web is your verificat
 - Hooks block dangerous git operations (force push, reset --hard, clean -f, --no-verify). Do not attempt to bypass them.
 
 ## Skill Gate Protocol
+A UserPromptSubmit hook reminds you to evaluate and activate skills before every task.
+When you see the SKILL GATE prompt: evaluate → activate → work. Do not skip activation.
 Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE performing the action:
 - Before writing code → invoke `pre-code`
 - Before `gh issue create` → invoke `issue-create`
