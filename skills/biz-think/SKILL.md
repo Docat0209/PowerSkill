@@ -11,101 +11,126 @@ Before starting: retrieve any prior `BusinessDecision` entities from Knowledge G
 
 ---
 
-## Phase 1: Industry Position (Porter's Value Chain)
+## Phase 0: Reality Check — Who Are We?
 
-**Core question:** "Where in the value chain do we sit, and does this position allow us to capture revenue?"
+State this upfront in every analysis: **We have no audience, no brand, no capital.** This constrains everything.
 
-**Framework source:** Michael Porter, *Competitive Advantage* (1985) — Value Chain Analysis
+Our advantages:
+- AI-powered development speed (10x a normal solo dev)
+- Near-zero build cost (time + API fees only)
+- Ability to experiment fast and kill losers without sunk-cost pain
 
-Checklist:
-- [ ] Map the full industry chain: who creates input -> who builds -> who distributes -> who serves end user. Where are WE?
-- [ ] Classify our position: infrastructure (low margin, high scale), platform (medium margin, network effects), or end-user tool (higher margin, direct relationship)?
-- [ ] Disintermediation risk: can suppliers go direct to our customers? Can customers build this themselves?
-- [ ] Decide: integrate vertically or specialize in one slice? (Solo devs: almost always specialize)
-
-Output: one sentence stating our value chain position and why it can capture revenue.
+Every decision below must be evaluated through this lens. Skip strategies that require fame, funding, or a team.
 
 ---
 
-## Phase 2: Revenue Source (Lean Canvas + JTBD + Van Westendorp)
+## Phase 1: Idea Filter — The 5 Viability Tests
 
-**Core question:** "Who specifically pays, what job do they hire us for, and at what price?"
+Every product idea must pass ALL 5. If any fails, pivot or kill.
 
-**Framework sources:** Ash Maurya, *Running Lean* (Lean Canvas); Clayton Christensen, *Competing Against Luck* (JTBD); Peter Van Westendorp, Price Sensitivity Meter (1976)
+### 1. OpenAI Test
+If OpenAI shipped this feature inside ChatGPT tomorrow for free, would we still exist? If the answer is no, it's a wrapper, not a product. Wrappers die when the platform expands. (Source: Andrew Chen, a16z — "The Commoditization Trap")
 
-Checklist:
-- [ ] State the Job to Be Done in customer language: "When I [situation], I want to [motivation], so I can [outcome]"
-- [ ] What do they currently "hire" for this job? What gets "fired" when they hire us?
-- [ ] 4 Forces of Progress: Push (dissatisfaction) + Pull (attraction) must outweigh Anxiety (switching fear) + Inertia (habit)
-- [ ] Unit economics: price per customer per month minus cost to serve. Is it positive?
-- [ ] Emotional dimension: what does completing this job make the customer FEEL?
+### 2. Moat Test
+Does this product accumulate something competitors can't easily copy? Rate each:
+- **Proprietary data from usage** — user-generated, not public data
+- **Integration depth** — embedded in workflows, high switching cost
+- **Domain expertise baked into product logic** — not just prompting an LLM
+- **Network effects** — value increases with more users
 
-Output: customer segment, JTBD statement, price point, and unit economics estimate.
+If all are "None" → kill the idea.
 
----
+### 3. Market Proof Test
+Are competitors already making money in this space? Search for: existing products, their pricing, their revenue (use SimilarWeb, store rankings, public revenue data). No competitors making money = no validated demand. Competitors making money = proven market.
 
-## Phase 3: Distribution (Channel-Product Fit + Indie Hacker Validation)
+### 4. Wow Test
+Would this make someone say "holy shit" on Product Hunt? Clarity in first second, specific outcome, visually demonstrable. If you can't describe what it does in 6 words, it's not clear enough.
 
-**Core question:** "How do users find us, and can we get a stranger to pay within 30 days?"
-
-**Framework sources:** Brian Balfour, Channel-Product Fit (Reforge); Rob Walling, *Start Small, Stay Small* (indie validation)
-
-Checklist:
-- [ ] Pick ONE primary channel for 90 days: SEO, Product Hunt, community (Reddit/HN), app marketplace, or PLG (freemium)
-- [ ] Channel economics: CAC < 1/3 of LTV?
-- [ ] Channel-product fit: SEO works when people search for solutions, communities when problem is discussed publicly, PLG when product demos value instantly
-- [ ] Build distribution INTO the product: shareable outputs, "powered by" badges, referral mechanics
-- [ ] Acid test: can you get 10 paying customers from this channel in 30 days?
-
-Output: primary channel, CAC/LTV ratio, and the specific 30-day acquisition plan.
+### 5. AI Cost Advantage Test
+Can we build this to a quality that would normally require a $200K/year team, for under $1K/month in operating costs? If yes, our pricing can undercut everyone while maintaining margins. If no, we have no structural advantage.
 
 ---
 
-## Phase 4: Competitive Advantage (5 Moat Types)
+## Phase 2: Success Decomposition — Why Do Successful Products Win?
 
-**Core question:** "Why can't someone copy this in a weekend?"
+Before building, analyze 3 successful products in the target space. For EACH one, decompose:
 
-**Framework source:** Hamilton Helmer, *7 Powers* (2016) — adapted to 5 moat types for early-stage
+```
+Product: [name]
+Revenue: [verified number or estimate]
+WHY it succeeds — separate the components:
+  - Product quality factor: [1-5] (is the product itself excellent?)
+  - Distribution factor: [1-5] (does the founder have fame/audience/partnerships?)
+  - Timing factor: [1-5] (did they catch a wave?)
+  - Luck factor: [1-5] (right place right time, viral moment?)
 
-Rate each moat type (None / Weak / Strong) with feasibility notes:
+Can WE replicate each factor?
+  - Product quality: [yes/no — we can build]
+  - Distribution: [yes/no — do we have their audience? If no, this is the gap]
+  - Timing: [yes/no — is the wave still rising?]
 
-1. **Network Effects** — hard initially, but data network effects are achievable
-2. **Switching Costs** — achievable: customization, data lock-in, integrations, learned habits
-3. **Scale Economics** — natural for software: marginal cost approaches 0
-4. **Brand** — buildable: micro-niche category ownership, build in public
-5. **IP/Proprietary Tech** — domain expertise, unique datasets, hard-to-replicate algorithms
+CONCLUSION: Which factors are replicable and which are not?
+```
 
-Rules:
-- At day 1: moat = speed + focus. Build switching costs deliberately from the start.
-- Quarterly audit: could someone rebuild this in a weekend? If yes, no moat.
+**Key rule:** If a product succeeds primarily because the founder is famous (distribution factor = 5), we CANNOT replicate their success by copying their product. We need a different distribution strategy.
 
-Output: strongest moat type, how to build it in 90 days, and the weekend-rebuild honest assessment.
+**Second key rule:** Open-source popularity ≠ monetizability. Free GitHub stars do not prove willingness to pay. Always ask: "Would this person's COMPANY pay for this?" not "Would a developer star this?"
 
 ---
 
-## Phase 5: Validation (Sean Ellis PMF Survey + AARRR Pirate Metrics)
+## Phase 3: Revenue Model — Follow the Money
 
-**Core question:** "Do real users consider this a must-have, and where is the funnel leaking?"
+Answer these in order:
+1. **Who is the buyer?** Not "developers" — specific: "DevOps engineers at 50-200 person SaaS companies"
+2. **What job do they hire us for?** JTBD format: "When I [situation], I want to [motivation], so I can [outcome]"
+3. **What do they currently use?** Every job is already being done somehow
+4. **Why would they switch?** Push (dissatisfaction) + Pull (attraction) must exceed Anxiety (switching fear) + Inertia (habit)
+5. **What price?** Anchor against what they pay now, not what you think is fair. If they pay $0 now, you need extraordinary pull.
+6. **Unit economics:** Revenue per customer/month minus cost to serve. Must be positive.
 
-**Framework sources:** Sean Ellis, PMF Survey (2010); Dave McClure, AARRR Pirate Metrics (2007)
+---
 
-Checklist:
-- [ ] Sean Ellis test: "How would you feel if you could no longer use this?" — target 40%+ "very disappointed"
-- [ ] AARRR funnel: Acquisition -> Activation -> Retention -> Revenue -> Referral. Find biggest drop-off, fix it first.
-- [ ] Define YOUR "aha moment" — the single action correlating with long-term retention
-- [ ] Optimize retention before acquisition (do not pour into a leaky bucket)
+## Phase 4: Distribution — Zero-Audience Playbook
 
-Output: current PMF score (or expected), biggest funnel gap, and the one metric to fix first.
+Since we have no fame and no money, our ONLY viable channels are:
+
+| Channel | How | Timeline | Cost |
+|---|---|---|---|
+| **Community embedding** | 20 min/day in 5-8 relevant subreddits/Discord/Slack. Help, don't pitch. | 3-6 weeks to first customer | $0 |
+| **Product Hunt launch** | 50-120 hours prep. Self-hunt. Focus on comment quality, not upvote count. | Single launch event | $0 |
+| **Product-led growth** | Free tier that demonstrates value instantly. Built-in sharing mechanics. | Ongoing | $0 |
+| **SEO / comparison pages** | "[Competitor] alternative" pages. Target long-tail keywords. | 3-6 months to compound | $0 |
+
+Channels that DON'T work for us:
+- Paid ads (no money)
+- Influencer partnerships (no connections)
+- Enterprise sales (no credibility)
+- Content marketing to 0 followers (no audience)
+
+**Acid test:** Can we get 10 PAYING customers from our chosen channel in 30 days?
+
+---
+
+## Phase 5: Funding Path (if needed)
+
+If the product validates but needs capital to scale:
+
+| Option | Stage Required | Best For |
+|---|---|---|
+| **Entrepreneur First** | Pre-idea, solo founder OK | Finding co-founder + initial capital |
+| **Antler** | Pre-idea to early | Solo founders, multiple global locations |
+| **TinySeed** | Post-revenue B2B SaaS | Bootstrappers who want to stay bootstrapped |
+| **Earnest Capital** | Post-launch | Founders who want optionality |
+
+Do NOT apply before having traction. Even 5-10 passionate users substitute for fame.
 
 ---
 
 ## Acid Test
 
-> If you cannot answer "where does the money come from" in ONE sentence — naming the **specific customer**, the **specific job**, the **specific price**, and the **specific channel** — you do not have a business model yet.
+> "[Customer] pays [price] via [channel] because we [job fulfilled] better than [current alternative], and they can't easily switch because [moat]."
 
-Format the answer as: "[Customer] pays [price] via [channel] because we [job fulfilled]."
-
-If this sentence cannot be completed, state what is missing and what must be validated next.
+If this sentence cannot be completed → do NOT start coding. Iterate on the model.
 
 ---
 
@@ -113,22 +138,21 @@ If this sentence cannot be completed, state what is missing and what must be val
 
 Store these entities in Knowledge Graph MCP:
 - `BusinessDecision`: the acid test sentence, date, and context
-- `ValueChainPosition`: phase 1 output
-- `RevenueModel`: phase 2 output (customer, JTBD, price, unit economics)
-- `DistributionPlan`: phase 3 output (channel, CAC/LTV, 30-day plan)
-- `MoatAssessment`: phase 4 output (moat type, 90-day build plan)
-- `ValidationStatus`: phase 5 output (PMF score, funnel gap, priority metric)
+- `IdeaFilter`: which of the 5 tests passed/failed, with reasoning
+- `SuccessDecomposition`: analysis of 3 competitors with factor ratings
+- `RevenueModel`: buyer, JTBD, price, unit economics
+- `DistributionPlan`: channel, 30-day plan, 10-customer target
 
 Link all entities to the relevant project entity for future retrieval.
 
-## Next Steps — Handoff to Development
+## Handoff to Development
 
-If the acid test passes (one-sentence answer exists):
+If acid test passes:
 1. Break the validated idea into MVP scope — the smallest set of features that test the core JTBD
 2. Create GitHub issues for each MVP feature using `issue-create` skill
 3. Proceed to `pre-code` → normal development flow
 4. After MVP ships, invoke `product-eval` to score from user perspective
 
-If the acid test fails:
-- Do NOT start coding. Iterate on the business model until the acid test passes.
-- Re-run phases with gaps. Store revised decisions in Knowledge Graph.
+If acid test fails:
+- Do NOT start coding. Invoke `biz-validate` to enter the validation loop.
+- `biz-validate` will cycle through hypothesize → experiment → learn → pivot until the model is validated or killed.

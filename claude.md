@@ -40,7 +40,6 @@ The main agent's ONLY jobs:
 - Boring tech first — ~3 innovation tokens per company, spend only on your differentiator (McKinley, 2015)
 - Consumer perspective first — every decision starts with "what would the user think?"
 - Don't build for 1000 users when you have 0
-
 - Minimal dependencies — justify every new one
 
 ## Thinking Protocol
@@ -104,6 +103,7 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - When evaluating search results or dependencies → invoke `search-eval`
 - When initializing a new project → invoke `project-init`
 - When deciding what to build or evaluating business viability → invoke `biz-think`
+- When biz-think acid test fails or need to validate assumptions → invoke `biz-validate`
 - After feature complete, to evaluate product quality from user perspective → invoke `product-eval`
 - When product-eval score < 70 or user requests iteration → invoke `iterate-loop`
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
