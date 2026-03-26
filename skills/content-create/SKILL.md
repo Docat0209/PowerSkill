@@ -1,9 +1,15 @@
 ---
 name: content-create
-description: "Creates platform-optimized content from customer perspective. Triggers ONLY when: user asks to create content, write an article, or prepare marketing material for a specific platform. Do NOT trigger when: writing code documentation, README files, or technical docs."
+description: "Creates VALUE content: blog posts, tutorials, articles, educational material, onboarding/lifecycle emails. Goal = build trust and attract audience. Triggers ONLY when: user asks to create content, write an article, or prepare educational material. Do NOT trigger when: writing code documentation, README files, landing page copy, or ad copy."
 ---
 
 # Content Creation SOP
+
+## Boundary
+
+**This skill (content-create)** = VALUE content. Goal is to build trust and attract audience. Covers: blog posts, tutorials, articles, educational material, onboarding email sequences (welcome, activation, value delivery, social proof), and platform-specific content.
+
+**Not this skill — use `copy-craft` instead** for CONVERSION copy: landing pages, CTAs, ad copy, microcopy, sales/upgrade/win-back emails. Goal there is to get someone to ACT.
 
 ## Step 1: Identify the Customer's Question
 
@@ -17,6 +23,19 @@ Prioritize the **Big 5** content types:
 5. **Reviews** — "Is X worth it?" "Honest review of X"
 
 Action: Ask the user what question they want to answer. If unclear, search the web for common questions in the target niche using forums, Reddit, Quora, and "People Also Ask" on Google.
+
+## Step 1b: Onboarding & Lifecycle Email Sequences
+
+For email sequences that educate and build trust (not sell), use this structure (source: Encharge, HubSpot):
+
+| Email | Timing | Purpose | Subject line rule |
+|-------|--------|---------|-------------------|
+| Welcome | Instant | Confirm signup, set expectations, one quick-win action | Use their name + what they just did |
+| Activation | Day 1 | Guide to first meaningful action (Time to First Value) | Verb + specific outcome ("Create your first X") |
+| Value delivery | Day 3 | Show what's possible, share a power-user tip | Question format ("Did you know you can...?") |
+| Social proof | Day 7 | Customer story with specific results | Name-drop or result number in subject |
+
+For upgrade/sales/win-back emails, use `copy-craft`.
 
 ## Step 2: Choose Platform and Format
 

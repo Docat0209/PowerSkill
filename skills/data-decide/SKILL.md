@@ -1,9 +1,15 @@
 ---
 name: data-decide
-description: "Designs analytics, interprets data, and runs A/B tests. Triggers ONLY when: user asks to set up analytics, interpret metrics, design an A/B test, or make a data-driven decision. Do NOT trigger during development or casual metric discussion."
+description: "Data analyst: HOW to interpret data and make decisions (event taxonomy, cohort analysis, A/B test statistical rigor, vanity vs actionable metrics, decision frameworks). Triggers ONLY when: user asks to set up analytics, interpret metrics, design an A/B test, or make a data-driven decision. Do NOT trigger during development or casual metric discussion."
 ---
 
 # Data-Decide SOP
+
+## Boundary
+
+**This skill (data-decide)** = HOW to interpret data. The data analyst: event taxonomy design, cohort analysis methodology, A/B test statistical rigor, vanity vs actionable metric evaluation, and decision frameworks for acting on data.
+
+**Not this skill — use `growth-track` instead** for WHAT to track: AARRR funnel metrics, North Star metric definition, budget management, experiment design templates, and weekly growth reports.
 
 ## 1. Event Taxonomy
 

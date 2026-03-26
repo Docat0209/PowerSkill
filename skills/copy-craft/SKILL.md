@@ -1,9 +1,15 @@
 ---
 name: copy-craft
-description: "Writes conversion-optimized copy for landing pages, emails, and ads. Triggers ONLY when: user asks to write landing page copy, email sequences, ad copy, or optimize conversion text. Do NOT trigger when: writing documentation, README, or technical content."
+description: "Writes CONVERSION copy: landing pages, CTAs, sales/upgrade emails, ad copy, microcopy. Goal = get someone to ACT. Triggers ONLY when: user asks to write landing page copy, sales emails, ad copy, or optimize conversion text. Do NOT trigger when: writing documentation, README, blog posts, or educational content."
 ---
 
 # Copy Craft SOP
+
+## Boundary
+
+**This skill (copy-craft)** = CONVERSION copy. Goal is to get someone to ACT (sign up, buy, upgrade, click). Covers: landing pages, CTAs, ad copy, microcopy (buttons, errors, empty states), sales emails, and upgrade/win-back emails.
+
+**Not this skill — use `content-create` instead** for VALUE content: blog posts, tutorials, articles, educational material, onboarding/lifecycle email sequences. Goal there is to build trust and attract audience.
 
 ## 1. Headline Formulas
 
@@ -31,23 +37,22 @@ Follow this proven section order (source: CopyHackers, BigFive):
 6. **Objection handling** — FAQ section addressing top 3-5 concerns: price, security, switching cost, support.
 7. **Final CTA** — Restate the value prop, repeat the primary CTA. Add a risk reversal (free trial, money-back guarantee).
 
-## 3. Email Sequences
+## 3. Sales & Conversion Emails
 
-Structure for SaaS onboarding (source: Encharge, ProsperStack, HubSpot):
+Emails whose goal is to get the reader to ACT (upgrade, buy, re-engage). For onboarding/lifecycle email sequences that educate and build trust, use `content-create`.
 
+**Upgrade / upsell emails:**
 | Email | Timing | Purpose | Subject line rule |
 |-------|--------|---------|-------------------|
-| Welcome | Instant | Confirm signup, set expectations, one quick-win action | Use their name + what they just did |
-| Activation | Day 1 | Guide to first meaningful action (Time to First Value) | Verb + specific outcome ("Create your first X") |
-| Value delivery | Day 3 | Show what's possible, share a power-user tip | Question format ("Did you know you can...?") |
-| Social proof | Day 7 | Customer story with specific results | Name-drop or result number in subject |
-| Upgrade nudge | Day 14 | Soft pitch, remind what they'd lose without upgrading | Scarcity or loss aversion framing |
+| Upgrade nudge | Trial day 10-14 | Soft pitch, remind what they'd lose without upgrading | Scarcity or loss aversion framing |
+| Feature gate | On limit hit | Show what they're missing on the free plan | Specific feature + outcome |
+| Win-back | 30 days inactive | Re-engage churned users with new value | "We added X since you left" or question format |
 
 Subject line rules:
 - Under 5 words when possible (highest open rates per Encharge data)
 - No ALL CAPS, no clickbait, no misleading previews
 - Personalize with context, not just {first_name}
-- A/B test every subject line; 40%+ open rate is the benchmark for onboarding
+- A/B test every subject line
 
 ## 4. Persuasion Principles (Cialdini)
 

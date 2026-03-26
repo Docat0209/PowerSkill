@@ -14,6 +14,32 @@ Evaluate the product from a real user's perspective. Produce a numerical score a
 2. Use **Playwright MCP** to navigate, interact, and screenshot every screen evaluated.
 3. Adopt the **target user's persona** — their technical level, goals, context. Do NOT evaluate as a developer.
 
+## Phase 0: User Research (before scoring)
+
+Conduct user research BEFORE scoring dimensions. Real user data prevents you from evaluating in a vacuum.
+
+### The Mom Test (Rob Fitzpatrick)
+Never ask "Would you use this?" or "Do you think this is a good idea?" — people lie to be polite. Instead, ask about their life, their problems, their current behavior. Talk about specifics in the past, not hypotheticals about the future. Talk less, listen more.
+
+### 5 Interview Questions That Work
+1. "What's the hardest part about [task this product solves]?"
+2. "Tell me about the last time that happened — walk me through it"
+3. "What have you tried so far to solve it?"
+4. "What don't you love about [their current solution]?"
+5. "If you had a magic wand, what would it do?"
+
+Avoid: generic claims ("I usually..."), future promises ("I would..."), and hypothetical maybes ("I might..."). These are worthless signals.
+
+### Guerrilla Usability Testing
+Give 3-5 users a specific task (e.g., "sign up and create your first project"). Watch silently — do not help. Note where they hesitate, click wrong things, or ask questions. Each confusion point = a usability issue. Sessions should be under 15 minutes. You only need 3-5 participants to surface the most critical problems.
+
+### When to Run User Research
+- **Before product-eval scoring** — use findings to inform dimension scores
+- **After major feature releases** — validate that the feature solves the intended problem
+- **When churn spikes** — exit interviews reveal why users leave
+
+Store all findings in **Knowledge Graph MCP** under entity type `UserResearch` with: date, participant count, method (interview/usability test), and top 3 findings.
+
 ## Dimension 1: Usability (30 points) — Nielsen's 10 Heuristics
 
 Source: Jakob Nielsen, "10 Usability Heuristics for User Interface Design" (1994, updated 2020).
