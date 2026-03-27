@@ -203,6 +203,8 @@ If acid test fails:
 - `biz-validate` will cycle through hypothesize → experiment → learn → pivot until the model is validated or killed.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- After defining pricing → invoke `finance-ops` for pricing psychology and payment setup
-- After choosing distribution channel → consider `community-engage` for community strategy or `content-create` for content strategy
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- After defining pricing → create task: "invoke `finance-ops` — set up pricing psychology and payment processing"
+- After choosing distribution channel → create task: "invoke `community-engage` — develop community engagement strategy" or create task: "invoke `content-create` — develop content strategy for chosen channel"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

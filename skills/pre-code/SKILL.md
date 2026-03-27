@@ -71,6 +71,8 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 Once every box is checked, proceed with implementation. Reference the issue number in commits using Conventional Commits format: `<type>: <description> (#issue)`
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- No issue exists → invoke `issue-create`
-- Implementation complete → invoke `self-review`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- No issue exists → create task: "invoke `issue-create` — create tracking issue before coding"
+- Implementation complete → create task: "invoke `self-review` — review code quality before staging"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

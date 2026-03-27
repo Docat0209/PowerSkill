@@ -70,7 +70,9 @@ After evaluating a dependency or tool, store the decision in Knowledge Graph MCP
 - This prevents re-evaluating the same tool in future conversations.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Dependency approved → continue with implementation
-- Dependency rejected → search for alternatives
-- Tool/library adopted → store decision in Knowledge Graph for future reference
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Dependency approved → create task: "continue implementation with approved dependency"
+- Dependency rejected → create task: "search for alternative dependencies"
+- Tool/library adopted → create task: "store adoption decision in Knowledge Graph for future reference"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

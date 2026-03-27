@@ -72,7 +72,9 @@ Every item must pass before creating the PR:
 - Every PR must leave the system in a working state (Google)
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- PR created with UI changes → invoke `ux-audit` before merge
-- PR created (backend only) → wait for CI, then merge
-- After merge → invoke `post-merge`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- PR created with UI changes → create task: "invoke `ux-audit` — audit visual and functional UX before merge"
+- PR created (backend only) → create task: "wait for CI, then merge PR"
+- After merge → create task: "invoke `post-merge` — run post-merge verification checklist"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

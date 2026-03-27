@@ -46,8 +46,10 @@ Skipping any step is a process failure, not a shortcut.
 All four steps. Every merge. No shortcuts. If you skip branch cleanup today, you will have 50 stale branches next month. If you skip verification, you will ship broken features. The process exists because it works.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Feature complete (all issues closed) → invoke `product-eval` for quality scoring
-- First deployment ever → consider `infra-ops` for monitoring
-- First users expected → consider `support-ops` for support setup
-- Need legal docs before launch → consider `legal-guard`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Feature complete (all issues closed) → create task: "invoke `product-eval` — score product quality from user perspective"
+- First deployment ever → create task: "invoke `infra-ops` — set up monitoring and backups"
+- First users expected → create task: "invoke `support-ops` — set up support system"
+- Need legal docs before launch → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

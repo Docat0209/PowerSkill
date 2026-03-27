@@ -78,7 +78,9 @@ Store project metadata in Knowledge Graph MCP:
 - This enables cross-project pattern retrieval in future conversations.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Project initialized → invoke `pre-code` for first feature
-- If deploying for first time → consider `infra-ops` for monitoring and backup setup
-- If serving users → consider `legal-guard` for ToS and Privacy Policy
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Project initialized → create task: "invoke `pre-code` — begin first feature implementation"
+- If deploying for first time → create task: "invoke `infra-ops` — set up monitoring and backup"
+- If serving users → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

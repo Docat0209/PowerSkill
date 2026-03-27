@@ -123,7 +123,9 @@ Close the loop between support and product (source: general SaaS practice, UserP
 - Benchmark: SaaS average NPS is 30-40. Below 30 means systemic issues.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- High churn detected → invoke `product-eval` to find root cause
-- Common questions identified → invoke `content-create` for knowledge base articles
-- Support tickets reveal bugs → invoke `issue-create`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- High churn detected → create task: "invoke `product-eval` — find root cause of churn through product evaluation"
+- Common questions identified → create task: "invoke `content-create` — write knowledge base articles for common questions"
+- Support tickets reveal bugs → create task: "invoke `issue-create` — create bug issues from support tickets"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

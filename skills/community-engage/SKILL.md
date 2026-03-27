@@ -152,7 +152,9 @@ Use Playwright MCP for:
 - Drafting responses (saved locally, not posted automatically on Reddit/HN)
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Community engaged, leads identified → consider `sales-close` for outreach
-- Community asks questions → consider `content-create` for answering at scale
-- Community growing → consider `growth-track` to track acquisition metrics
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Community engaged, leads identified → create task: "invoke `sales-close` — plan outreach to identified leads"
+- Community asks questions → create task: "invoke `content-create` — create content answering common community questions"
+- Community growing → create task: "invoke `growth-track` — track community acquisition metrics"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

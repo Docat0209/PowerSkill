@@ -121,5 +121,7 @@ Before creating a PR, answer each question. If any answer is "no", go back and f
 **If any check fails, the feature is not ready for PR. Go back and complete it.**
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- All tests pass → invoke `pre-commit` to stage and commit
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- All tests pass → create task: "invoke `pre-commit` — stage and commit changes"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

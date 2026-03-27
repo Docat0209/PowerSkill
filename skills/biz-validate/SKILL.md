@@ -173,7 +173,9 @@ Track which stage you're in:
 **You are almost certainly at Stage 1.** Do not skip to Stage 2 thinking.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- All assumptions validated → invoke `brand-build` to define positioning before building
-- Need to build experiment (landing page) → invoke `copy-craft` for conversion copy
-- Experiment needs distribution → consider `community-engage` or `content-distribute`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- All assumptions validated → create task: "invoke `brand-build` — define positioning before building"
+- Need to build experiment (landing page) → create task: "invoke `copy-craft` — write conversion copy for experiment landing page"
+- Experiment needs distribution → create task: "invoke `community-engage` — distribute experiment to communities" or create task: "invoke `content-distribute` — cross-post experiment content"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

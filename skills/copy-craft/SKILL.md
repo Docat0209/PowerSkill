@@ -103,7 +103,9 @@ Before shipping any copy, verify (source: CopyHackers conversion checklist):
 - [ ] Read it aloud — if it sounds robotic, rewrite in conversational tone
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Landing page written → consider `content-create` for supporting articles
-- Sales emails written → consider `sales-close` for outreach strategy
-- Copy needs A/B testing → consider `data-decide`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Landing page written → create task: "invoke `content-create` — write supporting articles for the landing page"
+- Sales emails written → create task: "invoke `sales-close` — plan outreach strategy using the emails"
+- Copy needs A/B testing → create task: "invoke `data-decide` — design A/B test for copy variants"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

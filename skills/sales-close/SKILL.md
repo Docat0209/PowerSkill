@@ -97,7 +97,9 @@ Constraints that protect your time and sanity:
 - **Ask for referrals** — after every successful close, ask "who else do you know facing this problem?" Warm intros convert 3-5x better than cold outreach.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- First paying customer → consider `support-ops` for support setup
-- Pipeline growing → consider `growth-track` to track revenue metrics
-- Need better sales copy → consider `copy-craft`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- First paying customer → create task: "invoke `support-ops` — set up customer support system"
+- Pipeline growing → create task: "invoke `growth-track` — track revenue and pipeline metrics"
+- Need better sales copy → create task: "invoke `copy-craft` — improve sales conversion copy"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

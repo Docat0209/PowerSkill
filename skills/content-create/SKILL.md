@@ -125,6 +125,8 @@ When publishing to API-allowed platforms (Dev.to, Medium, Hashnode):
 For platforms where automation is NOT allowed (Reddit, HN): draft the content in a local file and instruct the user to post manually.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Content created → invoke `content-distribute` for cross-platform distribution
-- Content about product launch → consider `community-engage` for where to share
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Content created → create task: "invoke `content-distribute` — distribute content across platforms"
+- Content about product launch → create task: "invoke `community-engage` — identify communities to share launch content"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

@@ -178,7 +178,9 @@ Every 3 months, review and update:
 Update Knowledge Graph with any changes and the reasoning behind them.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Brand defined → invoke `project-init` to start building
-- Need landing page → invoke `copy-craft`
-- Ready to start Build in Public → invoke `content-create`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Brand defined → create task: "invoke `project-init` — initialize project and start building"
+- Need landing page → create task: "invoke `copy-craft` — write landing page conversion copy"
+- Ready to start Build in Public → create task: "invoke `content-create` — create first Build in Public content"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

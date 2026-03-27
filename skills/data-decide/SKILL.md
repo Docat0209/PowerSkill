@@ -104,7 +104,9 @@ Data informs, doesn't decide. Use this ladder:
 | Avoid unless necessary | Google Analytics | Privacy tradeoff, complex, overkill for early stage |
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Data shows product issue → invoke `product-eval`
-- Data shows acquisition issue → invoke `growth-track`
-- A/B test designed → track results via `growth-track`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Data shows product issue → create task: "invoke `product-eval` — evaluate product quality based on data findings"
+- Data shows acquisition issue → create task: "invoke `growth-track` — investigate and fix acquisition funnel"
+- A/B test designed → create task: "invoke `growth-track` — track A/B test results and experiment outcomes"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

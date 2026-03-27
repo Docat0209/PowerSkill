@@ -130,6 +130,8 @@ After 7 days, review performance across all platforms:
 - Update the Knowledge Graph with findings to inform future distribution decisions.
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Content distributed → consider `growth-track` to measure performance
-- Need community engagement beyond content → consider `community-engage`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Content distributed → create task: "invoke `growth-track` — measure content performance across platforms"
+- Need community engagement beyond content → create task: "invoke `community-engage` — develop community engagement strategy"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

@@ -180,7 +180,9 @@ Remaining issues (if still < 70):
 - Stop on user-input issues — business decisions, missing credentials require human input
 
 ## Next Steps
-After completing this skill, consider whether these are needed:
-- Score >= 70, product ready for users → consider `copy-craft` for landing page
-- Ready to announce → consider `content-create` for launch content
-- Need to decide what to build next → invoke `roadmap-steer`
+After completing this skill, create tasks for applicable next steps using TaskCreate:
+- Score >= 70, product ready for users → create task: "invoke `copy-craft` — write landing page conversion copy"
+- Ready to announce → create task: "invoke `content-create` — create launch content"
+- Need to decide what to build next → create task: "invoke `roadmap-steer` — prioritize next features"
+
+Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
