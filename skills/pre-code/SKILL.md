@@ -53,6 +53,13 @@ If the issue body contains a **## Commit Plan** or **## Test Plan** section (add
 - [ ] Read the planned test types — cross-reference with Section 6 below. The test plan here should match or refine what work-breakdown decided.
 - [ ] If the plan no longer makes sense after reading the code: update the issue body with the revised plan BEFORE starting implementation. Do not silently diverge.
 
+### Scope Boundaries
+
+Before starting implementation, identify the boundaries of this issue:
+- [ ] List the files that SHOULD be modified for this issue (from Technical Notes or Commit Plan).
+- [ ] During implementation, do NOT modify files outside this list unless strictly necessary. If you must touch an out-of-scope file, note it and justify it.
+- [ ] During debugging, resist the urge to "fix" unrelated code you happen to see. Create a separate issue for it instead.
+
 ## 5. Design Considerations (SOLID + Clean Code + NASA)
 
 - [ ] Design principles have been reviewed for this change.

@@ -74,5 +74,6 @@ After completing this skill, create tasks for applicable next steps using TaskCr
 - First users expected → create task: "invoke `support-ops` — set up support system"
 - Need legal docs before launch → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
 - Release created (main merge) → create task: "verify production deployment is live, then invoke `growth-track` — track release impact on metrics"
+- Milestone complete (all issues in milestone closed) → create task: "invoke `retro` — run milestone retrospective before starting next cycle"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

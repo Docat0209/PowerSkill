@@ -71,7 +71,15 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 
 ---
 
-## Step 6: Verdict
+### 6. Scope Check
+
+- [ ] Run `git diff --stat` — are ALL changed files within the scope identified in pre-code?
+- [ ] If any file was modified that is NOT in the expected scope: justify it or revert it.
+- [ ] Out-of-scope improvements spotted during development belong in new issues, not this PR.
+
+---
+
+## Step 7: Verdict
 
 **If ANY issue was found:**
 1. Fix it immediately — do not proceed with staging or committing
