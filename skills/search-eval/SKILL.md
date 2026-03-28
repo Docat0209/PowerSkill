@@ -71,8 +71,7 @@ After evaluating a dependency or tool, store the decision in Knowledge Graph MCP
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Dependency approved → create task: "continue implementation with approved dependency"
-- Dependency rejected → create task: "search for alternative dependencies"
-- Tool/library adopted → create task: "store adoption decision in Knowledge Graph for future reference"
+- Dependency approved → create task: "resume implementation — return to `pre-code` or calling context"
+- Dependency rejected, need alternative → create task: "re-invoke `search-eval` — evaluate alternative dependency"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

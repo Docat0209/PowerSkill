@@ -75,7 +75,7 @@ Every item must pass before creating the PR:
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
 - PR created with UI changes → create task: "invoke `ux-audit` — audit visual and functional UX before merge"
-- PR created (backend only) → create task: "wait for CI, then merge PR"
+- PR created (backend only) → create task: "wait for CI, merge PR, then invoke `post-merge` — run post-merge verification"
 - After merge → create task: "invoke `post-merge` — run post-merge verification checklist"
 - PR targets `main` (release merge) → create task: "invoke `staging-verify` — verify all changes on staging before merge"
 

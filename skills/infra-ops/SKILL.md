@@ -138,7 +138,7 @@ Define targets early, revisit quarterly:
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Monitoring set up → create task: "continue normal development flow"
+- Monitoring set up → create task: "invoke `pre-code` — resume development with monitoring in place"
 - Incident occurred → create task: "invoke `data-decide` — analyze incident impact with data"
 - Security audit done → create task: "invoke `legal-guard` — create compliance documentation"
 

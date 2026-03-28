@@ -174,7 +174,9 @@ Track which stage you're in:
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- All assumptions validated → create task: "invoke `brand-build` — define positioning before building"
+- All assumptions validated → create task: "invoke `brand-build` — define positioning, then `work-breakdown` to decompose into atomic issues"
+- Kill criteria met (3+ pivots fail) → create task: "invoke `biz-think` — start fresh with a new idea"
+- Validated and project already exists → create task: "invoke `work-breakdown` — decompose validated idea into atomic issues"
 - Need to build experiment (landing page) → create task: "invoke `copy-craft` — write conversion copy for experiment landing page"
 - Experiment needs distribution → create task: "invoke `community-engage` — distribute experiment to communities" or create task: "invoke `content-distribute` — cross-post experiment content"
 

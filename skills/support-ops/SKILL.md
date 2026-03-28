@@ -127,5 +127,6 @@ After completing this skill, create tasks for applicable next steps using TaskCr
 - High churn detected → create task: "invoke `product-eval` — find root cause of churn through product evaluation"
 - Common questions identified → create task: "invoke `content-create` — write knowledge base articles for common questions"
 - Support tickets reveal bugs → create task: "invoke `issue-create` — create bug issues from support tickets"
+- Feature requests from support tickets → create task: "invoke `roadmap-steer` — prioritize feature requests from customers"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

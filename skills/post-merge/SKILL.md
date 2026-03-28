@@ -73,6 +73,6 @@ After completing this skill, create tasks for applicable next steps using TaskCr
 - First deployment ever → create task: "invoke `infra-ops` — set up monitoring and backups"
 - First users expected → create task: "invoke `support-ops` — set up support system"
 - Need legal docs before launch → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
-- Release created (main merge) → create task: "verify production deployment reflects the new release"
+- Release created (main merge) → create task: "verify production deployment is live, then invoke `growth-track` — track release impact on metrics"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

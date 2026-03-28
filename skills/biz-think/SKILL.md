@@ -208,5 +208,7 @@ After completing this skill, create tasks for applicable next steps using TaskCr
 - After defining pricing → create task: "invoke `finance-ops` — set up pricing psychology and payment processing"
 - After choosing distribution channel → create task: "invoke `community-engage` — develop community engagement strategy" or create task: "invoke `content-create` — develop content strategy for chosen channel"
 - Acid test passes → create task: "invoke `work-breakdown` — decompose MVP milestone into atomic issues"
+- Acid test fails → create task: "invoke `biz-validate` — validate riskiest assumption before building"
+- MVP shipped and issues closed → create task: "invoke `product-eval` — score product quality from user perspective"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

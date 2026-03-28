@@ -99,7 +99,7 @@ Store project metadata in Knowledge Graph MCP:
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Project initialized → create task: "invoke `pre-code` — begin first feature implementation"
+- Project initialized → create task: "invoke `work-breakdown` — decompose initial features into atomic issues before coding"
 - If deploying for first time → create task: "invoke `infra-ops` — set up monitoring and backup"
 - If serving users → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
 
