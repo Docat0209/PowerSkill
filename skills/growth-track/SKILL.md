@@ -153,7 +153,7 @@ Next action: [scale it / iterate / kill it / new experiment]
 
 ### Store All Experiments
 
-In Knowledge Graph, store:
+In auto memory (`memory/growth_metrics.md`), store:
 - Experiment name, hypothesis, duration
 - Result (pass/fail)
 - Actual vs expected outcome
@@ -213,7 +213,7 @@ Submit to every relevant directory: Product Hunt, AlternativeTo, G2, Capterra, S
 ### Partnership Qualification
 Only pursue partnerships where the partner's audience is your target user. "They're big" is not a reason to partner. Before committing time, verify: (1) their users have the problem you solve, (2) there's a natural integration point or shared workflow, (3) the partnership is mutually beneficial, not one-sided.
 
-Store active partnerships and their performance in **Knowledge Graph MCP** with: partner name, type (integration/affiliate/co-marketing/listing), date started, and referral metrics.
+Store active partnerships and their performance in auto memory (`memory/partnerships.md`) with: partner name, type (integration/affiliate/co-marketing/listing), date started, and referral metrics.
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:

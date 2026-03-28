@@ -87,7 +87,8 @@ Rules:
 
 ## Step 5: Store and Compare
 
-- Store the retro report in Knowledge Graph MCP for cross-conversation reference
+- Store the retro report in auto memory — write to `memory/retro_learnings.md` and update `MEMORY.md` index with a one-line summary of key action items
+- If a previous retro exists in `memory/retro_learnings.md`, read it first to compare metrics
 - If a previous retro exists, compare: did the action items from last time improve the metrics?
 - Track improvement trends across milestones
 

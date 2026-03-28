@@ -25,7 +25,7 @@ Rules:
 2. Check that the "category" you've chosen is one the target user already understands (don't invent categories)
 3. Verify the "key benefit" is something users actually care about (check forums, reviews, support tickets)
 
-Store the final positioning statement in Knowledge Graph.
+Store the final positioning statement in auto memory (`memory/brand.md`).
 
 ## Section 2: Brand Voice
 
@@ -64,7 +64,7 @@ Before publishing any content, verify:
 - [ ] Avoids all 3 anti-voice qualities
 - [ ] Could be swapped with the reference sentences and feel consistent
 
-Store voice definition in Knowledge Graph.
+Store voice definition in auto memory (`memory/brand.md`).
 
 ## Section 3: Build in Public Strategy
 
@@ -156,7 +156,7 @@ The goal is to convert audience into tribe. This happens through:
 3. Celebrating tribe members' wins (not just your own)
 4. Taking public stances that your tribe agrees with (and that outsiders might not)
 
-## Section 5: Store in Knowledge Graph
+## Section 5: Store in Auto Memory
 
 After completing brand definition, store:
 
@@ -175,7 +175,7 @@ Every 3 months, review and update:
 3. Is the tribe identity resonating? Check engagement rates on tribe-aligned vs generic content.
 4. Are the Build in Public metrics improving? (followers, engagement, referral traffic from social)
 
-Update Knowledge Graph with any changes and the reasoning behind them.
+Update auto memory (`memory/brand.md`) with any changes and the reasoning behind them.
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:

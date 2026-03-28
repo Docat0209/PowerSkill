@@ -124,7 +124,7 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - After milestone complete (all issues closed) → invoke `retro`
 
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
-Knowledge Graph MCP stores learnings across conversations. Sequential Thinking MCP structures multi-step reasoning.
+Auto memory persists learnings across conversations (memory/ directory files + MEMORY.md index). Sequential Thinking MCP structures multi-step reasoning.
 
 ## Engineering Axioms
 These are non-negotiable. Skills enforce the full SOPs at each workflow stage.

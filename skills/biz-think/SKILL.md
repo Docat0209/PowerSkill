@@ -5,9 +5,9 @@ description: "Evaluates business viability for a new product idea. Triggers ONLY
 
 # biz-think: Business Direction Decision Skill
 
-Use Sequential Thinking MCP to work through each phase as a separate thought. Store final decisions in Knowledge Graph MCP under entity type `BusinessDecision`.
+Use Sequential Thinking MCP to work through each phase as a separate thought. Store final decisions in auto memory (`memory/business_decisions.md`).
 
-Before starting: retrieve any prior `BusinessDecision` entities from Knowledge Graph MCP to maintain continuity with past analyses.
+Before starting: read `memory/business_decisions.md` if it exists for continuity with past analyses.
 
 ---
 
@@ -181,7 +181,7 @@ If this sentence cannot be completed → do NOT start coding. Iterate on the mod
 
 ## After Completing
 
-Store these entities in Knowledge Graph MCP:
+Store these decisions in auto memory (`memory/business_decisions.md`) and update `MEMORY.md` index:
 - `BusinessDecision`: the acid test sentence, date, and context
 - `IdeaFilter`: which of the 5 tests passed/failed, with reasoning
 - `SuccessDecomposition`: analysis of 3 competitors with factor ratings

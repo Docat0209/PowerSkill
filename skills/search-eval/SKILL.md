@@ -64,9 +64,9 @@ Before installing any dependency:
 
 ## Learning
 
-After evaluating a dependency or tool, store the decision in Knowledge Graph MCP:
-- Entity: the tool/library name
-- Observation: verdict (adopted/rejected), reason, date, alternatives considered
+After evaluating a dependency or tool, store the decision in auto memory (`memory/dependency_decisions.md`):
+- Tool/library name
+- Verdict (adopted/rejected), reason, date, alternatives considered
 - This prevents re-evaluating the same tool in future conversations.
 
 ## Next Steps
