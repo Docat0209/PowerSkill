@@ -64,6 +64,7 @@ SKILLS=(
   support-ops
   test-gate
   ux-audit
+  work-breakdown
 )
 
 for skill in "${SKILLS[@]}"; do

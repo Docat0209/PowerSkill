@@ -36,15 +36,16 @@ Format: `<type>[scope]: <description>`
 Before every commit, run through ALL of these:
 
 1. **`git diff --staged`** — read every line. Is this ONE logical change?
-2. **Multiple logical changes staged?** → split (unstage with `git reset HEAD <file>`, commit separately).
-3. **Commit message follows format?** Imperative mood, ≤50 chars, correct type?
-4. **Dead code deleted?** (Clean Code: don't comment out code — VCS has the history.)
-5. **No debug statements?** (`console.log`, `print`, `debugger`, `binding.pry`)
-6. **No secrets, `.env` files, or credentials staged?**
-7. **No TODO/FIXME comments left behind?**
-8. **All compiler/linter warnings addressed?** (NASA Rule 10)
-9. **Project still builds and passes tests with this commit?**
-10. **Push immediately after commit** — never accumulate unpushed commits.
+2. **Commit plan alignment?** If the issue body has a `## Commit Plan` section (from `work-breakdown`), verify this commit matches one of the planned commit units. If you're committing something not in the plan, either the plan needs updating or the commit needs splitting.
+3. **Multiple logical changes staged?** → split (unstage with `git reset HEAD <file>`, commit separately).
+4. **Commit message follows format?** Imperative mood, ≤50 chars, correct type?
+5. **Dead code deleted?** (Clean Code: don't comment out code — VCS has the history.)
+6. **No debug statements?** (`console.log`, `print`, `debugger`, `binding.pry`)
+7. **No secrets, `.env` files, or credentials staged?**
+8. **No TODO/FIXME comments left behind?**
+9. **All compiler/linter warnings addressed?** (NASA Rule 10)
+10. **Project still builds and passes tests with this commit?**
+11. **Push immediately after commit** — never accumulate unpushed commits.
 
 ## Splitting Oversized Commits
 
