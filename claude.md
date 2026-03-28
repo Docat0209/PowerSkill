@@ -119,6 +119,7 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - When setting up monitoring, backups, or handling incidents → invoke `infra-ops`
 - When prioritizing features or managing roadmap → invoke `roadmap-steer`
 - When setting up pricing, tracking finances, or handling taxes → invoke `finance-ops`
+- Before merging dev→main (release) → invoke `staging-verify`
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
 Knowledge Graph MCP stores learnings across conversations. Sequential Thinking MCP structures multi-step reasoning.
 
@@ -129,5 +130,5 @@ These are non-negotiable. Skills enforce the full SOPs at each workflow stage.
 - Every commit does exactly one thing (conventional commits format)
 - CI is mandatory from project init — set it up FIRST
 - Full cycle: Issue → Branch → Code+Test → Atomic Commits → PR → UX Audit → Merge → Verify
-- Never merge `dev` → `main` without user approval
+- Never merge `dev` → `main` without passing `staging-verify` (Playwright verification on staging)
 - `main` ← `dev` ← feature branches. No shortcuts.
