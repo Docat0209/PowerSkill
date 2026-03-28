@@ -7,6 +7,24 @@ description: "Enforces GitHub issue quality standards. Triggers ONLY when: about
 
 A one-liner issue body is NEVER acceptable. Every issue must be detailed enough that someone unfamiliar with the project can understand and implement it. Write it once, write it right.
 
+## Granularity Check
+
+Before creating any issue, verify it is atomic enough. An oversized issue defeats the purpose of atomic commits and focused PRs.
+
+**Split required if ANY of these are true:**
+- More than **5 acceptance criteria** — the issue covers too many behaviors
+- Touches more than **3 files** — the change spans too many concerns
+- Would require more than **3 commits** — the work isn't a single logical unit
+- Estimated effort exceeds **4 hours** — too large for one focused session
+
+**How to split an oversized issue:**
+1. Identify the distinct concerns (e.g., API endpoint vs UI component vs database migration)
+2. Each concern becomes its own issue with its own acceptance criteria
+3. Link them with `Depends on #X` or `Blocked by #X`
+4. If the issues share a goal, group them under a single **Milestone**
+
+**If this issue came from `work-breakdown`:** the decomposition was already done upstream. Trust it — do not re-split unless the granularity check clearly fails.
+
 ## Templates by Type
 
 ### Feature (`feat:` prefix)
