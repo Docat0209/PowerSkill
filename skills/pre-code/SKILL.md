@@ -46,6 +46,13 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 - If criteria are vague or missing: **STOP.** Ask the user to clarify before writing code. Do not guess at requirements.
 - If the issue lacks technical notes on approach: confirm the intended approach with the user for non-trivial changes.
 
+### Upstream Plan Check (if from work-breakdown)
+
+If the issue body contains a **## Commit Plan** or **## Test Plan** section (added by the `work-breakdown` skill):
+- [ ] Read the planned commits — these are your implementation roadmap. Each planned commit = one focused coding session.
+- [ ] Read the planned test types — cross-reference with Section 6 below. The test plan here should match or refine what work-breakdown decided.
+- [ ] If the plan no longer makes sense after reading the code: update the issue body with the revised plan BEFORE starting implementation. Do not silently diverge.
+
 ## 5. Design Considerations (SOLID + Clean Code + NASA)
 
 - [ ] Design principles have been reviewed for this change.
