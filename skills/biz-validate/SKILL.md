@@ -135,7 +135,7 @@ Compare results to your XYZ hypothesis threshold:
 
 ## Step 5: UPDATE — Revise the Lean Canvas
 
-After each cycle, update these in Knowledge Graph MCP:
+After each cycle, update these in auto memory (`memory/validation_log.md`):
 - `Experiment`: hypothesis, method, result, date, learning
 - `AssumptionStatus`: which assumptions are now Validated/Invalidated/Untested
 - `LeanCanvas`: updated customer segment, problem, solution, channels, revenue based on learnings
@@ -154,7 +154,7 @@ After each cycle, update these in Knowledge Graph MCP:
 **Exit by killing:**
 - 3+ pivots failed on the same core idea
 - No behavioral evidence of willingness to pay after 3 experiment cycles
-- Store the kill decision and learnings in Knowledge Graph for future reference
+- Store the kill decision and learnings in auto memory (`memory/validation_log.md`)
 
 **Do NOT exit because you're tired of iterating.** Exit only when evidence supports the decision.
 

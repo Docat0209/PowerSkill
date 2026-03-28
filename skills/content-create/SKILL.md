@@ -102,9 +102,9 @@ Before delivering the content, verify ALL of the following:
 
 If any check fails, rewrite the failing section before delivering.
 
-## Step 7: Store in Knowledge Graph
+## Step 7: Store in Auto Memory
 
-After content is created and approved, store:
+After content is created and approved, store in `memory/content_log.md`:
 - Topic and target keyword
 - Platform and format
 - Date created

@@ -34,6 +34,13 @@ Skipping any step is a process failure, not a shortcut.
 - Since we merge to `dev` first, you must close issues manually
 - Only close after Steps 1 and 2 are complete
 
+**Milestone Completion Check:**
+After closing the issue, check if the milestone is now complete:
+1. Get the issue's milestone: `gh issue view NUMBER --json milestone --jq '.milestone.title'`
+2. If a milestone exists, check for remaining open issues: `gh issue list --milestone "MILESTONE_NAME" --state open`
+3. If **0 open issues remain** → this milestone is complete. **Immediately invoke `retro`** — do not wait for the user to ask.
+4. This check is mandatory, not optional. Every closed issue could be the last one in a milestone.
+
 ## Step 4: Delete the Branch
 
 - Local: `git branch -d <branch-name>`

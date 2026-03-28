@@ -126,9 +126,9 @@ Decision rules:
 
 Replace dropped communities with new candidates. Always be testing.
 
-### Step 10: Track in Knowledge Graph
+### Step 10: Track in Auto Memory
 
-Store for each community:
+Store in `memory/communities.md` for each community:
 - Community name, platform, URL
 - Join date
 - Reputation/karma score (updated monthly)

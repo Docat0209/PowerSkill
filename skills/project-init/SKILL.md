@@ -92,9 +92,9 @@ Set up automatic preview deployments for the `dev` branch. This enables automate
 
 ## Learning
 
-Store project metadata in Knowledge Graph MCP:
-- Entity: project name
-- Observations: tech stack, test runner, CI setup, repo URL
+Store project metadata in auto memory (`memory/project_meta.md`):
+- Project name
+- Tech stack, test runner, CI setup, repo URL
 - This enables cross-project pattern retrieval in future conversations.
 
 ## Next Steps

@@ -111,7 +111,7 @@ Adjust based on audience and time zones. Post during each platform's peak hours.
 
 ## Step 6: Track Performance
 
-After publishing on each platform, store in Knowledge Graph:
+After publishing on each platform, store in auto memory (`memory/content_log.md`):
 - Platform name
 - Published URL
 - Date and time published
@@ -127,7 +127,7 @@ After 7 days, review performance across all platforms:
 - Which platform drove the most conversions (not just views)?
 - What was the engagement rate (engagement / views) per platform?
 - Were there comments or questions that suggest follow-up content?
-- Update the Knowledge Graph with findings to inform future distribution decisions.
+- Update auto memory (`memory/content_log.md`) with findings to inform future distribution decisions.
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
