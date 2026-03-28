@@ -114,7 +114,7 @@ Rate each signal 1-5 based on what you observe in the product:
 | 80-89 | B | Ship, minor polish recommended |
 | 70-79 | C | Ship with known issues documented |
 | 60-69 | D | Do NOT ship — fix priority issues first |
-| < 60 | F | Major rework needed — trigger iterate-loop |
+| < 60 | F | Major rework needed — re-run iteration protocol below after fixes |
 
 **Pass threshold: 70/100.** Below 70 → enter the Iteration Protocol below.
 
