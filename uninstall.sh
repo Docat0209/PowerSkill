@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ── PowerSkill Uninstaller ────────────────────────────────────────────
-# Removes only PowerSkill-managed files from ~/.claude/
+# ── SoloForge Uninstaller ────────────────────────────────────────────
+# Removes only SoloForge-managed files from ~/.claude/
 # Does NOT touch CLAUDE.md (user may have customized it)
 # ──────────────────────────────────────────────────────────────────────
 
@@ -24,7 +24,7 @@ header(){ printf "\n%s%s%s\n" "$BOLD" "$1" "$RESET"; }
 
 CLAUDE_DIR="$HOME/.claude"
 
-header "PowerSkill Uninstaller"
+header "SoloForge Uninstaller"
 
 if [ ! -d "$CLAUDE_DIR" ]; then
   error "~/.claude/ directory not found. Nothing to uninstall."
@@ -33,7 +33,7 @@ fi
 
 REMOVED=0
 
-# ── Remove PowerSkill skills ─────────────────────────────────────────
+# ── Remove SoloForge skills ─────────────────────────────────────────
 header "Removing skills..."
 
 SKILLS=(
@@ -60,6 +60,7 @@ SKILLS=(
   sales-close
   search-eval
   self-review
+  staging-verify
   support-ops
   test-gate
   ux-audit
@@ -76,7 +77,7 @@ for skill in "${SKILLS[@]}"; do
   fi
 done
 
-# ── Remove PowerSkill hooks ──────────────────────────────────────────
+# ── Remove SoloForge hooks ──────────────────────────────────────────
 header "Removing hooks..."
 
 HOOKS=(
