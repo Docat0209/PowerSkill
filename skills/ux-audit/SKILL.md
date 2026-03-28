@@ -127,7 +127,7 @@ Use Playwright's `browser_evaluate` to run Performance API calls and measure Cor
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Audit passed → create task: "invoke `post-merge` — merge PR and run post-merge verification"
+- Audit passed → create task: "merge the PR (`gh pr merge`), then invoke `post-merge` — run post-merge verification"
 - Audit failed → create task: "invoke `self-review` — fix UX issues and re-review code"
 - All features merged to dev, ready for release → create task: "invoke `staging-verify` — verify staging before dev→main merge"
 
