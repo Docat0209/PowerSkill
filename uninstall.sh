@@ -56,6 +56,7 @@ SKILLS=(
   pre-pr
   product-eval
   project-init
+  retro
   roadmap-steer
   sales-close
   search-eval

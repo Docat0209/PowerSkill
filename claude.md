@@ -121,6 +121,7 @@ Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE pe
 - After deciding what to build (roadmap-steer/biz-think selected a feature) → invoke `work-breakdown`
 - When setting up pricing, tracking finances, or handling taxes → invoke `finance-ops`
 - Before merging dev→main (release) → invoke `staging-verify`
+- After milestone complete (all issues closed) → invoke `retro`
 
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
 Knowledge Graph MCP stores learnings across conversations. Sequential Thinking MCP structures multi-step reasoning.
