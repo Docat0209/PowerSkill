@@ -194,9 +194,10 @@ Link all entities to the relevant project entity for future retrieval.
 
 If acid test passes:
 1. Break the validated idea into MVP scope — the smallest set of features that test the core JTBD
-2. Create GitHub issues for each MVP feature using `issue-create` skill
-3. Proceed to `pre-code` → normal development flow
-4. After MVP ships, invoke `product-eval` to score from user perspective
+2. Create a GitHub Milestone for the MVP (e.g., "MVP v0.1") with an optional deadline: `gh api repos/{owner}/{repo}/milestones -f title="MVP v0.1" -f due_on="YYYY-MM-DDTHH:MM:SSZ"`
+3. Invoke `work-breakdown` — decompose the milestone into atomic issues with commit plans and test plans, assigned to the milestone
+4. Proceed to `pre-code` for the first issue in dependency order → normal development flow
+5. After MVP ships, invoke `product-eval` to score from user perspective
 
 If acid test fails:
 - Do NOT start coding. Invoke `biz-validate` to enter the validation loop.
@@ -206,5 +207,6 @@ If acid test fails:
 After completing this skill, create tasks for applicable next steps using TaskCreate:
 - After defining pricing → create task: "invoke `finance-ops` — set up pricing psychology and payment processing"
 - After choosing distribution channel → create task: "invoke `community-engage` — develop community engagement strategy" or create task: "invoke `content-create` — develop content strategy for chosen channel"
+- Acid test passes → create task: "invoke `work-breakdown` — decompose MVP milestone into atomic issues"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

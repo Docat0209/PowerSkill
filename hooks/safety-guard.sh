@@ -37,7 +37,7 @@ if echo "$CMD" | grep -qiE 'git clean.*-f'; then
 fi
 
 # --- branch -D (force delete) ---
-if echo "$CMD" | grep -qiE 'git branch -D'; then
+if echo "$CMD" | grep -qE 'git branch -D'; then
   echo "BLOCKED: Use git branch -d (lowercase). -D skips merge checks." >&2
   exit 2
 fi

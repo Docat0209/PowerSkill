@@ -38,18 +38,32 @@ header "Removing skills..."
 
 SKILLS=(
   biz-think
+  biz-validate
+  brand-build
+  community-engage
+  content-create
+  content-distribute
+  copy-craft
+  data-decide
+  finance-ops
+  growth-track
+  infra-ops
   issue-create
-  iterate-loop
+  legal-guard
   post-merge
   pre-code
   pre-commit
   pre-pr
   product-eval
   project-init
+  roadmap-steer
+  sales-close
   search-eval
   self-review
+  support-ops
   test-gate
   ux-audit
+  work-breakdown
 )
 
 for skill in "${SKILLS[@]}"; do
