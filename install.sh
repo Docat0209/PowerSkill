@@ -178,8 +178,8 @@ fi
 
 # ── Recommended MCP servers ──────────────────────────────────────────
 header "Recommended MCP servers (install manually):"
-printf "  claude mcp add knowledge-graph -- npx -y @anthropic-ai/mcp-knowledge-graph\n"
-printf "  claude mcp add sequential-thinking -- npx -y @anthropic-ai/mcp-sequential-thinking\n"
+printf "  claude mcp add knowledge-graph -- npx -y @modelcontextprotocol/server-memory\n"
+printf "  claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking\n"
 printf "  claude mcp add playwright -- npx @playwright/mcp@latest\n"
 
 # ── Summary ──────────────────────────────────────────────────────────
