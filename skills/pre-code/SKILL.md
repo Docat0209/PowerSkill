@@ -9,12 +9,25 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 
 ---
 
+## 0. Skill Invocation Check
+
+- [ ] Was this skill loaded via the `Skill("pre-code")` tool call, not just mentioned in text?
+- [ ] If resuming from a previous session: have you re-evaluated the Skill Gate fresh? Previous invocations do not carry over.
+- [ ] If taking over from a failed sub-agent: you must still complete this full checklist. Changing executor does not bypass process.
+
 ## 1. Issue Check
 
 - [ ] A GitHub issue exists for this work.
 - Run `gh issue list --state open` and confirm a matching issue exists.
 - If NO issue exists: **STOP.** Create one first using the issue-create skill. Do not write code without a tracking issue.
 - Note the issue number for branch naming and PR linking.
+
+## 1.5 Think Before Build
+
+- [ ] Has the core question "should this exist?" been answered BEFORE starting to code?
+- If the issue is for a new product or major feature: **was `biz-think` or `biz-validate` run?** If not, STOP. Don't build something whose existence hasn't been validated.
+- If you're about to spend days coding: step back and ask "is this the highest-value use of time right now?"
+- Building is expensive. Validating is cheap. Always validate first.
 
 ## 2. Branch Check
 
@@ -46,6 +59,20 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 - If criteria are vague or missing: **STOP.** Ask the user to clarify before writing code. Do not guess at requirements.
 - If the issue lacks technical notes on approach: confirm the intended approach with the user for non-trivial changes.
 
+### Upstream Plan Check (if from work-breakdown)
+
+If the issue body contains a **## Commit Plan** or **## Test Plan** section (added by the `work-breakdown` skill):
+- [ ] Read the planned commits — these are your implementation roadmap. Each planned commit = one focused coding session.
+- [ ] Read the planned test types — cross-reference with Section 6 below. The test plan here should match or refine what work-breakdown decided.
+- [ ] If the plan no longer makes sense after reading the code: update the issue body with the revised plan BEFORE starting implementation. Do not silently diverge.
+
+### Scope Boundaries
+
+Before starting implementation, identify the boundaries of this issue:
+- [ ] List the files that SHOULD be modified for this issue (from Technical Notes or Commit Plan).
+- [ ] During implementation, do NOT modify files outside this list unless strictly necessary. If you must touch an out-of-scope file, note it and justify it.
+- [ ] During debugging, resist the urge to "fix" unrelated code you happen to see. Create a separate issue for it instead.
+
 ## 5. Design Considerations (SOLID + Clean Code + NASA)
 
 - [ ] Design principles have been reviewed for this change.
@@ -62,6 +89,7 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 - **Unit tests**: always required. Identify what logic needs unit tests.
 - **Integration tests**: required if the code touches any external service (database, API, auth, storage). If API keys or env vars are needed, ask the user NOW — not after implementation.
 - **E2E tests**: required if the change completes a user-facing flow. Confirm Playwright is set up.
+- **Technical feasibility**: if the feature depends on third-party APIs, verify the API works BEFORE writing code. Run a proof-of-concept call. Check rate limits, TOS, platform restrictions. Do not design around an unverified API.
 - Tests go in the SAME branch and PR as the implementation. Never defer testing to a separate issue.
 
 ---

@@ -99,7 +99,7 @@ When and where to incorporate (source: SaaS Law Firm, general startup practice):
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Legal docs created → create task: "product is launch-ready — proceed with launch preparation"
+- Legal docs created, ready to launch → create task: "invoke `copy-craft` — write launch landing page and conversion copy"
 - If payment processing involved → create task: "invoke `finance-ops` — set up payment processing and pricing"
 - If handling EU users → create task: "invoke `infra-ops` — implement GDPR technical requirements (data deletion, export, etc.)"
 

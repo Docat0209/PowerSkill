@@ -26,7 +26,31 @@ Set up monitoring BEFORE you need it. Three layers, in priority order:
 
 > Source: [CloudEagle SaaS Security Checklist](https://www.cloudeagle.ai/blogs/ultimate-saas-security-checklist), [DesignRevision SaaS Security Checklist](https://designrevision.com/blog/saas-security-checklist)
 
-## 2. Backup Strategy — 3-2-1 Rule
+## 2. Staging/Preview Environments
+
+Staging environments are required for the automated release gate (`staging-verify`). The `dev` branch must auto-deploy to a preview URL.
+
+**Platform Configuration:**
+
+| Platform | How to Enable Dev Preview | Stable Branch URL Pattern |
+|---|---|---|
+| Vercel | Automatic for all branches via Git Integration | `<project>-git-dev-<scope>.vercel.app` |
+| Netlify | Site settings → Branch deploys → add `dev` | `dev--<site-name>.netlify.app` |
+| Railway | Create environment per branch | Custom domain per environment |
+| Render | Dashboard → Preview Environments | `<service>-dev.onrender.com` |
+| Fly.io | Separate `fly.staging.toml` config | Custom staging subdomain |
+
+**Staging must have:**
+- Same monitoring as production (uptime checks, error tracking)
+- Isolated data (separate database, separate API keys)
+- Separate secrets from production
+
+**Troubleshooting:**
+- Not deploying: check platform dashboard and CI/CD logs
+- URL returning 404: verify the build succeeded on the platform
+- Out of date: compare deployed commit with `git rev-parse dev`
+
+## 3. Backup Strategy — 3-2-1 Rule
 
 **3** copies, **2** different media, **1** offsite. Non-negotiable.
 
@@ -41,7 +65,7 @@ Set up monitoring BEFORE you need it. Three layers, in priority order:
 
 > Source: [Cohesity — 3-2-1 Backup Rule](https://www.cohesity.com/glossary/321-backup-rule/), [Rewind — 3-2-1 for SaaS](https://rewind.com/321-backup-rule/)
 
-## 3. Incident Response
+## 4. Incident Response
 
 Follow the NIST framework adapted for solo/small teams:
 
@@ -65,7 +89,7 @@ Follow the NIST framework adapted for solo/small teams:
 
 > Source: [TechTarget — Incident Response Plan](https://www.techtarget.com/searchsecurity/feature/5-critical-steps-to-creating-an-effective-incident-response-plan), [Sygnia — SaaS Incident Response](https://www.sygnia.co/blog/saas-incident-response/)
 
-## 4. Security Checklist
+## 5. Security Checklist
 
 **Transport & access:**
 - [ ] HTTPS everywhere (no mixed content, HSTS enabled)
@@ -87,7 +111,7 @@ Follow the NIST framework adapted for solo/small teams:
 
 > Source: [DesignRevision — SaaS Security Checklist](https://designrevision.com/blog/saas-security-checklist)
 
-## 5. Disaster Recovery
+## 6. Disaster Recovery
 
 Define targets early, revisit quarterly:
 
@@ -103,7 +127,7 @@ Define targets early, revisit quarterly:
 
 > Source: [ATOZDEBUG — Disaster Recovery for SaaS](https://atozdebug.com/disaster-recovery-for-saas/), [MightyID — Optimizing RPO & RTO](https://www.mightyid.com/how-to-optimize-rpo-and-rto-in-disaster-recovery-plans/)
 
-## 6. Maintenance Schedule
+## 7. Maintenance Schedule
 
 | Frequency | Task |
 |---|---|
@@ -114,7 +138,7 @@ Define targets early, revisit quarterly:
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Monitoring set up → create task: "continue normal development flow"
+- Monitoring set up → create task: "invoke `pre-code` — resume development with monitoring in place"
 - Incident occurred → create task: "invoke `data-decide` — analyze incident impact with data"
 - Security audit done → create task: "invoke `legal-guard` — create compliance documentation"
 

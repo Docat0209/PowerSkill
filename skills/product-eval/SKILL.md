@@ -38,7 +38,7 @@ Give 3-5 users a specific task (e.g., "sign up and create your first project"). 
 - **After major feature releases** — validate that the feature solves the intended problem
 - **When churn spikes** — exit interviews reveal why users leave
 
-Store all findings in **Knowledge Graph MCP** under entity type `UserResearch` with: date, participant count, method (interview/usability test), and top 3 findings.
+Store all findings in auto memory (`memory/user_research.md`) with: date, participant count, method (interview/usability test), and top 3 findings.
 
 ## Dimension 1: Usability (30 points) — Nielsen's 10 Heuristics
 
@@ -114,7 +114,7 @@ Rate each signal 1-5 based on what you observe in the product:
 | 80-89 | B | Ship, minor polish recommended |
 | 70-79 | C | Ship with known issues documented |
 | 60-69 | D | Do NOT ship — fix priority issues first |
-| < 60 | F | Major rework needed — trigger iterate-loop |
+| < 60 | F | Major rework needed — re-run iteration protocol below after fixes |
 
 **Pass threshold: 70/100.** Below 70 → enter the Iteration Protocol below.
 
@@ -137,7 +137,7 @@ Priority issues: [top 3 by severity — what to fix first]
 
 ## After Scoring
 
-Store the evaluation result in **Knowledge Graph MCP** with: timestamp, total score, per-dimension scores, grade, and the top 3 priority issues.
+Store the evaluation result in auto memory (`memory/product_scores.md`) with: timestamp, total score, per-dimension scores, grade, and the top 3 priority issues.
 
 ---
 
@@ -158,7 +158,7 @@ When the score is below 70, enter this auto-fix loop. **Max 3 rounds.**
 
 3. **RE-EVALUATE** — Re-run the 4 dimensions above on the updated product. Compare: new score vs previous. Log delta per dimension.
 
-4. **LEARN** — Store in Knowledge Graph MCP: issue fixed, change made, score impact (e.g., "+5 on FTUE"). Builds a reusable knowledge base of high-impact improvements.
+4. **LEARN** — Store in auto memory (`memory/product_scores.md`): issue fixed, change made, score impact (e.g., "+5 on FTUE"). Builds a reusable knowledge base of high-impact improvements.
 
 5. **CHECK** — Score ≥ 70 → exit. Score < 70 AND round < 3 → continue. Round = 3 → exit with remaining issues listed.
 

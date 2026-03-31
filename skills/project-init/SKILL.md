@@ -49,14 +49,34 @@ CI is the foundation that enforces everything else. Set it up FIRST, not last.
 - [ ] Trigger on: push to `dev`, pull requests to `dev` and `main`
 - [ ] Verify CI passes with a test push
 
-## 6. Branch Protection
+## 6. Staging/Preview Environment
+
+Set up automatic preview deployments for the `dev` branch. This enables automated verification via `staging-verify` before releasing to `main`.
+
+- [ ] Detect or choose deployment platform:
+  - **Vercel**: `vercel link` → enable Git Integration → preview deployments deploy automatically for all branches
+  - **Netlify**: `netlify init` → Site settings → Build & deploy → Branch deploys → add `dev`
+  - **Railway**: Create a service → add environment for `dev` branch
+  - **Render**: Create a Preview Environment linked to `dev`
+  - **Self-hosted**: Configure CI/CD to deploy `dev` branch to a staging subdomain
+- [ ] Verify the `dev` branch has a stable preview URL (branch-level, not per-PR)
+- [ ] Document the staging URL in the project's `CLAUDE.md`:
+  ```markdown
+  ## Environments
+  - Production: <main-deploy-url>
+  - Staging: <dev-preview-url>
+  ```
+- [ ] Verify staging deploys automatically on push to `dev`
+- [ ] Smoke test: push a change to `dev`, confirm it appears at the staging URL
+
+## 7. Branch Protection
 
 - [ ] Protect `dev` branch via GitHub API or UI:
   - Require status checks to pass (CI workflow)
   - Require PR reviews (optional for solo projects)
 - [ ] Verify protection works: a failing PR should be blocked
 
-## 7. Project CLAUDE.md
+## 8. Project CLAUDE.md
 
 - [ ] Create `CLAUDE.md` in project root with:
   - Project description and tech stack
@@ -72,14 +92,14 @@ CI is the foundation that enforces everything else. Set it up FIRST, not last.
 
 ## Learning
 
-Store project metadata in Knowledge Graph MCP:
-- Entity: project name
-- Observations: tech stack, test runner, CI setup, repo URL
+Store project metadata in auto memory (`memory/project_meta.md`):
+- Project name
+- Tech stack, test runner, CI setup, repo URL
 - This enables cross-project pattern retrieval in future conversations.
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Project initialized → create task: "invoke `pre-code` — begin first feature implementation"
+- Project initialized → create task: "invoke `work-breakdown` — decompose initial features into atomic issues before coding"
 - If deploying for first time → create task: "invoke `infra-ops` — set up monitoring and backup"
 - If serving users → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
 

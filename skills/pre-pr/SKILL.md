@@ -23,9 +23,10 @@ Every item must pass before creating the PR:
    - Run `git status` — confirm nothing unpushed
    - Never create a PR with local-only commits
 
-2. **PR targets `dev` branch (NEVER directly to `main`)**
-   - The only PRs to `main` are release merges from `dev`, approved by the user
-   - If you are about to target `main`, STOP and ask the user
+2. **PR targets the correct branch**
+   - Feature/fix PRs target `dev` — never directly to `main`
+   - Release PRs (`dev` → `main`) are allowed ONLY after `staging-verify` passes with all changes verified
+   - If targeting `main` without staging verification: STOP and run `staging-verify` first
 
 3. **PR links to issue**
    - Include `Closes #NUMBER` or `Fixes #NUMBER` in the PR body
@@ -67,14 +68,15 @@ Every item must pass before creating the PR:
 
 ## Critical Rules
 
-- Never merge `dev` → `main` without explicit user approval
+- Never merge `dev` → `main` without passing `staging-verify` (Playwright verification on staging environment)
 - Never force-push to a shared PR branch after review has started
 - Every PR must leave the system in a working state (Google)
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
 - PR created with UI changes → create task: "invoke `ux-audit` — audit visual and functional UX before merge"
-- PR created (backend only) → create task: "wait for CI, then merge PR"
+- PR created (backend only) → create task: "wait for CI, merge PR, then invoke `post-merge` — run post-merge verification"
 - After merge → create task: "invoke `post-merge` — run post-merge verification checklist"
+- PR targets `main` (release merge) → create task: "invoke `staging-verify` — verify all changes on staging before merge"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

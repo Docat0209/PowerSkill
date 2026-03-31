@@ -27,6 +27,29 @@ Score every feature request. Highest RICE score = build next.
 
 > Source: [Intercom — RICE Prioritization](https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/), [ProductPlan — RICE Scoring Model](https://www.productplan.com/glossary/rice-scoring-model/)
 
+## 1.5 Milestone Creation
+
+Once RICE scoring identifies the next feature to build, create a GitHub Milestone before any code is written.
+
+**Milestone name:** use a descriptive feature name that communicates scope at a glance.
+- Good: "CSV Export", "User Dashboard v1", "Webhook Delivery Retry"
+- Bad: "Sprint 3", "Next feature", "Q2 work"
+
+**Optional deadline:** derive from the Effort estimate in your RICE score. A 2-week effort estimate maps to a deadline 2 weeks from today. If confidence is below 80%, add a 25% buffer.
+
+**Create the milestone via GitHub API:**
+```bash
+gh api repos/{owner}/{repo}/milestones \
+  --method POST \
+  --field title="CSV Export" \
+  --field description="Allow users to export their data as a CSV file" \
+  --field due_on="2026-04-11T00:00:00Z"
+```
+
+Replace `{owner}` and `{repo}` with your actual values. Omit `due_on` if effort confidence is low.
+
+**After creating the milestone:** invoke `work-breakdown` to decompose it into atomic GitHub issues, each scoped to a single unit of work that can be completed and reviewed independently.
+
 ## 2. Saying No to Feature Requests
 
 Most requests won't make it. Have a framework, not an apology.
@@ -114,7 +137,7 @@ A 12-month roadmap is fiction for an early-stage product. Plan 6 weeks in detail
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Next feature decided → create task: "invoke `pre-code` — start implementation of prioritized feature"
+- Next feature decided → create task: "invoke `work-breakdown` — decompose milestone into atomic issues before coding"
 - Feature request from community → create task: "invoke `community-engage` — respond to community feature request"
 - Deprioritized request → create task: "invoke `support-ops` — communicate deprioritization to requester"
 

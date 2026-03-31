@@ -64,15 +64,38 @@ Before installing any dependency:
 
 ## Learning
 
-After evaluating a dependency or tool, store the decision in Knowledge Graph MCP:
-- Entity: the tool/library name
-- Observation: verdict (adopted/rejected), reason, date, alternatives considered
+After evaluating a dependency or tool, store the decision in auto memory (`memory/dependency_decisions.md`):
+- Tool/library name
+- Verdict (adopted/rejected), reason, date, alternatives considered
 - This prevents re-evaluating the same tool in future conversations.
+
+## Research Anti-Patterns
+
+Proven failure patterns in research. Check for ALL of these during every research task.
+
+**Unverified Data**
+- Never cite a claim without checking the original source. A blog post citing a blog post is not a source. Find the actual person, the actual data, the actual context.
+- When a claim seems too good to be true ("launched to $X with no audience"), verify the full picture. Often the person had a pre-existing network, audience, or unfair advantage not mentioned in the summary.
+- **Rule:** One source = unverified. Period. Don't cite it as fact. Three independent sources = potentially reliable.
+
+**SEO Content Disguised as Research**
+- Listicle articles ("Top N [category] Ideas") exist to generate search traffic, not to inform. They are written by SEO specialists, not domain experts.
+- **Rule:** Check the author's credibility. Do they have direct experience with what they recommend? If their business model is "writing content for traffic," the advice is unreliable.
+- **Red flags:** numbered lists of ideas without data, generic advice applicable to any domain, no specific metrics or sources cited.
+
+**Survivorship Bias**
+- Searching for success stories only shows winners. You never see the majority that failed or earned nothing.
+- **Rule:** For every success story, actively search for failure data. Search "[topic] failed" or "[topic] shut down" or "[category] failure rate."
+- **Rule:** Always look up base rates. What percentage of products in this category earn meaningful revenue? Your default assumption should be the base rate, not the outlier.
+
+**Surface-Level Validation**
+- Knowing a product's revenue number is not validation. If you haven't looked at what the product actually does, how it's priced, what users say about it, and what the UX feels like, you know nothing meaningful.
+- **Rule:** For every product you cite as a comparable, you MUST visit the actual product. Navigate it. Read the pricing page. Check reviews.
+- **Check:** Can you describe the product's UX, pricing tiers, and one specific user complaint? If not, your "research" is incomplete.
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Dependency approved → create task: "continue implementation with approved dependency"
-- Dependency rejected → create task: "search for alternative dependencies"
-- Tool/library adopted → create task: "store adoption decision in Knowledge Graph for future reference"
+- Dependency approved → create task: "resume implementation — return to `pre-code` or calling context"
+- Dependency rejected, need alternative → create task: "re-invoke `search-eval` — evaluate alternative dependency"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

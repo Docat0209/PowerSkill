@@ -3,6 +3,8 @@ name: ux-audit
 description: "Visual and UX quality audit using Playwright. Triggers ONLY when: PR has passed pre-pr and is ready to merge with UI/UX changes, or user explicitly asks for UX audit. Do NOT trigger for backend-only changes or during development."
 ---
 
+> **Scope:** This skill audits UX quality for feature PRs merging to `dev`. For release verification (`dev` → `main`), use the `staging-verify` skill instead — it tests the deployed staging environment.
+
 # UX Audit — Visual & Functional Quality Gate
 
 Run this audit AFTER pre-pr passes and BEFORE merging. The goal is to verify the product works correctly **from a user's perspective**, not just from a code perspective.
@@ -125,7 +127,8 @@ Use Playwright's `browser_evaluate` to run Performance API calls and measure Cor
 
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Audit passed → create task: "invoke `post-merge` — merge PR and run post-merge verification"
+- Audit passed → create task: "merge the PR (`gh pr merge`), then invoke `post-merge` — run post-merge verification"
 - Audit failed → create task: "invoke `self-review` — fix UX issues and re-review code"
+- All features merged to dev, ready for release → create task: "invoke `staging-verify` — verify staging before dev→main merge"
 
 Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.

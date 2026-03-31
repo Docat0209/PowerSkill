@@ -11,6 +11,16 @@ description: "Reviews code quality before staging. Triggers ONLY when: implement
 
 ---
 
+## 0. Process Compliance Check
+
+Before reviewing code quality, verify the process was followed:
+- [ ] Was `pre-code` invoked (via Skill tool) before implementation started?
+- [ ] Was an issue created before code was written?
+- [ ] Is the branch correctly named and created from `dev`?
+- If ANY of these are NO: **STOP.** Do not proceed with self-review. Fix the process violation first — create the missing issue, fix the branch, or re-run pre-code.
+
+---
+
 ## Step 1: Read Your Own Diff
 
 Run `git diff` and `git diff --staged` — read EVERY line.
@@ -71,7 +81,24 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 
 ---
 
-## Step 6: Verdict
+### 6. Scope Check
+
+- [ ] Run `git diff --stat` — are ALL changed files within the scope identified in pre-code?
+- [ ] If any file was modified that is NOT in the expected scope: justify it or revert it.
+- [ ] Out-of-scope improvements spotted during development belong in new issues, not this PR.
+
+---
+
+### 7. Agent Output Verification
+
+- [ ] **"Build passes" ≠ "product works."** If the build/tests pass, that verifies CODE correctness, not PRODUCT correctness.
+- [ ] Have you actually SEEN the output? Not read the code — seen the rendered result, clicked the buttons, observed the behavior?
+- [ ] If a sub-agent reported success: verify it yourself. Agents can write code but cannot judge product quality.
+- [ ] **Rule:** Never trust "it should work." Run it. See it. Click it. If you can't verify it visually, flag it for staging-verify or manual testing.
+
+---
+
+## Step 8: Verdict
 
 **If ANY issue was found:**
 1. Fix it immediately — do not proceed with staging or committing
