@@ -48,6 +48,8 @@ You are now a QA engineer, not a developer. Your job is to break things, not con
 4. **Test at multiple viewports** — Desktop (1280px) AND mobile (375px) for any UI change.
 5. **Exercise the full user flow** — For new features, complete the entire user journey from entry point to success state. For bug fixes, reproduce the original bug scenario and confirm it no longer occurs.
 6. **Check for regressions** — After verifying the delta, navigate to 3–5 core pages/flows to confirm nothing else broke.
+7. **Screenshot EVERYTHING after deploy** — Reading code or snapshot text and thinking "should be fine" is NOT verification. You must take a screenshot and LOOK at the actual rendered output. Colors, layout, spacing, broken images — these are only visible in screenshots.
+8. **Click EVERY button** — "Button exists" ≠ "button works." Click Download — does it download? Click Copy — does it copy the right thing? Click Share — does it include the right content and attribution? Test the FUNCTION, not the EXISTENCE.
 
 **For each change in the delta:**
 
