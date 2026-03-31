@@ -203,6 +203,68 @@ If acid test fails:
 - Do NOT start coding. Invoke `biz-validate` to enter the validation loop.
 - `biz-validate` will cycle through hypothesize → experiment → learn → pivot until the model is validated or killed.
 
+## Anti-Patterns — Mistakes That Cost Days
+
+These are proven failure patterns. Every idea evaluation MUST check for these. If you catch yourself doing any of these, STOP.
+
+### Mandatory First Filter
+Before ANY analysis, answer these two questions:
+1. **"This saves WHO how much TIME?"** — Name a specific person and a specific time amount. "[Role] saves [N] hours/week on [task]" is valid. "It's useful" is not.
+2. **"This earns WHO how much MONEY?"** — Name a specific revenue mechanism. If you can't answer either question concretely, **STOP. Do not proceed.**
+
+### Product Thinking Traps
+
+**"Pretty" ≠ "Valuable"**
+- A product succeeds because it saves time or makes money, not because the output looks good. Visual appeal is a side effect of value, not the cause.
+- If users share your product's output, ask WHY they share it. "The result is useful to them" ≠ "the design is nice."
+- **Check:** Remove all visual polish from the concept. Does it still solve a problem? If no, you're building decoration.
+
+**Assumed Need Without Observation**
+- NEVER assume users want something. Go to the platforms where your target users are active and LOOK at what they actually do.
+- If building for "[persona] who do [behavior]" — search for real examples RIGHT NOW and confirm they actually exhibit that behavior.
+- **Check:** Find 10 real examples of your target users doing the thing you think they need help with. Can't find 10? The need doesn't exist.
+
+**Wrong User Persona**
+- Users with no revenue have no budget and no pressing needs. Don't build for them.
+- Study users who already have revenue — they have real pain points AND money to pay for solutions.
+- **Check:** Does your target user have budget to pay for this? If their budget is $0, they're the wrong target.
+
+**Rationalizing Weak Ideas**
+- You can find supporting evidence for ANY idea. This proves nothing.
+- **Find counter-evidence FIRST.** Actively search for why this idea will FAIL. If you can only find supporting evidence, you haven't looked hard enough.
+- **Check:** List 3 specific reasons this idea will fail. If you can't, you're not thinking critically enough.
+
+**Lead Magnet ≠ Revenue Product**
+- A great free tool (lead magnet) does NOT mean it should be a paid product. Free tools attract users; paid products solve expensive problems. Different logic entirely.
+- **Check:** Would someone pay $X/month for this? Not "would they use it for free" — would they PAY?
+
+**Capability ≠ Need**
+- "We CAN build X with [technology]" does NOT mean "we SHOULD build X."
+- Start from NEED ("users need Y"), then ask "can we build it?" Never reverse this: "we have technology Z, what can we build with it?"
+- **Check:** Did this idea originate from a user need or from a technology capability? If capability → reject and reframe from the user's perspective.
+
+**Pattern Matching ≠ Causation**
+- "Product A has feature X and succeeds" does NOT mean "feature X causes success."
+- Ask: "If feature X didn't exist, would Product A still succeed?" If yes, X is incidental, not causal.
+- **Check:** For every "because" in your analysis, invert it. Does the conclusion still hold? If not, the causal link is weak.
+
+**Ignoring Opportunity Cost**
+- Every day building the wrong thing = one less day building the right thing.
+- Before committing time, ask: is this the HIGHEST value activity right now? Not just "is this worth doing" but "is this THE BEST thing to do?"
+- **Check:** "Is building this the BEST use of the next 3 days compared to all alternatives?"
+
+**Scale Blindness**
+- Large numbers (volume, impressions, activities) sound impressive but mean nothing without conversion data.
+- Quantity ≠ quality. One conversation with a paying customer outweighs hundreds of automated interactions.
+- **Check:** What's the expected conversion from this activity to revenue? If you can't estimate it, the activity is vanity metrics.
+
+**Unverified Technical Dependencies**
+- BEFORE planning features that depend on third-party APIs or platforms: verify they actually work for your use case.
+- Check: rate limits, TOS restrictions, platform blocks, authentication requirements.
+- **Check:** Run a proof-of-concept API call RIGHT NOW. Don't design a product around an API you haven't tested.
+
+---
+
 ## Next Steps
 After completing this skill, create tasks for applicable next steps using TaskCreate:
 - After defining pricing → create task: "invoke `finance-ops` — set up pricing psychology and payment processing"
