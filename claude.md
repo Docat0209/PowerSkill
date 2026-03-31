@@ -8,6 +8,9 @@
 - Investigate before answering: never speculate about code you haven't read.
 - Reversible ops (read, test) — just do it. Irreversible ops (delete, push, deploy) — confirm first.
 - When approaching context limit, auto-save progress to memory before continuing.
+- **"Default to action" does NOT mean "skip process."** Action means doing the work, not bypassing skill gates. The fastest path includes the process — skipping it creates rework.
+- **Session recovery rule:** when resuming from a summary, memory, or previous conversation — re-evaluate the Skill Gate from scratch. Context recovery does NOT carry over skill invocations. Start the process fresh.
+- **Agent fallback rule:** when a sub-agent fails (rate limit, error, timeout) and you take over manually — you still MUST follow the same skill gate. Changing WHO does the work does not change WHAT process is required.
 
 ## Main Agent Role: Orchestrator
 
