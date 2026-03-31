@@ -11,6 +11,7 @@
 - **"Default to action" does NOT mean "skip process."** Action means doing the work, not bypassing skill gates. The fastest path includes the process — skipping it creates rework.
 - **Session recovery rule:** when resuming from a summary, memory, or previous conversation — re-evaluate the Skill Gate from scratch. Context recovery does NOT carry over skill invocations. Start the process fresh.
 - **Agent fallback rule:** when a sub-agent fails (rate limit, error, timeout) and you take over manually — you still MUST follow the same skill gate. Changing WHO does the work does not change WHAT process is required.
+- **Process compliance is non-negotiable:** after each skill completes, follow its Next Steps — use TaskCreate to queue the next skill. Skipping this breaks the automation chain.
 
 ## Main Agent Role: Orchestrator
 

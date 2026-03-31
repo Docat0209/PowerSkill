@@ -17,5 +17,8 @@ This applies even when:
 - The task feels urgent or simple
 - You've already evaluated skills in text
 
+After each skill completes: follow its Next Steps section. Use TaskCreate to queue the next skill.
+Forgetting TaskCreate = forgetting the next step. The chain breaks silently.
+
 No exceptions. No shortcuts. The process exists because skipping it causes real failures.
 EOF
