@@ -79,7 +79,16 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 
 ---
 
-## Step 7: Verdict
+### 7. Agent Output Verification
+
+- [ ] **"Build passes" ≠ "product works."** If the build/tests pass, that verifies CODE correctness, not PRODUCT correctness.
+- [ ] Have you actually SEEN the output? Not read the code — seen the rendered result, clicked the buttons, observed the behavior?
+- [ ] If a sub-agent reported success: verify it yourself. Agents can write code but cannot judge product quality.
+- [ ] **Rule:** Never trust "it should work." Run it. See it. Click it. If you can't verify it visually, flag it for staging-verify or manual testing.
+
+---
+
+## Step 8: Verdict
 
 **If ANY issue was found:**
 1. Fix it immediately — do not proceed with staging or committing

@@ -16,6 +16,13 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 - If NO issue exists: **STOP.** Create one first using the issue-create skill. Do not write code without a tracking issue.
 - Note the issue number for branch naming and PR linking.
 
+## 1.5 Think Before Build
+
+- [ ] Has the core question "should this exist?" been answered BEFORE starting to code?
+- If the issue is for a new product or major feature: **was `biz-think` or `biz-validate` run?** If not, STOP. Don't build something whose existence hasn't been validated.
+- If you're about to spend days coding: step back and ask "is this the highest-value use of time right now?"
+- Building is expensive. Validating is cheap. Always validate first.
+
 ## 2. Branch Check
 
 - [ ] The current branch is a feature branch created from `dev`.
@@ -76,6 +83,7 @@ Before starting implementation, identify the boundaries of this issue:
 - **Unit tests**: always required. Identify what logic needs unit tests.
 - **Integration tests**: required if the code touches any external service (database, API, auth, storage). If API keys or env vars are needed, ask the user NOW — not after implementation.
 - **E2E tests**: required if the change completes a user-facing flow. Confirm Playwright is set up.
+- **Technical feasibility**: if the feature depends on third-party APIs, verify the API works BEFORE writing code. Run a proof-of-concept call. Check rate limits, TOS, platform restrictions. Do not design around an unverified API.
 - Tests go in the SAME branch and PR as the implementation. Never defer testing to a separate issue.
 
 ---

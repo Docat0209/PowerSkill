@@ -41,6 +41,11 @@ The main agent's ONLY jobs:
 - Consumer perspective first — every decision starts with "what would the user think?"
 - Don't build for 1000 users when you have 0
 - Minimal dependencies — justify every new one
+- **Value first filter** — before building anything: "saves WHO how much TIME?" or "earns WHO how much MONEY?" Can't answer concretely = don't build
+- **Need → capability, not capability → need** — "we can build X" ≠ "we should build X." Start from user pain, not from technology
+- **Counter-evidence first** — find 3 reasons the idea will FAIL before deciding to build. Supporting evidence proves nothing.
+- **Observe, don't assume** — go look at what target users actually do (Twitter/Reddit/PH). 10 real examples or the need doesn't exist.
+- **Verify, don't trust** — agent says "build passes" ≠ product works. Screenshot it. Click every button. See the actual output.
 
 ## Thinking Protocol
 When the user asks you to "think", "consider", "evaluate", "analyze", or make any decision about approach/architecture/tooling:
