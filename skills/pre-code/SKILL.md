@@ -9,6 +9,12 @@ Run this checklist BEFORE writing any implementation code. Every item must pass.
 
 ---
 
+## 0. Skill Invocation Check
+
+- [ ] Was this skill loaded via the `Skill("pre-code")` tool call, not just mentioned in text?
+- [ ] If resuming from a previous session: have you re-evaluated the Skill Gate fresh? Previous invocations do not carry over.
+- [ ] If taking over from a failed sub-agent: you must still complete this full checklist. Changing executor does not bypass process.
+
 ## 1. Issue Check
 
 - [ ] A GitHub issue exists for this work.

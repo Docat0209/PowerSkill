@@ -11,6 +11,16 @@ description: "Reviews code quality before staging. Triggers ONLY when: implement
 
 ---
 
+## 0. Process Compliance Check
+
+Before reviewing code quality, verify the process was followed:
+- [ ] Was `pre-code` invoked (via Skill tool) before implementation started?
+- [ ] Was an issue created before code was written?
+- [ ] Is the branch correctly named and created from `dev`?
+- If ANY of these are NO: **STOP.** Do not proceed with self-review. Fix the process violation first — create the missing issue, fix the branch, or re-run pre-code.
+
+---
+
 ## Step 1: Read Your Own Diff
 
 Run `git diff` and `git diff --staged` — read EVERY line.
