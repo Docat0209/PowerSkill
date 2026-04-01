@@ -121,9 +121,9 @@ Involuntary churn (failed payments) accounts for 20-40% of all subscription chur
 Revisit allocation quarterly. As traction increases, shift from product-heavy to marketing-heavy.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Pricing set → create task: "invoke `copy-craft` — write pricing page conversion copy"
-- Payment system set up → create task: "invoke `legal-guard` — create ToS and refund policy"
-- Budget allocated → create task: "invoke `growth-track` — set up experiment tracking within budget"
+Report to user: "Pricing set: [tiers]. MRR tracking: [status]. Key decision: [one line]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Pricing set → "Run copy-craft for pricing page"
+- Payment set up → "Run legal-guard for ToS"
+- Budget allocated → "Run growth-track"

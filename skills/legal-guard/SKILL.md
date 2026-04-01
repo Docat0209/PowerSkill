@@ -98,9 +98,9 @@ When and where to incorporate (source: SaaS Law Firm, general startup practice):
 - **Cost**: LLC formation is $100-500 depending on state. Far cheaper than a single lawsuit.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Legal docs created, ready to launch → create task: "invoke `copy-craft` — write launch landing page and conversion copy"
-- If payment processing involved → create task: "invoke `finance-ops` — set up payment processing and pricing"
-- If handling EU users → create task: "invoke `infra-ops` — implement GDPR technical requirements (data deletion, export, etc.)"
+Report to user: "Legal docs created: [list]. Compliance status: [summary]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Launch ready → "Run copy-craft for launch page"
+- Payment involved → "Run finance-ops"
+- EU users → "Run infra-ops for GDPR tech requirements"

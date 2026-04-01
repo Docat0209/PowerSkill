@@ -114,8 +114,8 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 - "It should work" is NOT acceptable — prove it works
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Self-review passed → create task: "invoke `test-gate` — verify test coverage before PR"
-- If code touches UI → create task: "invoke `ux-audit` — run visual and functional UX audit after PR"
+Report to user: "Self-review [PASSED/FAILED]. Issues found: [N]. Fixed: [N]. Remaining: [N]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Passed → "Run test-gate"
+- UI changes → "Plan ux-audit after PR"

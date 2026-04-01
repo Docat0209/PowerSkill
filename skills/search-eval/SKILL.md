@@ -94,8 +94,8 @@ Proven failure patterns in research. Check for ALL of these during every researc
 - **Check:** Can you describe the product's UX, pricing tiers, and one specific user complaint? If not, your "research" is incomplete.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Dependency approved → create task: "resume implementation — return to `pre-code` or calling context"
-- Dependency rejected, need alternative → create task: "re-invoke `search-eval` — evaluate alternative dependency"
+Report to user: "Evaluation: [approved/rejected]. Tool: [name]. Reason: [one line]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Approved → "Resume implementation"
+- Rejected → "Search for alternatives"

@@ -103,12 +103,10 @@ gh release create vX.Y.Z --title "vX.Y.Z" --generate-notes --latest
 All five steps. Every merge. No shortcuts. If you skip branch cleanup today, you will have 50 stale branches next month. If you skip verification, you will ship broken features. The process exists because it works.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Feature complete (all issues closed) → create task: "invoke `product-eval` — score product quality from user perspective"
-- First deployment ever → create task: "invoke `infra-ops` — set up monitoring and backups"
-- First users expected → create task: "invoke `support-ops` — set up support system"
-- Need legal docs before launch → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
-- Release created (main merge) → create task: "verify production deployment is live, then invoke `growth-track` — track release impact on metrics"
-- Milestone complete (all issues in milestone closed) → create task: "invoke `retro` — run milestone retrospective before starting next cycle"
+Report to user: "Issue #[N] merged. [N/total] complete. AC: [all checked / gaps]. Branch: [deleted]"
+If release: "v[X.Y.Z] released. Production test: [N bugs found]. Please test [URL]."
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- More issues remain → "Continue with next issue"
+- All issues done → "Run staging-verify, then release"
+- Release done → "Test the product, then run retro"

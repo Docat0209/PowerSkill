@@ -79,11 +79,8 @@ If any structural checks fail, use this verdict block instead:
 **If ANY fail:** Fix the gap (missing tests, debug artifact, undeclared dependency, etc.), commit to dev, and re-run this check. Do not merge.
 
 ## Next Steps
+Report to user: "Structural check [PASS/FAIL]. Delta: [N changes]. Config: [complete/gaps]. Issues: [list]"
 
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-
-- All checks pass, PR merged → create task: "invoke `post-merge` — deploy, run Playwright verification, and create release"
-- Structural failures found → create task: "invoke `issue-create` — create fix issue for the gap found, then `pre-code` to implement"
-- Environment configuration missing → create task: "fix environment config gap identified in Step 2, then re-run staging-verify"
-
-Only create tasks that are actually relevant.
+Suggested next steps (user decides):
+- All pass → "Merge dev→main, then run post-merge"
+- Failures found → "Fix gaps, then re-run"

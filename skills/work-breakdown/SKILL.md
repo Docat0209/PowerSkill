@@ -197,8 +197,8 @@ Before marking this skill complete, verify every item:
 - [ ] All issues are assigned to the correct milestone (`gh issue list --milestone "[Name]"` to verify)
 
 ## Next Steps
+Report to user: "Milestone [name] decomposed: [N] issues. Dependencies: [order]. Test env needs: [list]"
 
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-
-- If issues were created and need quality review before work starts → create task: "invoke `issue-create` for each issue that needs quality review — verify labels, assignees, and body completeness"
-- If dependency order is confirmed and the team is ready to start → create task: "invoke `pre-code` — start implementation of first issue in dependency order"
+Suggested next steps (user decides):
+- Issues created → "Start with Issue #[first] (run pre-code)"
+- Need quality review → "Review issues before starting"

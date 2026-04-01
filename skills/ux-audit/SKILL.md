@@ -126,9 +126,9 @@ Use Playwright's `browser_evaluate` to run Performance API calls and measure Cor
 **If ALL phases pass:** state "UX audit passed. Ready to merge."
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Audit passed → create task: "merge the PR (`gh pr merge`), then invoke `post-merge` — run post-merge verification"
-- Audit failed → create task: "invoke `self-review` — fix UX issues and re-review code"
-- All features merged to dev, ready for release → create task: "invoke `staging-verify` — verify staging before dev→main merge"
+Report to user: "UX audit [PASS/FAIL]. Visual: [score]. Discoverability: [score]. Performance: [LCP/CLS]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Passed → "Merge PR, then run post-merge"
+- Failed → "Fix UX issues, then re-run self-review"
+- All features merged → "Run staging-verify for release"
