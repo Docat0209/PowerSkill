@@ -130,8 +130,8 @@ After 7 days, review performance across all platforms:
 - Update auto memory (`memory/content_log.md`) with findings to inform future distribution decisions.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Content distributed → create task: "invoke `growth-track` — measure content performance across platforms"
-- Need community engagement beyond content → create task: "invoke `community-engage` — develop community engagement strategy"
+Report to user: "Distributed to [N] platforms. URLs: [list]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Distributed → "Run growth-track to measure performance"
+- Need deeper engagement → "Run community-engage"

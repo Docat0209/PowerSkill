@@ -63,7 +63,7 @@ After completing work, proactively ask: "Would you like to commit these changes?
 Present what will be committed and the proposed commit message. If the changes span multiple logical units, propose multiple atomic commits with their respective messages.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- All commits pushed → create task: "invoke `pre-pr` — run PR quality gate before creating PR"
+Report to user: "Committed: [message]. Pushed to [branch]."
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- All commits done → "Run pre-pr to create PR"

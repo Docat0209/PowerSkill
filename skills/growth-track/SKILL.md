@@ -216,15 +216,11 @@ Only pursue partnerships where the partner's audience is your target user. "They
 Store active partnerships and their performance in auto memory (`memory/partnerships.md`) with: partner name, type (integration/affiliate/co-marketing/listing), date started, and referral metrics.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Biggest drop-off identified → create task for the relevant skill to fix it:
-  - Acquisition problem → create task: "invoke `community-engage` — fix acquisition through community engagement" or create task: "invoke `content-create` — fix acquisition through content"
-  - Activation problem → create task: "invoke `product-eval` — evaluate and fix FTUE to improve activation"
-  - Retention problem → create task: "invoke `support-ops` — implement churn prevention measures"
-  - Revenue problem → create task: "invoke `finance-ops` — optimize pricing" or create task: "invoke `sales-close` — improve sales conversion"
-  - Referral problem → create task: "invoke `copy-craft` — write referral copy to boost viral coefficient"
-- First paying customer achieved → create task: "invoke `support-ops` — set up support system" and create task: "invoke `legal-guard` — ensure legal compliance"
-- Metrics suggest feature pivot needed → create task: "invoke `roadmap-steer` — re-prioritize features based on data"
-- Need deeper data analysis → create task: "invoke `data-decide` — design experiment or analyze metrics in depth"
+Report to user: "Funnel: [biggest drop-off stage]. North Star: [metric] = [value]. Experiments: [N active]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Acquisition problem → "Run community-engage or content-create"
+- Activation problem → "Run product-eval"
+- Retention problem → "Run support-ops"
+- Revenue problem → "Run finance-ops or sales-close"
+- Feature pivot needed → "Run roadmap-steer"

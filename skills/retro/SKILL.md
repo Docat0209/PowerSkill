@@ -121,11 +121,8 @@ Rules:
 ```
 
 ## Next Steps
+Report to user: "Retro complete. Velocity: [summary]. Quality: [summary]. Top 3 action items: [list]"
 
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-
-- Action items require skill updates → create task: "implement retro action items — update affected skills"
-- Ready for next milestone → create task: "invoke `roadmap-steer` — prioritize features for next milestone"
-- Quality metrics below target → create task: "invoke `product-eval` — deep-dive product quality assessment"
-
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Action items need implementation → "Update affected skills"
+- Ready for next milestone → "Run roadmap-steer"

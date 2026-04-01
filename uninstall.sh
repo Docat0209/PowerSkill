@@ -61,6 +61,7 @@ SKILLS=(
   sales-close
   search-eval
   self-review
+  sop
   staging-verify
   support-ops
   test-gate

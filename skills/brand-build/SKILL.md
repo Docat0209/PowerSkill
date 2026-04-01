@@ -178,9 +178,9 @@ Every 3 months, review and update:
 Update auto memory (`memory/brand.md`) with any changes and the reasoning behind them.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Brand defined → create task: "invoke `project-init` — initialize project and start building"
-- Need landing page → create task: "invoke `copy-craft` — write landing page conversion copy"
-- Ready to start Build in Public → create task: "invoke `content-create` — create first Build in Public content"
+Report to user: "Brand positioning defined: [one-sentence positioning]. Voice: [3 adjectives]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Brand defined, new project → "Run project-init"
+- Need landing page → "Run copy-craft"
+- Start Build in Public → "Run content-create"

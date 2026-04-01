@@ -98,7 +98,7 @@ Files to modify, approach, migration steps if any.
 - Every issue title uses Conventional Commits prefix: `feat:`, `fix:`, `chore:`, `refactor:`, `test:`, `docs:`.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Issue created → create task: "invoke `pre-code` — start implementation for the new issue"
+Report to user: "Issue #[N] created: [title]. Labels: [list]. Milestone: [name]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Issue created → "Run pre-code to start implementation"
