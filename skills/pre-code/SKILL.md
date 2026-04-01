@@ -72,6 +72,11 @@ Before starting implementation, identify the boundaries of this issue:
 - [ ] List the files that SHOULD be modified for this issue (from Technical Notes or Commit Plan).
 - [ ] During implementation, do NOT modify files outside this list unless strictly necessary. If you must touch an out-of-scope file, note it and justify it.
 - [ ] During debugging, resist the urge to "fix" unrelated code you happen to see. Create a separate issue for it instead.
+- [ ] **Platform configuration in scope?** If this issue involves auth, payments, webhooks, or any third-party integration:
+  - List the platform settings that need configuration (OAuth redirect URLs, webhook endpoints, API keys, environment variables)
+  - These are NOT "deployment details for later" — they are part of the feature scope
+  - Include platform config steps in the Commit Plan or Technical Notes
+  - A feature that works in code but fails because of missing platform config is NOT done
 
 ## 5. Design Considerations (SOLID + Clean Code + NASA)
 
