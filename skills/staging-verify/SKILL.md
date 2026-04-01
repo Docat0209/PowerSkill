@@ -32,6 +32,18 @@ Get the latest dev commit hash: `git rev-parse dev`. Poll the staging URL to ver
 
 If timeout: STOP and report "Staging deployment not reflecting latest dev commit after 5 minutes."
 
+## Step 3.5: Environment and Platform Configuration Check
+
+Before any functional testing, verify the environment is correctly configured:
+
+- [ ] **Environment variables**: verify ALL required env vars are set for the staging/preview environment (not just production). Run the app's health check endpoint or check the deployment logs for missing-var errors.
+- [ ] **OAuth/Auth config**: if the app uses OAuth (Google, GitHub, Supabase Auth, etc.), verify the redirect URLs include the staging domain. A common failure: redirect URLs set to `localhost` or production-only.
+- [ ] **Payment/webhook config**: if the app has payment integration (Stripe, Polar, etc.), verify the webhook URL points to staging, and the API keys are for test/sandbox mode.
+- [ ] **Database**: verify the staging database is accessible and migrated to the latest schema.
+- [ ] **Third-party services**: verify all external service integrations (email, storage, CDN) are configured for the staging environment.
+
+If ANY configuration is missing: **STOP testing.** Fix the configuration first. Testing against a misconfigured environment produces false failures.
+
 ## Step 4: Playwright Verification
 
 This is the core verification step. Follow these anti-superficial testing rules strictly.
@@ -42,6 +54,7 @@ You are now a QA engineer, not a developer. Your job is to break things, not con
 
 **Rules:**
 
+0. **Walk the complete user journey FIRST** — Before testing individual features, complete one full user flow from start to finish: landing page → signup/login → main feature → key action → result. If this flow breaks, nothing else matters. Test the journey, not the endpoints.
 1. **UI-only testing** — Use ONLY Playwright MCP tools (`browser_navigate`, `browser_click`, `browser_fill_form`, `browser_snapshot`, `browser_take_screenshot`, etc.). Do NOT read source code to determine if something works.
 2. **Screenshot evidence required** — Every verification MUST produce at least one screenshot as proof. A claim without a screenshot is not a verification.
 3. **Test the acceptance criteria exactly** — For each issue in the delta, read its acceptance criteria checkboxes. Test each one individually on the staging URL. Do not invent your own criteria.
@@ -50,6 +63,8 @@ You are now a QA engineer, not a developer. Your job is to break things, not con
 6. **Check for regressions** — After verifying the delta, navigate to 3–5 core pages/flows to confirm nothing else broke.
 7. **Screenshot EVERYTHING after deploy** — Reading code or snapshot text and thinking "should be fine" is NOT verification. You must take a screenshot and LOOK at the actual rendered output. Colors, layout, spacing, broken images — these are only visible in screenshots.
 8. **Click EVERY button** — "Button exists" ≠ "button works." Click Download — does it download? Click Copy — does it copy the right thing? Click Share — does it include the right content and attribution? Test the FUNCTION, not the EXISTENCE.
+9. **Test from user perspective, not developer perspective** — Don't test "does the API return 200?" Test "can a new user sign up, find the main feature, and complete their first task?" Status codes are implementation details. User success is the only metric.
+10. **Platform configuration is part of verification** — Code correctness + broken OAuth redirect = broken product. Verify the FULL stack, not just the code you wrote.
 
 **For each change in the delta:**
 
