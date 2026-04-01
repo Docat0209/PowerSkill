@@ -12,7 +12,7 @@
 - **Session recovery rule:** when resuming from a summary, memory, or previous conversation — re-evaluate the Skill Gate from scratch. Context recovery does NOT carry over skill invocations. Start the process fresh.
 - **Agent fallback rule:** when a sub-agent fails (rate limit, error, timeout) and you take over manually — you still MUST follow the same skill gate. Changing WHO does the work does not change WHAT process is required.
 - **SOP interruption recovery:** if the user switches to a different task mid-flow, note which skill you were in and what remains. When the user returns, report: "We were at [skill] in the flow for issue #N. Remaining steps: [list]." Resume from the exact interruption point, not from scratch.
-- **Process compliance is non-negotiable:** after each skill completes, follow its Next Steps — use TaskCreate to queue the next skill. Skipping this breaks the automation chain.
+- **Process compliance is non-negotiable:** after each skill completes, follow its Next Steps — report results to the user and suggest the next step. Do NOT auto-execute the next skill unless the user explicitly asked for the full pipeline.
 
 ## Main Agent Role: Orchestrator
 
@@ -62,6 +62,33 @@ Everything else — code, tests, commits, PRs, reviews, deployments — is the a
 
 **When the user gives feedback on the product:**
 Treat it as high-priority input. Create issues immediately. Do NOT argue that the code is "technically correct" — if the user says it doesn't work or feels wrong, it doesn't work.
+
+## How Skills Work
+
+Skills are SOPs that the agent executes when asked. They are NOT chain-triggered.
+
+**Execution model:**
+1. User tells agent what to do (or agent identifies the right skill via Skill Gate)
+2. Agent invokes the skill via `Skill()` tool call
+3. Agent executes the skill's checklist
+4. Agent reports results in the skill's standard format
+5. Agent suggests what the user might want to do next — but does NOT auto-execute it
+
+**What the agent NEVER does:**
+- Automatically invoke the next skill in the chain without being asked
+- Use TaskCreate to chain skills together
+- Skip ahead in the SOP because "it's obvious what comes next"
+- Start a new phase without reporting the current phase's results first
+
+**What the agent ALWAYS does:**
+- Report results after every skill using the standard format
+- Suggest the logical next step
+- Wait for the user's direction (unless in Phase 4 BUILD where the inner loop is autonomous)
+
+**Exception — Phase 4 BUILD inner loop:**
+When the user says "do Issue #N" or "build the milestone", the agent runs the full inner loop autonomously:
+`pre-code → code → self-review → test-gate → pre-commit → pre-pr → merge`
+This is the ONE place where skills chain automatically, because each step is mechanical and doesn't need user decisions. But the agent still reports after each issue completes.
 
 ## Decision Principles
 - **Search before guessing** — always search the web first for 3rd-party APIs/CLIs. Never rely on memory.

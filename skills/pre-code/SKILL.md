@@ -104,8 +104,8 @@ Before starting implementation, identify the boundaries of this issue:
 Once every box is checked, proceed with implementation. Reference the issue number in commits using Conventional Commits format: `<type>: <description> (#issue)`
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- No issue exists → create task: "invoke `issue-create` — create tracking issue before coding"
-- Implementation complete → create task: "invoke `self-review` — review code quality before staging"
+Report to user: "Pre-code ✅. Issue #[N], branch [name], scope: [N files]. Ready to implement."
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- No issue exists → "Run issue-create first"
+- All clear → "Proceed with implementation"

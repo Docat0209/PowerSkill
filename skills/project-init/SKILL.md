@@ -98,9 +98,9 @@ Store project metadata in auto memory (`memory/project_meta.md`):
 - This enables cross-project pattern retrieval in future conversations.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Project initialized → create task: "invoke `work-breakdown` — decompose initial features into atomic issues before coding"
-- If deploying for first time → create task: "invoke `infra-ops` — set up monitoring and backup"
-- If serving users → create task: "invoke `legal-guard` — create ToS and Privacy Policy"
+Report to user: "Project initialized: [name]. Git: ✅. CI: ✅. Staging: [status]. Dev branch: ✅"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Project ready → "Run work-breakdown to plan features"
+- Need monitoring → "Run infra-ops"
+- Need legal docs → "Run legal-guard"

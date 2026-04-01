@@ -136,9 +136,8 @@ A 12-month roadmap is fiction for an early-stage product. Plan 6 weeks in detail
 > Source: [Intercom Blog](https://www.intercom.com/blog/rice-simple-prioritization-for-product-managers/), [SaaSFunnelLab — RICE Guide](https://www.saasfunnellab.com/essay/rice-scoring-prioritization-framework/)
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Next feature decided → create task: "invoke `work-breakdown` — decompose milestone into atomic issues before coding"
-- Feature request from community → create task: "invoke `community-engage` — respond to community feature request"
-- Deprioritized request → create task: "invoke `support-ops` — communicate deprioritization to requester"
+Report to user: "Next feature decided: [name]. RICE score: [N]. Milestone created: [name]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Feature decided → "Run work-breakdown to decompose"
+- Community request → "Run community-engage to respond"

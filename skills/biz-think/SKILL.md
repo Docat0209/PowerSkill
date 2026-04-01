@@ -301,11 +301,10 @@ Before ANY analysis, answer these two questions:
 ---
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- After defining pricing → create task: "invoke `finance-ops` — set up pricing psychology and payment processing"
-- After choosing distribution channel → create task: "invoke `community-engage` — develop community engagement strategy" or create task: "invoke `content-create` — develop content strategy for chosen channel"
-- Acid test passes → create task: "invoke `work-breakdown` — decompose MVP milestone into atomic issues"
-- Acid test fails → create task: "invoke `biz-validate` — validate riskiest assumption before building"
-- MVP shipped and issues closed → create task: "invoke `product-eval` — score product quality from user perspective"
+Report to user: "Acid test result: [PASS/FAIL]. Recommended: [build/pivot/kill]. Reason: [one line]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Acid test passes → "Run work-breakdown to decompose into issues"
+- Acid test fails → "Run biz-validate to test assumptions"
+- Pricing defined → "Run finance-ops to set up pricing"
+- Distribution chosen → "Run community-engage or content-create"

@@ -137,9 +137,9 @@ Define targets early, revisit quarterly:
 | **Annually** | Rotate all credentials/API keys, review and update incident response plan, evaluate monitoring stack |
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- Monitoring set up → create task: "invoke `pre-code` — resume development with monitoring in place"
-- Incident occurred → create task: "invoke `data-decide` — analyze incident impact with data"
-- Security audit done → create task: "invoke `legal-guard` — create compliance documentation"
+Report to user: "Infrastructure: [what was set up/fixed]. Status: [healthy/issues]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- Monitoring done → "Resume development"
+- Incident occurred → "Run data-decide for impact analysis"
+- Security audit done → "Run legal-guard"

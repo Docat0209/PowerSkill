@@ -173,11 +173,9 @@ Track which stage you're in:
 **You are almost certainly at Stage 1.** Do not skip to Stage 2 thinking.
 
 ## Next Steps
-After completing this skill, create tasks for applicable next steps using TaskCreate:
-- All assumptions validated → create task: "invoke `brand-build` — define positioning, then `work-breakdown` to decompose into atomic issues"
-- Kill criteria met (3+ pivots fail) → create task: "invoke `biz-think` — start fresh with a new idea"
-- Validated and project already exists → create task: "invoke `work-breakdown` — decompose validated idea into atomic issues"
-- Need to build experiment (landing page) → create task: "invoke `copy-craft` — write conversion copy for experiment landing page"
-- Experiment needs distribution → create task: "invoke `community-engage` — distribute experiment to communities" or create task: "invoke `content-distribute` — cross-post experiment content"
+Report to user: "Validation [PASS/FAIL]. Assumption: [which one]. Evidence: [what we found]"
 
-Only create tasks that are actually relevant. Do not create tasks for steps that don't apply to the current situation.
+Suggested next steps (user decides):
+- All validated → "Run brand-build, then work-breakdown"
+- Kill criteria met → "Start fresh with biz-think"
+- Need experiment → "Run copy-craft for landing page"
