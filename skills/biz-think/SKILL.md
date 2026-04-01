@@ -13,46 +13,81 @@ Before starting: read `memory/business_decisions.md` if it exists for continuity
 
 ## Phase -1: Opportunity Discovery (if no idea exists)
 
-If the user has no specific idea, systematically discover opportunities using these data-driven methods. Run 3+ methods and cross-reference — opportunities appearing in multiple methods are highest confidence.
+When the user says "help me find what to build" or "help me make money" — do NOT brainstorm. Go LOOK at where real people express real pain. Ideas from imagination are worthless. Ideas from observed pain are gold.
 
-### Method A: Review Mining
-1. Pick a SaaS category on G2/Capterra
-2. Read 1-3 star reviews from top 10 products — search for "I wish," "missing," "switched because"
-3. Cluster complaints by theme. High frequency + high intensity = opportunity
-4. If 3+ competitors share the same complaint → validated gap
+### Method A: Reddit Pain Signal Mining
 
-### Method B: Reddit Pain Point Mining
-1. Search target subreddits for: "I wish there was," "alternative to," "hate using," "anyone know a tool that"
-2. Score by: upvotes, emotional intensity, "I'd pay for this" signals
-3. Cluster into opportunity themes
+Use Playwright MCP to browse Reddit. Search for threads where people describe problems, frustrations, or manual workarounds:
 
-### Method C: Product Hunt Trend Analysis
-1. Browse PH trending — identify categories with high upvotes but few products (underserved demand)
-2. Read comments on top products for feature requests and complaints
-3. Find launched products with no traction 6 months later (failed execution, not failed idea)
+1. Search queries: `[niche] "I wish there was" OR "anyone know a tool" OR "I've been manually" OR "this is so frustrating" OR "waste of time"` in relevant subreddits
+2. For each pain thread found:
+   - Is this person describing a REAL workflow problem (not a casual complaint)?
+   - Are there replies saying "same here" or "I have this problem too"? (multiple signals > single signal)
+   - Is the person currently using a manual workaround? (manual workaround = proven need)
+   - Would they PAY to solve this? (look for mentions of time wasted, money lost, or existing paid tools they're unhappy with)
+3. Collect at least 10 pain threads before drawing any conclusions. Fewer than 10 = insufficient data.
 
-### Method D: Acquire.com Listing Analysis
-1. Browse SaaS listings on Acquire.com
-2. "Pre-revenue" listings under $25K = validated ideas that failed on execution
-3. Categories with high asking multiples = proven demand
+### Method B: Twitter/X Complaint Mining
 
-### Method E: Vertical SaaS Mapping
-1. List industries still on spreadsheets/paper (healthcare, construction, agriculture, legal)
-2. Search "[industry] software" on G2 — count products and average rating
-3. <10 products AND avg rating <3.5 = underserved vertical
+Search Twitter for complaints about existing tools or workflows:
 
-### Method F: Revenue Data Pattern Mining
-1. Browse GetLatka.com for SaaS companies with verified ARR
-2. Find categories at $1-5M ARR growing >100% — validated market, not locked up
-3. Check if AI can 10x the cost advantage in that category
+1. Search: `"[tool name] sucks" OR "[tool name] is broken" OR "why can't [tool]" OR "looking for alternative to [tool]"`
+2. Look for patterns: same complaint from multiple unrelated users = real market signal
+3. Check if the complainers have money (business accounts, job titles, company names in bio) — complaints from students ≠ market opportunity
+
+### Method C: Product Hunt Trend Analysis + Viability Check
+
+1. Browse https://www.producthunt.com/leaderboard/yearly/2026 — what categories are winning?
+2. For trending categories, ask: is there a SPECIFIC underserved niche within this category?
+3. Check hunted.space for launch history data — which types of products consistently get traction?
+4. **PH viability filter:** Would this product be INTERESTING to the PH audience? PH rewards:
+   - Novel approach to known problem (not "another X")
+   - Beautiful, polished UX (demos well in a 1-minute video)
+   - Clear value proposition in one sentence
+   - Developer/maker tools, productivity, AI applications
+5. If the product wouldn't be interesting on PH, it can still be viable — but you lose a distribution channel
+
+### Method D: Competitor Gap Analysis
+
+For each pain point discovered in Methods A-C:
+
+1. Search for existing solutions: Google the pain point, check G2/Capterra reviews, check alternatives
+2. For each competitor found:
+   - Visit the ACTUAL product (don't just read about it)
+   - Read pricing page — is there a pricing gap? (e.g., competitors charge $50+/mo but the problem could be solved for $10/mo)
+   - Read negative reviews on G2/Capterra — what do users hate about existing solutions?
+   - Check their tech stack — could we build something simpler/cheaper with modern tools?
+3. **Differentiation test:** Can you beat competitors on:
+   - **Price** (10x cheaper using AI/automation) — strongest for solo dev
+   - **Simplicity** (do one thing 10x better while they do 10 things poorly)
+   - **Speed** (faster time-to-value, no enterprise onboarding)
+   - **Focus** (serve a specific niche they ignore)
+4. If you can't clearly articulate your advantage in one sentence, move to the next pain point
+
+### Method E: "Boring Problem" Niche Discovery
+
+The best solo-dev opportunities are often in unsexy, underserved industries:
+
+1. Browse industry-specific subreddits (r/smallbusiness, r/freelance, trade-specific forums)
+2. Look for manual processes that haven't been digitized: spreadsheet workflows, email-based processes, paper forms
+3. Target users who HAVE money and FEEL urgency: businesses (not consumers), professionals (not hobbyists), regulated industries (compliance = willingness to pay)
+4. "Invoice software for tattoo studios" beats "another AI writing assistant" — the former has a specific customer, the latter has a million competitors
 
 ### Red Ocean Check
-After finding a candidate idea, search for existing products doing the same thing:
-- If a well-funded competitor dominates with >$10M ARR → red ocean, pivot
-- If multiple small players exist but none dominant → blue ocean, proceed
-- If the idea relies on the same moat a competitor already has → cannot win, pivot
 
-Output: 3-5 ranked opportunity candidates with data sources cited. Pick the top one and proceed to Phase 0.
+Before proceeding with any opportunity:
+- Search "[idea] alternative" and count results — if there are 50+ alternatives, you need a VERY clear differentiator
+- Search "[idea] shut down" or "[idea] failed" — learn from the dead
+- Check if big companies (Google, Microsoft, etc.) offer this for free — if yes, move on
+- **If it's a red ocean:** you can still win IF you have a concrete pricing, simplicity, or niche advantage. But you must name it NOW, not "figure it out later."
+
+### Output
+
+Present to the user: 3-5 ranked opportunity candidates, each with:
+| # | Pain Point | Source (links) | Competitor Landscape | Your Advantage | PH Viable? |
+|---|-----------|----------------|---------------------|---------------|------------|
+
+Pick the top one (or let the user choose) and proceed to Phase 0.
 
 ---
 
