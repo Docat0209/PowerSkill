@@ -18,6 +18,18 @@ If either is missing, stop and ask. Decomposing without a milestone or clear req
 
 ## Decomposition Process
 
+### Step 0: Read the Codebase First
+
+**NEVER decompose based on imagination.** Before creating any issues:
+
+- [ ] Read the project's file structure: `find . -type f -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.py" | head -50` (or the relevant language)
+- [ ] Read key files: entry points, routing, database schema, existing components
+- [ ] Identify what ALREADY EXISTS — do not create issues for features that are already built
+- [ ] Identify which files would need to change for each planned feature
+- [ ] If a feature touches only ONE existing file, it's likely smaller than you think
+
+**Anti-pattern:** Decomposing a "dashboard" into 5 issues when the dashboard component already exists and just needs 3 lines changed. Read the code. Count the actual changes needed. Then decompose.
+
 ### Step 1: Identify User-Facing Behaviors
 
 List every distinct thing a user can **do** or **observe** after the milestone is complete. Write these as behavior statements, not technical tasks.
@@ -57,6 +69,9 @@ Each issue must pass ALL four gates. If any gate fails, split the issue further.
 | Estimated work | ≤ 4 hours | Honest estimate exceeds half a day |
 
 A failing issue is not a problem — it is information. Split it and recheck.
+
+- Each issue must reference SPECIFIC files to modify (not vague "implement X")
+- If you can't name the files, you haven't read the codebase enough — go back to Step 0
 
 ## Commit Planning Per Issue
 
