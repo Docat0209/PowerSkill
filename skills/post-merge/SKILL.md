@@ -43,9 +43,9 @@ After closing the issue, check if the milestone is now complete:
 
 ## Step 4: Delete the Branch
 
+- Remote: use `--delete-branch` flag when merging PR, or `git push origin --delete <branch-name>`
 - Local: `git branch -d <branch-name>`
-- Remote: `git push origin --delete <branch-name>`
-- Keep the workspace clean — stale branches create confusion
+- **Delete IMMEDIATELY after merge — do not defer.** If the PR was squash-merged, git loses merge tracking. The longer you wait, the harder it is to delete with `-d` (safe delete). Deleting right after merge avoids this entirely.
 - Verify deletion: `git branch -a` should no longer show the branch
 
 ## Step 5: Create GitHub Release (main merges only)
