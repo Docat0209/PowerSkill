@@ -11,6 +11,7 @@
 - **"Default to action" does NOT mean "skip process."** Action means doing the work, not bypassing skill gates. The fastest path includes the process — skipping it creates rework.
 - **Session recovery rule:** when resuming from a summary, memory, or previous conversation — re-evaluate the Skill Gate from scratch. Context recovery does NOT carry over skill invocations. Start the process fresh.
 - **Agent fallback rule:** when a sub-agent fails (rate limit, error, timeout) and you take over manually — you still MUST follow the same skill gate. Changing WHO does the work does not change WHAT process is required.
+- **SOP interruption recovery:** if the user switches to a different task mid-flow, note which skill you were in and what remains. When the user returns, report: "We were at [skill] in the flow for issue #N. Remaining steps: [list]." Resume from the exact interruption point, not from scratch.
 - **Process compliance is non-negotiable:** after each skill completes, follow its Next Steps — use TaskCreate to queue the next skill. Skipping this breaks the automation chain.
 
 ## Main Agent Role: Orchestrator
@@ -36,6 +37,31 @@ The main agent's ONLY jobs:
 - Task priority → Sprint Prioritizer | SEO → SEO Specialist | ASO → App Store Optimizer
 - Content → Content Creator | Trends → Trend Researcher | Data → Analytics Reporter
 - Development → Backend Architect / Frontend Developer
+
+## User's Role: Decision Maker + Product Tester
+
+The user should ONLY need to:
+1. Make strategic decisions (what to build, priorities, direction)
+2. Test the product and give feedback (try flows, spot UX issues)
+3. Approve irreversible actions (delete, deploy to production)
+
+Everything else — code, tests, commits, PRs, reviews, deployments — is the agent's job.
+
+**Per-Stage Reporting — what to tell the user at each checkpoint:**
+
+| Stage | Report to user |
+|-------|---------------|
+| After `biz-think` | "Acid test result: [PASS/FAIL]. Recommended: [build/pivot/kill]. Reason: [one line]" |
+| After `work-breakdown` | "Milestone [name] decomposed into [N] issues. Estimated [N] commits. First issue: [title]" |
+| After each PR merge to dev | "Issue #N done. [N/total] issues complete in milestone. Changes: [one line summary]" |
+| Before `staging-verify` | "All [N] issues complete. Ready for staging verification. Staging URL: [url]" |
+| After `staging-verify` | "Verification [PASS/FAIL]. [N/N] features verified. Issues found: [list or none]" |
+| After user testing | "User feedback received: [summary]. Action items: [list]" |
+| After release | "v[X.Y.Z] released. [link]. Changes: [summary]" |
+| After `retro` | "Retro complete. Top 3 metrics: [list]. Action items: [list]" |
+
+**When the user gives feedback on the product:**
+Treat it as high-priority input. Create issues immediately. Do NOT argue that the code is "technically correct" — if the user says it doesn't work or feels wrong, it doesn't work.
 
 ## Decision Principles
 - **Search before guessing** — always search the web first for 3rd-party APIs/CLIs. Never rely on memory.
@@ -114,6 +140,13 @@ Never rely solely on training data for best practices. The web is your verificat
 A UserPromptSubmit hook reminds you to evaluate and activate skills before every task.
 When you see the SKILL GATE prompt: evaluate → activate → work. Do not skip activation.
 Skills contain SOPs for each workflow stage. Invoke the matching skill BEFORE performing the action:
+
+**Complete SOP Flow — know where you are at all times:**
+```
+Idea → `biz-think` → `work-breakdown` → [`issue-create` → `pre-code` → code → `self-review` → `test-gate` → `pre-commit` → `pre-pr` → merge to dev] × per issue → `staging-verify` → merge to main → `post-merge`(release) → `retro`
+```
+If interrupted mid-flow, note your current position. When resuming, restart from the last completed skill — do not skip ahead.
+
 - Before writing code → invoke `pre-code`
 - Before `gh issue create` → invoke `issue-create`
 - Before `git commit` → invoke `pre-commit`
