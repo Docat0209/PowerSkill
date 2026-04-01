@@ -8,14 +8,42 @@ description: "Post-merge verification checklist. Triggers ONLY when: a PR has ju
 After every PR merge, execute ALL FIVE steps. Every time. No exceptions.
 Skipping any step is a process failure, not a shortcut.
 
-## Step 1: Verify the Fix Actually Works
+## Step 1: Production Functional Testing (after deployment)
 
-- Start the dev server or run the app
-- Test the feature/fix manually or with Playwright
-- Reproduce the original bug or exercise the new feature end-to-end
-- **Unit tests passing is NOT verification** — the app must work in practice
-- If you cannot prove it works, **DO NOT close the issue**
-- The issue stays open until real verification is complete
+After merging to main and deployment is live, run dual-track testing:
+
+### Agent Testing (Playwright on production URL)
+
+Use Playwright MCP to test the deployed production site. This is where functional testing happens — NOT in staging-verify.
+
+- [ ] **Walk the complete user journey**: landing page → signup/login → main feature → key action → result
+- [ ] **Test every feature in the delta**: for each issue merged, exercise the feature on production
+- [ ] **Test at multiple viewports**: desktop (1280px) + mobile (375px)
+- [ ] **Click every button**: "button exists" ≠ "button works." Test the FUNCTION, not the EXISTENCE
+- [ ] **Screenshot everything**: take screenshots as evidence of each verification
+- [ ] **Check for regressions**: navigate 3-5 core pages/flows beyond the delta
+
+Report format:
+```
+## Production Test Report
+| Feature | User Journey | Desktop | Mobile | Status |
+|---------|-------------|---------|--------|--------|
+```
+
+### User Testing
+
+After agent testing completes, invite the user to test:
+- [ ] Tell the user: "Production is deployed at [URL]. Please test the new features and report any issues."
+- [ ] User tests at their own pace — this is NOT a blocker for the current merge
+- [ ] When user provides feedback: create issues immediately for each bug/improvement
+- [ ] Do NOT argue "technically correct" — if the user says it doesn't work, it doesn't work
+
+### Consolidate Bugs
+
+After both rounds of testing:
+- [ ] Combine agent-found and user-found issues into a prioritized list
+- [ ] Create GitHub issues for each bug using `issue-create` skill
+- [ ] These issues enter the NEXT development cycle — they do not block the current release
 
 ## Step 2: Check Acceptance Criteria Boxes
 
@@ -43,9 +71,9 @@ After closing the issue, check if the milestone is now complete:
 
 ## Step 4: Delete the Branch
 
+- Remote: use `--delete-branch` flag when merging PR, or `git push origin --delete <branch-name>`
 - Local: `git branch -d <branch-name>`
-- Remote: `git push origin --delete <branch-name>`
-- Keep the workspace clean — stale branches create confusion
+- **Delete IMMEDIATELY after merge — do not defer.** If the PR was squash-merged, git loses merge tracking. The longer you wait, the harder it is to delete with `-d` (safe delete). Deleting right after merge avoids this entirely.
 - Verify deletion: `git branch -a` should no longer show the branch
 
 ## Step 5: Create GitHub Release (main merges only)

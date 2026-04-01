@@ -3,7 +3,7 @@ name: staging-verify
 description: "Staging environment verification gate for release merges. Triggers ONLY when: about to merge dev→main, or all milestone issues are closed and ready for release. Do NOT trigger for feature→dev merges or during development."
 ---
 
-This skill is the automated release gate. It replaces human approval with Playwright-verified proof that all changes work on a deployed staging environment. If verification passes, proceed with the dev→main merge autonomously. If it fails, go back to the development flow to fix issues.
+This skill is the automated pre-merge structural check for release merges (dev → main). It verifies that all changes are accounted for, environment configuration is complete, and platform settings are correct. **Functional testing (Playwright + user testing) happens AFTER merge in post-merge, not here.**
 
 ## Step 1: Identify the Delta
 
@@ -14,81 +14,32 @@ Output a delta summary table:
 | # | Type | Description | Issue # | AC Count |
 |---|------|-------------|---------|----------|
 
-## Step 2: Detect Staging URL
+## Step 2: Environment and Platform Configuration Check
 
-Check in this order (first match wins):
+Verify the environment is correctly configured before merge:
 
-1. Project's `CLAUDE.md` — look for `## Environments` section with a Staging URL
-2. `.vercel/project.json` or `vercel.json` — Vercel preview deployment
-3. `.netlify/state.json` or `netlify.toml` — Netlify branch deploy
-4. `railway.json` or `Procfile` — Railway/Render/Fly.io
-5. Environment variable `STAGING_URL`
+- [ ] **Environment variables**: verify ALL required env vars are documented and set for the staging/production environment (not just localhost). Check `.env.example` or deployment config for any new vars introduced in this delta.
+- [ ] **OAuth/Auth config**: if the app uses OAuth (Google, GitHub, Supabase Auth, etc.), verify the redirect URLs include the production/staging domain. A common failure: redirect URLs set to `localhost` or missing from the provider's allow list.
+- [ ] **Payment/webhook config**: if the app has payment integration (Stripe, Polar, etc.), verify the webhook URL and API key mode (test vs. live) match the target environment.
+- [ ] **Database**: verify any new migration files exist and are committed if schema changed.
+- [ ] **Third-party services**: verify all external service integrations (email, storage, CDN) have the credentials and config required for the target environment.
 
-If no staging URL found: **STOP.** Tell the user to set up preview deployments. Reference the `project-init` skill for setup instructions.
+If ANY configuration is missing: **STOP.** Fix the configuration gap first, then re-run this check.
 
-## Step 3: Wait for Deployment
+## Step 3: Pre-Merge Structural Verification
 
-Get the latest dev commit hash: `git rev-parse dev`. Poll the staging URL to verify it reflects the latest commit (check meta tag, API endpoint, or deployment platform API). Poll interval: 15 seconds. Timeout: 5 minutes.
+For each change in the delta, verify WITHOUT running the app:
 
-If timeout: STOP and report "Staging deployment not reflecting latest dev commit after 5 minutes."
+- [ ] **Code completeness**: every issue's acceptance criteria can be traced to committed code changes
+- [ ] **Test coverage**: every feat/fix issue has corresponding test files (unit at minimum)
+- [ ] **No debug artifacts**: grep for `console.log`, `debugger`, `TODO`, `FIXME` in changed files
+- [ ] **No secrets**: grep for hardcoded API keys, tokens, passwords in changed files
+- [ ] **Dependencies declared**: any new npm/pip/etc. packages are in the manifest files
+- [ ] **Database migrations**: if schema changed, migration files exist and are committed
 
-## Step 3.5: Environment and Platform Configuration Check
+This is NOT functional testing — that happens in post-merge after deployment. This is a checklist to ensure nothing was forgotten before the code hits main.
 
-Before any functional testing, verify the environment is correctly configured:
-
-- [ ] **Environment variables**: verify ALL required env vars are set for the staging/preview environment (not just production). Run the app's health check endpoint or check the deployment logs for missing-var errors.
-- [ ] **OAuth/Auth config**: if the app uses OAuth (Google, GitHub, Supabase Auth, etc.), verify the redirect URLs include the staging domain. A common failure: redirect URLs set to `localhost` or production-only.
-- [ ] **Payment/webhook config**: if the app has payment integration (Stripe, Polar, etc.), verify the webhook URL points to staging, and the API keys are for test/sandbox mode.
-- [ ] **Database**: verify the staging database is accessible and migrated to the latest schema.
-- [ ] **Third-party services**: verify all external service integrations (email, storage, CDN) are configured for the staging environment.
-
-If ANY configuration is missing: **STOP testing.** Fix the configuration first. Testing against a misconfigured environment produces false failures.
-
-## Step 4: Playwright Verification
-
-This is the core verification step. Follow these anti-superficial testing rules strictly.
-
-**QA Persona — "Trust Nothing":**
-
-You are now a QA engineer, not a developer. Your job is to break things, not confirm they work. Test from the user's perspective only.
-
-**Rules:**
-
-0. **Walk the complete user journey FIRST** — Before testing individual features, complete one full user flow from start to finish: landing page → signup/login → main feature → key action → result. If this flow breaks, nothing else matters. Test the journey, not the endpoints.
-1. **UI-only testing** — Use ONLY Playwright MCP tools (`browser_navigate`, `browser_click`, `browser_fill_form`, `browser_snapshot`, `browser_take_screenshot`, etc.). Do NOT read source code to determine if something works.
-2. **Screenshot evidence required** — Every verification MUST produce at least one screenshot as proof. A claim without a screenshot is not a verification.
-3. **Test the acceptance criteria exactly** — For each issue in the delta, read its acceptance criteria checkboxes. Test each one individually on the staging URL. Do not invent your own criteria.
-4. **Test at multiple viewports** — Desktop (1280px) AND mobile (375px) for any UI change.
-5. **Exercise the full user flow** — For new features, complete the entire user journey from entry point to success state. For bug fixes, reproduce the original bug scenario and confirm it no longer occurs.
-6. **Check for regressions** — After verifying the delta, navigate to 3–5 core pages/flows to confirm nothing else broke.
-7. **Screenshot EVERYTHING after deploy** — Reading code or snapshot text and thinking "should be fine" is NOT verification. You must take a screenshot and LOOK at the actual rendered output. Colors, layout, spacing, broken images — these are only visible in screenshots.
-8. **Click EVERY button** — "Button exists" ≠ "button works." Click Download — does it download? Click Copy — does it copy the right thing? Click Share — does it include the right content and attribution? Test the FUNCTION, not the EXISTENCE.
-9. **Test from user perspective, not developer perspective** — Don't test "does the API return 200?" Test "can a new user sign up, find the main feature, and complete their first task?" Status codes are implementation details. User success is the only metric.
-10. **Platform configuration is part of verification** — Code correctness + broken OAuth redirect = broken product. Verify the FULL stack, not just the code you wrote.
-
-**For each change in the delta:**
-
-- Navigate to the relevant page on the staging URL
-- Follow the acceptance criteria steps exactly
-- Take a screenshot at each verification point
-- Record result: PASS (with screenshot evidence) or FAIL (with screenshot + description of what went wrong)
-
-**Fix-and-Retest Loop (when a test FAILS):**
-
-If `fixAttempts < 3` for this issue:
-
-1. Document the failure with screenshot evidence
-2. Create a fix issue using the `issue-create` skill (prefix: `fix:`)
-3. Return to the development flow: `pre-code` → implement fix → `self-review` → `test-gate` → `pre-commit` → push to dev
-4. Dev will auto-redeploy to staging
-5. Re-invoke `staging-verify` — the fix will be picked up in the next delta scan
-6. Increment `fixAttempts` for this issue
-
-If `fixAttempts >= 3`: Mark as `known_issue`, add to the report, STOP and escalate to the user. Do not attempt further fixes.
-
-**Persisting fix attempt counts:** Record `fixAttempts` as a comment on the issue (`gh issue comment NUMBER -b "staging-verify: fixAttempts=N"`) so the count survives across agent sessions. On re-invocation, read issue comments to restore the counter.
-
-## Step 5: Verdict and Report
+## Step 4: Verdict and Report
 
 Generate a verification report in this format:
 
@@ -102,47 +53,37 @@ Generate a verification report in this format:
 | 1 | feat | Add CSV export | #12 |
 | 2 | fix  | Sidebar collapse on mobile | #15 |
 
-### Verification Results
-| # | Feature | Criteria | Status | Evidence | Fix Attempts |
-|---|---------|----------|--------|----------|--------------|
-| 1 | CSV export | File downloads correctly | ✅ PASS | screenshot-1.png | 0 |
-| 2 | Sidebar | Collapses on mobile 375px | ✅ PASS | screenshot-2.png | 1 |
-
-### Regression Check
-| Page/Flow | Status | Evidence |
-|-----------|--------|----------|
-| Homepage | ✅ OK | screenshot-3.png |
-| Login flow | ✅ OK | screenshot-4.png |
+### Structural Check Results
+| # | Feature | Code Complete | Tests Exist | No Debug/Secrets | Status |
+|---|---------|--------------|-------------|-----------------|--------|
+| 1 | CSV export | ✅ | ✅ | ✅ | ✅ PASS |
+| 2 | Sidebar fix | ✅ | ✅ | ✅ | ✅ PASS |
 
 ### Verdict
 ✅ ALL VERIFIED — Proceeding with dev→main merge and release
 ```
 
-If failures exist, use this verdict block instead:
+If any structural checks fail, use this verdict block instead:
 
 ```markdown
 ### Verdict
-❌ BLOCKED — [N] issues need fixes. Returning to development flow.
-Known issues (fix attempts exhausted): [list if any]
+❌ BLOCKED — [N] structural issues found. Fix before merging.
 ```
 
 **If ALL pass:** Proceed autonomously:
 
 1. Create PR from dev→main with the verification report as the PR body
 2. Merge the PR: `gh pr merge NUMBER --merge`
-3. Invoke `post-merge` (which will create the GitHub release)
+3. Invoke `post-merge` (which will deploy, run Playwright verification, and create the release)
 
-**If ANY fail with `fixAttempts < 3`:** Return to development flow. Do not merge.
-
-**If ANY marked as `known_issue`:** STOP and report to user. Do not merge.
+**If ANY fail:** Fix the gap (missing tests, debug artifact, undeclared dependency, etc.), commit to dev, and re-run this check. Do not merge.
 
 ## Next Steps
 
 After completing this skill, create tasks for applicable next steps using TaskCreate:
 
-- All verified, PR merged → create task: "invoke `post-merge` — run post-merge verification and create release"
-- Test failures found → create task: "invoke `issue-create` — create fix issue for staging failure, then `pre-code` to implement"
-- Known issues escalated → create task: "report known issues to user for decision"
-- No staging URL found → create task: "invoke `project-init` — set up staging/preview environment"
+- All checks pass, PR merged → create task: "invoke `post-merge` — deploy, run Playwright verification, and create release"
+- Structural failures found → create task: "invoke `issue-create` — create fix issue for the gap found, then `pre-code` to implement"
+- Environment configuration missing → create task: "fix environment config gap identified in Step 2, then re-run staging-verify"
 
 Only create tasks that are actually relevant.
