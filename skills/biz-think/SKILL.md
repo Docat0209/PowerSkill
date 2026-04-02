@@ -13,81 +13,81 @@ Before starting: read `memory/business_decisions.md` if it exists for continuity
 
 ## Phase -1: Opportunity Discovery (if no idea exists)
 
-When the user says "help me find what to build" or "help me make money" — do NOT brainstorm. Go LOOK at where real people express real pain. Ideas from imagination are worthless. Ideas from observed pain are gold.
+When the user says "help me find what to build" or "help me make money" — do NOT brainstorm from imagination. Go find where real people have real pain. Every method below produces first-hand signals, not second-hand listicles.
 
-### Method A: Reddit Pain Signal Mining
+### Method A: First-Hand Observation (Reddit/Twitter/Forums)
 
-Use Playwright MCP to browse Reddit. Search for threads where people describe problems, frustrations, or manual workarounds:
+Use WebSearch with `site:reddit.com` or `site:x.com` to find real user posts:
 
-1. Search queries: `[niche] "I wish there was" OR "anyone know a tool" OR "I've been manually" OR "this is so frustrating" OR "waste of time"` in relevant subreddits
-2. For each pain thread found:
-   - Is this person describing a REAL workflow problem (not a casual complaint)?
-   - Are there replies saying "same here" or "I have this problem too"? (multiple signals > single signal)
-   - Is the person currently using a manual workaround? (manual workaround = proven need)
-   - Would they PAY to solve this? (look for mentions of time wasted, money lost, or existing paid tools they're unhappy with)
-3. Collect at least 10 pain threads before drawing any conclusions. Fewer than 10 = insufficient data.
+1. Search for IMPLICIT pain signals, not explicit wish-lists:
+   - `site:reddit.com "[tool name] alternative" OR "switched from [tool]" OR "cancelled [tool]"` — users actively leaving tools
+   - `site:reddit.com "I built a spreadsheet" OR "I wrote a script" OR "every week I manually"` — manual workarounds = proven need
+   - `site:x.com "just spent 3 hours" OR "why is [tool] so" OR "finally gave up on"` — time-wasting frustration
+2. For each signal found:
+   - Is this a RECURRING problem (multiple unrelated users mention it)?
+   - Is the person a PAYING professional (job title, company, context)?
+   - Are they already PAYING for a bad solution? (strongest signal)
+3. **Do NOT search for:** "micro saas ideas" "best saas ideas" "top 10" — these return SEO listicles, not real pain.
+4. Collect at least 10 first-hand posts before concluding. Each must have: original URL, user quote, interaction count.
 
-### Method B: Twitter/X Complaint Mining
+### Method B: Success Product Reverse Engineering
 
-Search Twitter for complaints about existing tools or workflows:
+Pick 3-5 proven indie products (from IndieHackers, PH hall of fame, or GetLatka):
 
-1. Search: `"[tool name] sucks" OR "[tool name] is broken" OR "why can't [tool]" OR "looking for alternative to [tool]"`
-2. Look for patterns: same complaint from multiple unrelated users = real market signal
-3. Check if the complainers have money (business accounts, job titles, company names in bio) — complaints from students ≠ market opportunity
+1. For each product, define its positioning: "[Category] but [Differentiation Angle]"
+   - Plausible = "Analytics but privacy-first"
+   - Carrd = "Website builder but one-page only"
+   - Typefully = "Twitter client but writing-first"
+   - Cal.com = "Calendly but open-source"
+2. Ask: **what other angles in this category are NOT yet taken?**
+   - "Analytics but [??]" — most minimal? Next.js specialized? E-commerce only?
+   - Generate 3-5 untaken angles per category
+3. For each untaken angle, quick-validate: search for competitors. If zero or only poor-quality competitors exist → potential opportunity.
 
-### Method C: Product Hunt Trend Analysis + Viability Check
+### Method C: SOP Decomposition
 
-1. Browse https://www.producthunt.com/leaderboard/yearly/2026 — what categories are winning?
-2. For trending categories, ask: is there a SPECIFIC underserved niche within this category?
-3. Check hunted.space for launch history data — which types of products consistently get traction?
-4. **PH viability filter:** Would this product be INTERESTING to the PH audience? PH rewards:
-   - Novel approach to known problem (not "another X")
-   - Beautiful, polished UX (demos well in a 1-minute video)
-   - Clear value proposition in one sentence
-   - Developer/maker tools, productivity, AI applications
-5. If the product wouldn't be interesting on PH, it can still be viable — but you lose a distribution channel
+Pick a specific role (indie developer, content creator, e-commerce operator, etc.):
 
-### Method D: Competitor Gap Analysis
+1. Map their complete daily/weekly SOP step by step
+2. For each step, ask: is there a tool? Is it good enough? Is it affordable?
+3. The opportunity is NOT "which step hurts most" (that's already being solved) but "which step hurts most AND current solutions have an angle gap"
+4. Combine with Method B: for the pain step, define "[Category] but [Differentiation Angle]"
 
-For each pain point discovered in Methods A-C:
+### Method D: Founder Pain Priority
 
-1. Search for existing solutions: Google the pain point, check G2/Capterra reviews, check alternatives
-2. For each competitor found:
-   - Visit the ACTUAL product (don't just read about it)
-   - Read pricing page — is there a pricing gap? (e.g., competitors charge $50+/mo but the problem could be solved for $10/mo)
-   - Read negative reviews on G2/Capterra — what do users hate about existing solutions?
-   - Check their tech stack — could we build something simpler/cheaper with modern tools?
-3. **Differentiation test:** Can you beat competitors on:
-   - **Price** (10x cheaper using AI/automation) — strongest for solo dev
-   - **Simplicity** (do one thing 10x better while they do 10 things poorly)
-   - **Speed** (faster time-to-value, no enterprise onboarding)
-   - **Focus** (serve a specific niche they ignore)
-4. If you can't clearly articulate your advantage in one sentence, move to the next pain point
+If the user has a specific pain they experience in their own work:
 
-### Method E: "Boring Problem" Niche Discovery
+1. This is the highest-quality signal — skip straight to Acid Test
+2. Founder-user fit dramatically increases chance of success
+3. Validate by checking: do OTHER people have this same pain? (search Reddit/Twitter)
 
-The best solo-dev opportunities are often in unsexy, underserved industries:
+### Method E: Migration Wave Search
 
-1. Browse industry-specific subreddits (r/smallbusiness, r/freelance, trade-specific forums)
-2. Look for manual processes that haven't been digitized: spreadsheet workflows, email-based processes, paper forms
-3. Target users who HAVE money and FEEL urgency: businesses (not consumers), professionals (not hobbyists), regulated industries (compliance = willingness to pay)
-4. "Invoice software for tattoo studios" beats "another AI writing assistant" — the former has a specific customer, the latter has a million competitors
+Search for SaaS companies that recently raised prices significantly:
 
-### Red Ocean Check
+1. Search: `"[tool name] pricing increase" OR "[tool name] price hike" OR "leaving [tool name]"` — within last 6 months
+2. SaaS price surges (8-25% annually in 2025-2026) create migration windows where users are actively seeking alternatives
+3. For each migration wave found:
+   - How angry are users? (Reddit threads, Twitter complaints, HN posts)
+   - What are they switching TO? Are the alternatives good enough?
+   - Is there a "[Category] but [cheaper/simpler/specific-niche]" angle?
+4. Time-sensitive opportunity — migration waves close within 6-12 months as users settle into new tools.
 
-Before proceeding with any opportunity:
-- Search "[idea] alternative" and count results — if there are 50+ alternatives, you need a VERY clear differentiator
-- Search "[idea] shut down" or "[idea] failed" — learn from the dead
-- Check if big companies (Google, Microsoft, etc.) offer this for free — if yes, move on
-- **If it's a red ocean:** you can still win IF you have a concrete pricing, simplicity, or niche advantage. But you must name it NOW, not "figure it out later."
+### Search Quality Check (mandatory after search)
+
+Before presenting results, verify:
+1. **Source quality**: how many results are "Top N SaaS Ideas 2026" listicles? If >30% → discard, redo search with better queries
+2. **First-hand vs second-hand**: every idea must trace to a real user's original post (URL + quote), not a blogger's summary
+3. **Differentiation angle**: every idea must have a "[Category] but [Angle]" positioning. Category alone = not complete
 
 ### Output
 
-Present to the user: 3-5 ranked opportunity candidates, each with:
-| # | Pain Point | Source (links) | Competitor Landscape | Your Advantage | PH Viable? |
-|---|-----------|----------------|---------------------|---------------|------------|
+Present to user: 3-5 ranked opportunity candidates:
 
-Pick the top one (or let the user choose) and proceed to Phase 0.
+| # | Positioning ("[Category] but [Angle]") | Differentiation | Gates Pass? | Segment | Moat | Wow | Score |
+|---|---------------------------------------|-----------------|-------------|---------|------|-----|-------|
+
+Each entry must have a one-sentence positioning that includes the differentiation angle. If you can't write it, the idea isn't clear enough.
 
 ---
 
@@ -104,113 +104,83 @@ Every decision below must be evaluated through this lens. Skip strategies that r
 
 ---
 
-## Phase 1: Idea Filter — The 5 Viability Tests
+## Phase 1: Acid Test (Gate + Score)
 
-Every product idea must pass ALL 5. If any fails, pivot or kill.
+Run every idea through this framework. Gates are binary (KILL/PASS). Scoring only happens after all gates pass.
 
-### 1. OpenAI Test
-If OpenAI shipped this feature inside ChatGPT tomorrow for free, would we still exist? If the answer is no, it's a wrapper, not a product. Wrappers die when the platform expands. (Source: Andrew Chen, a16z — "The Commoditization Trap")
+### ═══ Gates (binary — fail = KILL) ═══
 
-### 2. Moat Test
-Does this product accumulate something competitors can't easily copy? Rate each:
-- **Proprietary data from usage** — user-generated, not public data
-- **Integration depth** — embedded in workflows, high switching cost
-- **Domain expertise baked into product logic** — not just prompting an LLM
-- **Network effects** — value increases with more users
+**Gate 1: Platform Test**
+> "If OpenAI/Google/the dominant player built this as a free feature tomorrow, would we survive?"
 
-If all are "None" → kill the idea.
+- PASS: product requires persistent data, hosted infrastructure, workflow integration, embedded widgets, visual rendering, real-time notifications, or other capabilities that a chat interface cannot replicate
+- KILL: core value is text generation, text rewriting, text analysis, content summarization, or translation — ChatGPT already does this for free
 
-### 3. Market Proof Test
-Are competitors already making money in this space? Search for: existing products, their pricing, their revenue (use SimilarWeb, store rankings, public revenue data). No competitors making money = no validated demand. Competitors making money = proven market.
+**Gate 2: Cost Gate**
+> "Can we launch on free-tier infrastructure? Monthly operating cost < $50?"
 
-### 4. Wow Test
-Would this make someone say "holy shit" on Product Hunt? Clarity in first second, specific outcome, visually demonstrable. If you can't describe what it does in 6 words, it's not clear enough.
+- PASS: Vercel/Supabase/Railway free tier + pay-per-use API calls
+- KILL: requires fixed high-cost API (e.g., Twitter API $200/mo), heavy compute infrastructure, or a platform license that can be revoked at any time (e.g., Reddit commercial API)
 
-### 5. AI Cost Advantage Test
-Can we build this to a quality that would normally require a $200K/year team, for under $1K/month in operating costs? If yes, our pricing can undercut everyone while maintaining margins. If no, we have no structural advantage.
+**Gate 3: Self-Test Gate**
+> "Can we fully test and demo this product ourselves? Any geographic restrictions?"
 
----
+- PASS: fully usable and testable from our location, with accessible test/sandbox environments
+- KILL: requires region-locked services, payment processors we can't access, or real data we can't obtain for testing
 
-## Phase 2: Success Decomposition — Why Do Successful Products Win?
+All three gates must PASS. Any KILL → stop evaluating, move to next idea.
 
-Before building, analyze 3 successful products in the target space. For EACH one, decompose:
+### ═══ Scoring (after all gates pass, 0-5 scale) ═══
 
-```
-Product: [name]
-Revenue: [verified number or estimate]
-WHY it succeeds — separate the components:
-  - Product quality factor: [1-5] (is the product itself excellent?)
-  - Distribution factor: [1-5] (does the founder have fame/audience/partnerships?)
-  - Timing factor: [1-5] (did they catch a wave?)
-  - Luck factor: [1-5] (right place right time, viral moment?)
+**Market Segment (0-1 point):**
+> "In this crowded market, is there an UNSERVED ANGLE?"
 
-Can WE replicate each factor?
-  - Product quality: [yes/no — we can build]
-  - Distribution: [yes/no — do we have their audience? If no, this is the gap]
-  - Timing: [yes/no — is the wave still rising?]
+- 0: competing head-on with existing products, no differentiation
+- 1: clear segment positioning — can express as "[Category] but [Angle]"
 
-CONCLUSION: Which factors are replicable and which are not?
-```
+Validation: write the positioning sentence. If you can't → 0 points.
 
-**Key rule:** If a product succeeds primarily because the founder is famous (distribution factor = 5), we CANNOT replicate their success by copying their product. We need a different distribution strategy.
+**Moat (0-2 points):**
+> "The longer users use this, the harder it is to leave?"
 
-**Second key rule:** Open-source popularity ≠ monetizability. Free GitHub stars do not prove willingness to pay. Always ask: "Would this person's COMPANY pay for this?" not "Would a developer star this?"
+- 0: zero switching cost (change a URL, swap a snippet)
+- 1: one moat type present
+- 2: two or more moat types, strengthening over time
 
----
+Moat types that survive AI (2026):
+- **Accumulated data** — user's history is here, moving is painful
+- **Integration depth** — embedded in user's product/workflow
+- **Network/community effects** — more users = more valuable
+- **Brand trust** — open-source community, Build in Public credibility
+- **SEO/content authority** — time-dependent ranking compound
 
-## Phase 3: Revenue Model — Follow the Money
+Dead moats (AI killed these): feature count, UI polish, backend complexity.
 
-Answer these in order:
-1. **Who is the buyer?** Not "developers" — specific: "DevOps engineers at 50-200 person SaaS companies"
-2. **What job do they hire us for?** JTBD format: "When I [situation], I want to [motivation], so I can [outcome]"
-3. **What do they currently use?** Every job is already being done somehow
-4. **Why would they switch?** Push (dissatisfaction) + Pull (attraction) must exceed Anxiety (switching fear) + Inertia (habit)
-5. **What price?** Anchor against what they pay now, not what you think is fair. If they pay $0 now, you need extraordinary pull.
-6. **Unit economics:** Revenue per customer/month minus cost to serve. Must be positive.
+**Wow Factor (0-2 points):**
+> "First time seeing this, would someone share it with a friend?"
 
----
+- 0: "Oh, another X tool"
+- 1: "This is nice, solves my problem"
+- 2: "Holy shit, this changes how I work"
 
-## Phase 4: Distribution — Zero-Audience Playbook
+Validation:
+- Can value be explained in one sentence + one screenshot?
+- Is there a natural sharing mechanism? ("Powered by", public dashboard, shareable output)
+- Would this spark discussion on PH homepage?
 
-Since we have no fame and no money, our ONLY viable channels are:
+### ═══ Score Interpretation ═══
 
-| Channel | How | Timeline | Cost |
-|---|---|---|---|
-| **Community embedding** | 20 min/day in 5-8 relevant subreddits/Discord/Slack. Help, don't pitch. | 3-6 weeks to first customer | $0 |
-| **Product Hunt launch** | 50-120 hours prep. Self-hunt. Focus on comment quality, not upvote count. | Single launch event | $0 |
-| **Product-led growth** | Free tier that demonstrates value instantly. Built-in sharing mechanics. | Ongoing | $0 |
-| **SEO / comparison pages** | "[Competitor] alternative" pages. Target long-tail keywords. | 3-6 months to compound | $0 |
+| Score | Grade | Meaning |
+|-------|-------|---------|
+| 4-5 | A | Strong candidate ($1M+ ARR potential) → proceed to Phase 2-5 |
+| 2-3 | B | Viable lifestyle business ($100K-$500K ARR) → proceed if aligned with goals |
+| 0-1 | C | Likely painful struggle → suggest moving to next idea |
 
-Channels that DON'T work for us:
-- Paid ads (no money)
-- Influencer partnerships (no connections)
-- Enterprise sales (no credibility)
-- Content marketing to 0 followers (no audience)
+### Acid Test Sentence
 
-**Acid test:** Can we get 10 PAYING customers from our chosen channel in 30 days?
+Write one sentence: "We are building [product] for [who] that [does what differently from alternatives] because [why now]."
 
----
-
-## Phase 5: Funding Path (if needed)
-
-If the product validates but needs capital to scale:
-
-| Option | Stage Required | Best For |
-|---|---|---|
-| **Entrepreneur First** | Pre-idea, solo founder OK | Finding co-founder + initial capital |
-| **Antler** | Pre-idea to early | Solo founders, multiple global locations |
-| **TinySeed** | Post-revenue B2B SaaS | Bootstrappers who want to stay bootstrapped |
-| **Earnest Capital** | Post-launch | Founders who want optionality |
-
-Do NOT apply before having traction. Even 5-10 passionate users substitute for fame.
-
----
-
-## Acid Test
-
-> "[Customer] pays [price] via [channel] because we [job fulfilled] better than [current alternative], and they can't easily switch because [moat]."
-
-If this sentence cannot be completed → do NOT start coding. Iterate on the model.
+If you cannot fill in every blank with concrete specifics, the idea needs more work.
 
 ---
 
@@ -240,63 +210,40 @@ If acid test fails:
 
 ## Anti-Patterns — Mistakes That Cost Days
 
-These are proven failure patterns. Every idea evaluation MUST check for these. If you catch yourself doing any of these, STOP.
-
 ### Mandatory First Filter
-Before ANY analysis, answer these two questions:
-1. **"This saves WHO how much TIME?"** — Name a specific person and a specific time amount. "[Role] saves [N] hours/week on [task]" is valid. "It's useful" is not.
-2. **"This earns WHO how much MONEY?"** — Name a specific revenue mechanism. If you can't answer either question concretely, **STOP. Do not proceed.**
+Before ANY analysis: "This saves WHO how much TIME?" or "This earns WHO how much MONEY?"
+Name a specific person + specific amount. Can't answer concretely = STOP.
 
 ### Product Thinking Traps
 
-**"Pretty" ≠ "Valuable"**
-- A product succeeds because it saves time or makes money, not because the output looks good. Visual appeal is a side effect of value, not the cause.
-- If users share your product's output, ask WHY they share it. "The result is useful to them" ≠ "the design is nice."
-- **Check:** Remove all visual polish from the concept. Does it still solve a problem? If no, you're building decoration.
+**Visible Need Trap**
+Widely expressed needs (high-vote Reddit posts, viral Twitter complaints) look like gold mines but are traps. High visibility = everyone saw it = everyone is building it. The real opportunity is IMPLICIT needs: things people do daily without realizing it could be better. Search for manual workarounds, not explicit complaints.
+
+**Head-On Competition Trap**
+"A cheaper version of X" is NOT differentiation. All 8 validated success cases entered crowded markets, but NONE were "cheaper X." They were all "[X] but [different angle]." Cheaper is a tactic. Angle is a strategy.
+- **Check:** Is your differentiation a PRICE or an ANGLE? If price only → reject.
+
+**ChatGPT Substitution Blindspot**
+If core value can be replicated with a prompt → dead on arrival.
+- Safe core values: persistent data, hosted services, embedded components, workflow integration, visual rendering, real-time notifications
+- Unsafe core values: text generation, text rewriting, text analysis, content summarization, translation
+- **Check:** Can someone get 80% of this value by pasting a prompt into ChatGPT? If yes → KILL.
+
+**Platform Dependency Risk**
+If your product depends on a third-party API's commercial license, that platform can kill you overnight.
+- **Check:** Before writing one line of code, verify: (1) API license allows commercial use, (2) pricing is sustainable, (3) no recent history of revoking access or dramatic price hikes.
 
 **Assumed Need Without Observation**
-- NEVER assume users want something. Go to the platforms where your target users are active and LOOK at what they actually do.
-- If building for "[persona] who do [behavior]" — search for real examples RIGHT NOW and confirm they actually exhibit that behavior.
-- **Check:** Find 10 real examples of your target users doing the thing you think they need help with. Can't find 10? The need doesn't exist.
-
-**Wrong User Persona**
-- Users with no revenue have no budget and no pressing needs. Don't build for them.
-- Study users who already have revenue — they have real pain points AND money to pay for solutions.
-- **Check:** Does your target user have budget to pay for this? If their budget is $0, they're the wrong target.
-
-**Rationalizing Weak Ideas**
-- You can find supporting evidence for ANY idea. This proves nothing.
-- **Find counter-evidence FIRST.** Actively search for why this idea will FAIL. If you can only find supporting evidence, you haven't looked hard enough.
-- **Check:** List 3 specific reasons this idea will fail. If you can't, you're not thinking critically enough.
-
-**Lead Magnet ≠ Revenue Product**
-- A great free tool (lead magnet) does NOT mean it should be a paid product. Free tools attract users; paid products solve expensive problems. Different logic entirely.
-- **Check:** Would someone pay $X/month for this? Not "would they use it for free" — would they PAY?
+NEVER assume users want something. Go LOOK at what they actually do on the platforms where they're active. Find 10 real examples or the need doesn't exist.
 
 **Capability ≠ Need**
-- "We CAN build X with [technology]" does NOT mean "we SHOULD build X."
-- Start from NEED ("users need Y"), then ask "can we build it?" Never reverse this: "we have technology Z, what can we build with it?"
-- **Check:** Did this idea originate from a user need or from a technology capability? If capability → reject and reframe from the user's perspective.
+"We CAN build X with [technology]" ≠ "We SHOULD build X." Start from need, not capability.
 
-**Pattern Matching ≠ Causation**
-- "Product A has feature X and succeeds" does NOT mean "feature X causes success."
-- Ask: "If feature X didn't exist, would Product A still succeed?" If yes, X is incidental, not causal.
-- **Check:** For every "because" in your analysis, invert it. Does the conclusion still hold? If not, the causal link is weak.
+**Rationalizing Weak Ideas**
+Find counter-evidence FIRST. List 3 reasons this idea will fail. If you can't, you're not thinking critically enough.
 
 **Ignoring Opportunity Cost**
-- Every day building the wrong thing = one less day building the right thing.
-- Before committing time, ask: is this the HIGHEST value activity right now? Not just "is this worth doing" but "is this THE BEST thing to do?"
-- **Check:** "Is building this the BEST use of the next 3 days compared to all alternatives?"
-
-**Scale Blindness**
-- Large numbers (volume, impressions, activities) sound impressive but mean nothing without conversion data.
-- Quantity ≠ quality. One conversation with a paying customer outweighs hundreds of automated interactions.
-- **Check:** What's the expected conversion from this activity to revenue? If you can't estimate it, the activity is vanity metrics.
-
-**Unverified Technical Dependencies**
-- BEFORE planning features that depend on third-party APIs or platforms: verify they actually work for your use case.
-- Check: rate limits, TOS restrictions, platform blocks, authentication requirements.
-- **Check:** Run a proof-of-concept API call RIGHT NOW. Don't design a product around an API you haven't tested.
+Is this the BEST use of the next 3 days compared to all alternatives? Not "worth doing" — the HIGHEST value thing.
 
 ---
 
