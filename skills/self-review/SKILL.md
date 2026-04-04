@@ -98,17 +98,23 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 
 ---
 
-## Step 7.5: Instant Lesson Capture
+## Step 7.5: Generalized Learning
 
-If ANY issue was found and fixed during this self-review:
+If ANY issue was found and fixed during this self-review, extract a REUSABLE PRINCIPLE — not a log entry.
 
-1. Write a one-line lesson to auto memory:
-   - File: `memory/lessons_learned.md` (create if doesn't exist)
-   - Format: `- [YYYY-MM-DD] [What went wrong] → [Lesson for next time]`
-   - Example: `- 2026-04-05 Forgot OAuth redirect for staging → Any auth feature must list ALL redirect URLs in pre-code scope`
-2. This happens NOW, not at retro. The insight is freshest right after discovering the mistake.
-3. Keep entries concise — one line per lesson. This file grows over time and is loaded via MEMORY.md index.
-4. If the same type of mistake appears 3+ times in lessons_learned.md → this is a systemic issue. Flag it to the user: "Recurring pattern: [type]. Suggest updating [skill] to prevent this."
+**Process:**
+1. **Identify the error type**: What category does this belong to? (auth config, scope creep, missing test, data model flaw, etc.)
+2. **Generalize**: Ask "what universal rule would have prevented this AND all similar future mistakes?" Strip away project-specific details.
+3. **De-duplicate**: Read `memory/principles.md` — does a similar principle already exist? If yes → strengthen the wording. If no → add it.
+4. **Write one line** to `memory/principles.md`:
+   - Format: `- [Category] [Universal principle]`
+   - ✅ Good: `- [Auth] Any third-party auth integration must verify redirect URLs for ALL deployment environments in pre-code scope`
+   - ✅ Good: `- [Testing] Never trust "build passes" — run the full user journey manually or with Playwright after every deploy`
+   - ❌ Bad: `- [2026-04-05] Forgot OAuth redirect for staging` (this is an event log, not a principle)
+   - ❌ Bad: `- Fixed the Supabase Site URL issue` (this is project-specific, not reusable)
+5. **Prune during retro**: In the `retro` skill, review `memory/principles.md`. Remove principles that haven't been relevant in 3+ months. Merge overlapping principles.
+
+The goal: `memory/principles.md` is a CONCISE list of 10-30 universal principles that improve every future project — not a growing log of past incidents.
 
 ---
 
