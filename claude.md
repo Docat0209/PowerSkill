@@ -147,16 +147,6 @@ Never rely solely on training data for best practices. The web is your verificat
 - Never rationalize incomplete work: "pre-existing issue", "out of scope", "follow-up task", "too many issues to fix" are all rationalization patterns. If you see a problem you can fix, fix it.
 - Low quality is never acceptable as "good enough for now." If you wouldn't be proud to show this to a senior engineer, it's not done.
 
-## Code Style
-- Follow dominant language conventions (JS: camelCase, Python: snake_case, etc.)
-- Forbidden: backward-compat hacks, alias re-exports, redundant naming, silently swallowed errors
-- Delete all unused code, imports, variables, functions, files
-- Single responsibility, keep it short, prefer pure functions
-- Comments explain WHY, never WHAT
-- Replace, don't deprecate — when changing something, replace it fully. Never create NewX alongside OldX.
-- All errors must surface to the user with actionable context. Never catch-and-ignore.
-- Clean up: remove temporary files, test databases, build artifacts before completing a task.
-
 ## Safety Guardrails
 - Never: `gh repo delete`, touch `~/.ssh/` or `~/.config/` or `~/.claude/`
 - Never write keys/tokens/passwords to public repos
@@ -207,12 +197,3 @@ If interrupted mid-flow, note your current position. When resuming, restart from
 PostToolUse hooks catch common issues (debug statements, TODOs, hardcoded secrets) after edits — fix any flagged issues.
 Auto memory persists learnings across conversations (memory/ directory files + MEMORY.md index). Sequential Thinking MCP structures multi-step reasoning.
 
-## Engineering Axioms
-These are non-negotiable. Skills enforce the full SOPs at each workflow stage.
-- No code without an issue and branch from `dev`
-- No feature without tests (unit + integration + E2E)
-- Every commit does exactly one thing (conventional commits format)
-- CI is mandatory from project init — set it up FIRST
-- Full cycle: Issue → Branch → Code+Test → Atomic Commits → PR → UX Audit → Merge → Verify
-- Never merge `dev` → `main` without passing `staging-verify` (Playwright verification on staging)
-- `main` ← `dev` ← feature branches. No shortcuts.
