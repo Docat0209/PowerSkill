@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# ── PowerSkill Installer ─────────────────────────────────────────────
+# ── SoloForge Installer ─────────────────────────────────────────────
 # Copies skills, hooks, claude.md, and hooks.json into ~/.claude/
 # Works on macOS, Linux, and Windows (Git Bash / MSYS2)
 # ─────────────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@ header(){ printf "\n%s%s%s\n" "$BOLD" "$1" "$RESET"; }
 SOURCE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CLAUDE_DIR="$HOME/.claude"
 TIMESTAMP=$(date +"%Y%m%d-%H%M%S")
-BACKUP_DIR="$CLAUDE_DIR/backup-powerskill-$TIMESTAMP"
+BACKUP_DIR="$CLAUDE_DIR/backup-soloforge-$TIMESTAMP"
 BACKUP_CREATED=false
 
 ensure_backup_dir() {
@@ -37,7 +37,7 @@ ensure_backup_dir() {
 }
 
 # ── Preflight check ─────────────────────────────────────────────────
-header "PowerSkill Installer"
+header "SoloForge Installer"
 
 if [ ! -d "$CLAUDE_DIR" ]; then
   error "~/.claude/ directory not found."
@@ -84,7 +84,7 @@ for hook_file in "$SOURCE_DIR"/hooks/*; do
   if [ -f "$CLAUDE_DIR/hooks/$hook_name" ]; then
     ensure_backup_dir
     cp "$CLAUDE_DIR/hooks/$hook_name" "$BACKUP_DIR/$hook_name"
-    warn "Backed up existing hook: $hook_name → backup-powerskill-$TIMESTAMP/"
+    warn "Backed up existing hook: $hook_name → backup-soloforge-$TIMESTAMP/"
     HOOKS_BACKED_UP=$((HOOKS_BACKED_UP + 1))
   fi
 
@@ -94,13 +94,41 @@ for hook_file in "$SOURCE_DIR"/hooks/*; do
   HOOKS_INSTALLED=$((HOOKS_INSTALLED + 1))
 done
 
+# ── Install rules ────────────────────────────────────────────────────
+header "Installing rules..."
+
+RULES_INSTALLED=0
+mkdir -p "$CLAUDE_DIR/rules"
+
+for rule_file in "$SOURCE_DIR"/rules/*.md; do
+  [ -f "$rule_file" ] || continue
+  rule_name=$(basename "$rule_file")
+  cp "$rule_file" "$CLAUDE_DIR/rules/$rule_name"
+  info "Installed rule: $rule_name"
+  RULES_INSTALLED=$((RULES_INSTALLED + 1))
+done
+
+# ── Install agents ───────────────────────────────────────────────────
+header "Installing agents..."
+
+AGENTS_INSTALLED=0
+mkdir -p "$CLAUDE_DIR/agents"
+
+for agent_file in "$SOURCE_DIR"/agents/*.md; do
+  [ -f "$agent_file" ] || continue
+  agent_name=$(basename "$agent_file")
+  cp "$agent_file" "$CLAUDE_DIR/agents/$agent_name"
+  info "Installed agent: $agent_name"
+  AGENTS_INSTALLED=$((AGENTS_INSTALLED + 1))
+done
+
 # ── Install claude.md ────────────────────────────────────────────────
 header "Installing CLAUDE.md..."
 
 if [ -f "$CLAUDE_DIR/CLAUDE.md" ]; then
   ensure_backup_dir
   cp "$CLAUDE_DIR/CLAUDE.md" "$BACKUP_DIR/CLAUDE.md"
-  warn "Existing CLAUDE.md backed up to backup-powerskill-$TIMESTAMP/"
+  warn "Existing CLAUDE.md backed up to backup-soloforge-$TIMESTAMP/"
   warn "Your existing CLAUDE.md was NOT overwritten."
   warn "Please merge manually: diff ~/.claude/CLAUDE.md $SOURCE_DIR/claude.md"
 else
@@ -132,7 +160,7 @@ else
     if [ -f "$SETTINGS_FILE" ]; then
       ensure_backup_dir
       cp "$SETTINGS_FILE" "$BACKUP_DIR/settings.json"
-      warn "Backed up existing settings.json → backup-powerskill-$TIMESTAMP/"
+      warn "Backed up existing settings.json → backup-soloforge-$TIMESTAMP/"
     fi
 
     "$PYTHON" - "$SETTINGS_FILE" "$HOOKS_JSON" <<'PYEOF'
@@ -178,7 +206,6 @@ fi
 
 # ── Recommended MCP servers ──────────────────────────────────────────
 header "Recommended MCP servers (install manually):"
-printf "  claude mcp add knowledge-graph -- npx -y @modelcontextprotocol/server-memory\n"
 printf "  claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking\n"
 printf "  claude mcp add playwright -- npx @playwright/mcp@latest\n"
 
@@ -188,6 +215,8 @@ info "Skills installed: $SKILLS_INSTALLED"
 if [ "$SKILLS_SKIPPED" -gt 0 ]; then
   warn "Skills skipped (already exist): $SKILLS_SKIPPED"
 fi
+info "Rules installed: $RULES_INSTALLED"
+info "Agents installed: $AGENTS_INSTALLED"
 info "Hooks installed: $HOOKS_INSTALLED"
 if [ "$HOOKS_BACKED_UP" -gt 0 ]; then
   info "Hooks backed up: $HOOKS_BACKED_UP"
