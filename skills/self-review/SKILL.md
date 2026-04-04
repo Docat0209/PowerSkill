@@ -98,6 +98,20 @@ Run `git diff` and `git diff --staged` — read EVERY line.
 
 ---
 
+## Step 7.5: Instant Lesson Capture
+
+If ANY issue was found and fixed during this self-review:
+
+1. Write a one-line lesson to auto memory:
+   - File: `memory/lessons_learned.md` (create if doesn't exist)
+   - Format: `- [YYYY-MM-DD] [What went wrong] → [Lesson for next time]`
+   - Example: `- 2026-04-05 Forgot OAuth redirect for staging → Any auth feature must list ALL redirect URLs in pre-code scope`
+2. This happens NOW, not at retro. The insight is freshest right after discovering the mistake.
+3. Keep entries concise — one line per lesson. This file grows over time and is loaded via MEMORY.md index.
+4. If the same type of mistake appears 3+ times in lessons_learned.md → this is a systemic issue. Flag it to the user: "Recurring pattern: [type]. Suggest updating [skill] to prevent this."
+
+---
+
 ## Step 8: Verdict
 
 **If ANY issue was found:**
