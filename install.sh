@@ -191,10 +191,12 @@ if [ "$BACKUP_CREATED" = false ] && [ -d "$BACKUP_DIR" ]; then
 fi
 
 # ── Recommended MCP servers ──────────────────────────────────────────
-header "Recommended MCP servers (install manually):"
+header "Recommended MCP servers and plugins (install manually):"
 printf "  claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking\n"
 printf "  claude mcp add playwright -- npx @playwright/mcp@latest\n"
 printf "  claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest\n"
+printf "  claude mcp add --transport http figma https://mcp.figma.com/mcp\n"
+printf "  claude plugin install typescript-lsp\n"
 
 # ── Summary ──────────────────────────────────────────────────────────
 header "Installation complete!"
