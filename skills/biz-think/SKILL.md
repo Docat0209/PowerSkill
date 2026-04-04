@@ -104,6 +104,26 @@ Every decision below must be evaluated through this lens. Skip strategies that r
 
 ---
 
+## Phase 0.5: Devil's Advocate (mandatory before Acid Test)
+
+Before running ANY evaluation, force yourself to argue AGAINST the idea:
+
+1. **State your initial gut feeling** about this idea in one sentence
+2. **Spawn a Devil's Advocate sub-agent** with this exact instruction:
+   > "You are a skeptic. Your job is to DESTROY this idea: [one-sentence idea description]. Find 3 specific, evidence-backed reasons it will fail. Search the web for each reason. Do not accept the idea's premise — challenge it. Report: 3 kill reasons with evidence URLs."
+3. **Review the counter-arguments.** For each kill reason:
+   - Can you refute it with CONCRETE evidence (not rationalization)?
+   - If yes → note the refutation with source
+   - If no → this is a REAL risk. Carry it forward into the Acid Test
+4. **Confidence check:** After reviewing all counter-arguments:
+   - All 3 refuted with evidence → proceed to Acid Test with high confidence
+   - 1-2 unrefuted → proceed but flag risks explicitly in the report
+   - All 3 unrefuted → STOP. This idea has fundamental problems. Report to user: "Devil's Advocate found 3 unrefuted risks: [list]. Recommend: kill or pivot."
+
+This step exists because humans (and agents) naturally seek confirming evidence. The Devil's Advocate forces disconfirming evidence to the surface BEFORE time is invested.
+
+---
+
 ## Phase 1: Acid Test (Gate + Score)
 
 Run every idea through this framework. Gates are binary (KILL/PASS). Scoring only happens after all gates pass.

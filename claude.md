@@ -13,6 +13,8 @@
 - **Agent fallback rule:** when a sub-agent fails (rate limit, error, timeout) and you take over manually — you still MUST follow the same skill gate. Changing WHO does the work does not change WHAT process is required.
 - **SOP interruption recovery:** if the user switches to a different task mid-flow, note which skill you were in and what remains. When the user returns, report: "We were at [skill] in the flow for issue #N. Remaining steps: [list]." Resume from the exact interruption point, not from scratch.
 - **Process compliance is non-negotiable:** after each skill completes, follow its Next Steps — report results to the user and suggest the next step. Do NOT auto-execute the next skill unless the user explicitly asked for the full pipeline.
+- **Devil's Advocate at decision points:** before any irreversible decision (what to build, architecture choice, major refactor), spawn a sub-agent to argue the OPPOSITE position with real evidence. Only proceed when counter-arguments have been addressed with concrete data, not dismissed with rationalization.
+- **Instant learning:** when self-review or any verification step discovers a mistake, immediately write a one-line lesson to `memory/lessons_learned.md`. Format: `[date] [mistake] → [lesson]`. Don't wait for retro — capture the insight when it happens.
 
 ## Main Agent Role: Orchestrator
 
@@ -37,6 +39,8 @@ The main agent's ONLY jobs:
 - Task priority → Sprint Prioritizer | SEO → SEO Specialist | ASO → App Store Optimizer
 - Content → Content Creator | Trends → Trend Researcher | Data → Analytics Reporter
 - Development → Backend Architect / Frontend Developer
+- Code quality → Code Reviewer | Security → Security Engineer | DB → Database Optimizer
+- Planning → Plan agent | Research → Explore agent | Writing → Technical Writer
 
 ## User's Role: Decision Maker + Product Tester
 

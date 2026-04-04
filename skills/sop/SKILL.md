@@ -3,11 +3,11 @@ name: sop
 description: "Prints the complete SOP flowchart. Triggers when: user asks to see the SOP, asks 'where are we?', asks 'what's next?', or says '/sop'. Always available."
 ---
 
-# SoloForge SOP — You are the commander. Agent is the executor.
+# SoloForge SOP — Internal Process Reference
 
-Print this flowchart for the user. If you know the current position, mark it with ➤.
+This is a transparency tool. The agent follows this flow internally — the user doesn't need to memorize it. Print it when the user asks "where are we?" or wants to understand what the agent is doing.
 
-Every step = one skill = one thing. You follow the steps, agent executes each skill and reports back.
+Mark the current position with ➤ if you can infer it from context.
 
 ```
 ═══════════════════════════════════════════════════════════════
