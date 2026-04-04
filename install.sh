@@ -108,20 +108,6 @@ for rule_file in "$SOURCE_DIR"/rules/*.md; do
   RULES_INSTALLED=$((RULES_INSTALLED + 1))
 done
 
-# ── Install agents ───────────────────────────────────────────────────
-header "Installing agents..."
-
-AGENTS_INSTALLED=0
-mkdir -p "$CLAUDE_DIR/agents"
-
-for agent_file in "$SOURCE_DIR"/agents/*.md; do
-  [ -f "$agent_file" ] || continue
-  agent_name=$(basename "$agent_file")
-  cp "$agent_file" "$CLAUDE_DIR/agents/$agent_name"
-  info "Installed agent: $agent_name"
-  AGENTS_INSTALLED=$((AGENTS_INSTALLED + 1))
-done
-
 # ── Install claude.md ────────────────────────────────────────────────
 header "Installing CLAUDE.md..."
 
@@ -216,7 +202,6 @@ if [ "$SKILLS_SKIPPED" -gt 0 ]; then
   warn "Skills skipped (already exist): $SKILLS_SKIPPED"
 fi
 info "Rules installed: $RULES_INSTALLED"
-info "Agents installed: $AGENTS_INSTALLED"
 info "Hooks installed: $HOOKS_INSTALLED"
 if [ "$HOOKS_BACKED_UP" -gt 0 ]; then
   info "Hooks backed up: $HOOKS_BACKED_UP"
