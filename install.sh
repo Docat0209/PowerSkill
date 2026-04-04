@@ -194,7 +194,7 @@ fi
 header "Recommended MCP servers (install manually):"
 printf "  claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking\n"
 printf "  claude mcp add playwright -- npx @playwright/mcp@latest\n"
-printf "  claude mcp add chrome-devtools -- npx @anthropic-ai/chrome-devtools-mcp@latest\n"
+printf "  claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest\n"
 
 # ── Summary ──────────────────────────────────────────────────────────
 header "Installation complete!"
