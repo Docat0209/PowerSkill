@@ -1,5 +1,16 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '## Git Context' && echo 'Branch:' $(git branch --show-current 2>/dev/null || echo 'not a git repo') && git status --short 2>/dev/null | head -10"
+          }
+        ]
+      }
+    ],
     "UserPromptSubmit": [
       {
         "hooks": [
