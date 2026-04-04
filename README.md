@@ -183,7 +183,9 @@ These optional MCP servers enhance specific skills:
 |---|---|---|---|
 | [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | Structured multi-step reasoning | `biz-think`, `product-eval` | `claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking` |
 | [Playwright](https://github.com/microsoft/playwright-mcp) | Browser automation for visual review | `ux-audit`, `post-merge` | `claude mcp add playwright -- npx @playwright/mcp@latest` |
-| [Chrome DevTools](https://github.com/anthropics/chrome-devtools-mcp) | Browser debugging, console errors, performance | `post-merge`, `product-eval` | `claude mcp add chrome-devtools -- npx @anthropic-ai/chrome-devtools-mcp@latest` |
+| [Chrome DevTools](https://github.com/ChromeDevTools/chrome-devtools-mcp) | Browser debugging, console errors, performance | `post-merge`, `product-eval` | `claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest` |
+| [Figma](https://github.com/figma/mcp-server-guide) | Design ↔ code bidirectional (Figma → code, code → Figma) | All frontend work | `claude mcp add --transport http figma https://mcp.figma.com/mcp` |
+| [TypeScript LSP](https://claude.com/plugins/typescript-lsp) | Auto type-check after every edit, catch errors before build | All TypeScript projects | `claude plugin install typescript-lsp` |
 
 ---
 
