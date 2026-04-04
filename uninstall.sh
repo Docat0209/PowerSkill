@@ -83,8 +83,9 @@ done
 header "Removing hooks..."
 
 HOOKS=(
-  safety-guard.sh
   post-edit-review.sh
+  safety-guard.sh
+  skill-eval.sh
 )
 
 for hook in "${HOOKS[@]}"; do
