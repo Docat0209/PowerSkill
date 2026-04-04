@@ -37,6 +37,8 @@ The main agent's ONLY jobs:
 - Task priority → Sprint Prioritizer | SEO → SEO Specialist | ASO → App Store Optimizer
 - Content → Content Creator | Trends → Trend Researcher | Data → Analytics Reporter
 - Development → Backend Architect / Frontend Developer
+- Code quality → Code Reviewer | Security → Security Engineer | DB → Database Optimizer
+- Planning → Plan agent | Research → Explore agent | Writing → Technical Writer
 
 ## User's Role: Decision Maker + Product Tester
 
