@@ -181,9 +181,9 @@ These optional MCP servers enhance specific skills:
 
 | Server | Purpose | Used By | Install |
 |---|---|---|---|
-| [Knowledge Graph Memory](https://github.com/modelcontextprotocol/servers/tree/main/src/memory) | Cross-conversation learning | All skills | `claude mcp add knowledge-graph -- npx -y @modelcontextprotocol/server-memory` |
 | [Sequential Thinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking) | Structured multi-step reasoning | `biz-think`, `product-eval` | `claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking` |
-| [Playwright](https://github.com/microsoft/playwright-mcp) | Browser automation for visual review | `ux-audit` | `claude mcp add playwright -- npx @playwright/mcp@latest` |
+| [Playwright](https://github.com/microsoft/playwright-mcp) | Browser automation for visual review | `ux-audit`, `post-merge` | `claude mcp add playwright -- npx @playwright/mcp@latest` |
+| [Chrome DevTools](https://github.com/anthropics/chrome-devtools-mcp) | Browser debugging, console errors, performance | `post-merge`, `product-eval` | `claude mcp add chrome-devtools -- npx @anthropic-ai/chrome-devtools-mcp@latest` |
 
 ---
 
